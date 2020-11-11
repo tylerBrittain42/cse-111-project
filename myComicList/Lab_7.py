@@ -189,7 +189,6 @@ def populateCreative(_conn):
 
             currentLine= x.split('\t')
             
-            print(currentLine)
 
             sql = """ INSERT INTO Artist(a_id, a_name) 
                             VALUES(?, ?)
@@ -204,6 +203,8 @@ def populateCreative(_conn):
 
             args = [currentLine[0], (currentLine[1])]            
             _conn.execute(sql, args)
+
+        print('success')
 
     except Error as e:
         _conn.rollback()
