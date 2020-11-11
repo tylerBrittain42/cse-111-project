@@ -2,7 +2,7 @@
 CREATE TABLE Issues (
     i_id decimal(9,0) NOT NULL PRIMARY KEY,
     i_title char(50) NOT NULL,
-    i_issuecount char(50), --considering removing this
+    i_issue char(50), --considering removing this
     i_date date(4,0) NOT NULL,
     i_srp decimal(2,2) NOT NULL
 );
