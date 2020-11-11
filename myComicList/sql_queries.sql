@@ -43,6 +43,7 @@ CREATE TABLE ReccList(
 
 --Drop all tables
 DROP TABLE Issues;
+DROP TABLE readerList
 DROP TABLE ReadingList;
 DROP TABLE FollowList;
 DROP TABLE Artist;
@@ -68,3 +69,7 @@ UPDATE ReadingList SET rl_ownStat = 'Yes'
 SELECT * 
 FROM ReadingList
 
+
+UPDATE readerList
+SET r_id = (r_id - 1)
+WHERE r_id > ?

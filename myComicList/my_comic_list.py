@@ -173,6 +173,7 @@ def populateIssues(_conn):
 
 
 #Reads in information for writer and artist list
+#Reads in information for writer and artist list
 def populateCreative(_conn):
     print("++++++++++++++++++++++++++++++++++")
     print("Populate creative")
@@ -214,6 +215,115 @@ def populateCreative(_conn):
 
 
 
+
+
+def addReader(_conn, reader):
+    print("++++++++++++++++++++++++++++++++++")
+    print("Add reader")
+
+    try:
+
+        sql = """ SELECT MAX(r_id) 
+                    FROM readerList
+                """
+        cur = _conn.cursor()
+        cur.execute(sql)
+        readerMaxId = cur.fetchone()
+        print(readerMaxId[0])
+
+        if readerMaxId[0] == None:
+            nextID = 0
+        else:
+            nextID = readerMaxId[0]
+
+        nextID = nextID + 1
+       
+
+        sql = """ INSERT INTO readerList(r_id, r_name) 
+                       VALUES (?, ?)
+                """
+
+
+        args = [str(nextID), reader]            
+        _conn.execute(sql, args)
+
+        print('success')
+        
+
+    except Error as e:
+        _conn.rollback()
+        print(e)
+
+    print("++++++++++++++++++++++++++++++++++")
+
+
+
+def viewReaderList(_conn):
+    print("++++++++++++++++++++++++++++++++++")
+    print("View ReaderList")
+
+    try:
+
+        sql = """ SELECT *
+                    FROM readerList
+                """
+        cur = _conn.cursor()
+        cur.execute(sql)
+        readerCount = cur.fetchall()
+
+        for x in readerCount:
+            print(x)
+
+        print('success')
+        
+
+    except Error as e:
+        _conn.rollback()
+        print(e)
+
+    print("++++++++++++++++++++++++++++++++++")
+
+
+#when we are deleting a reader
+#we are also shifting down the id numbers to avoid gaps
+def deleteReader(_conn, reader):
+    print("++++++++++++++++++++++++++++++++++")
+    print("Delete reader" + reader)
+
+    try:
+
+        sql = """ SELECT r_id
+                    FROM readerList
+                    WHERE r_name = ?
+                """
+
+        args = [reader]
+
+        cur = _conn.cursor()
+        cur.execute(sql, args)
+        deletedReader = cur.fetchall()
+
+
+        sql = """DELETE FROM readerList
+                    WHERE r_id = ?"""
+        args = [deletedReader[0][0]]
+        _conn.execute(sql, args)
+
+
+        # sql = """UPDATE readerList
+        #             SET r_id = (r_id - 1)
+        #             WHERE r_id > ? """
+        # args = [deletedReader[0][0]]
+        # _conn.execute(sql, args)
+
+        print('success')
+
+
+    except Error as e:
+        _conn.rollback()
+        print(e)
+
+    print("++++++++++++++++++++++++++++++++++")
 
 def Q1(_conn):
     print("++++++++++++++++++++++++++++++++++")
@@ -541,15 +651,19 @@ def main():
         populateIssues(conn)
         populateCreative(conn)
 
-        # #works
-        # Q1(conn)
-        # #works
-        # Q2(conn)
-        # #works
-        # Q3(conn)
-        # #works
-        # Q4(conn)
-        # Q5(conn)
+        addReader(conn, "Bob")
+        addReader(conn, "Joe")
+        addReader(conn, "Jim")
+        addReader(conn, "Bill")
+        viewReaderList(conn)
+
+        #DELETING A READER IS ALSO GOING TO NEED TO DELETE THERE FOLLOWING AND READING LISTS
+        #ADD THIS
+        deleteReader(conn, "Joe")
+        addReader(conn, "tim")
+        viewReaderList(conn)
+
+
 
     closeConnection(conn, database)
 
