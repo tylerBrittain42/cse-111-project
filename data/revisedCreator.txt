@@ -1,0 +1,930 @@
+0009	 (W) Ed Brubaker	 (A) Jacob Phillips	 (A/CA) Sean Phillips	(CA) none
+0010	 (W) Ed Brubaker	 (A/CA) Sean Phillips	(CA) none
+0011	 (W) Ed Brubaker	 (A) Jacob Phillips	 (A/CA) Sean Phillips	(CA) none
+0012	 (W) Ed Brubaker	 (A/CA) Sean Phillips	(CA) none
+0013	 (W) Ed Brubaker	 (A) Jacob Phillips	 (A/CA) Sean Phillips	(CA) none
+0014	 (W) Steve Skroce	 (A) Dave Stewart	 (A/CA) Steve Skroce	(CA) none
+0015	 (W) Steve Skroce	 (A/CA) Steve Skroce	(CA) none
+0016	 (W) Brian K. Vaughan	 (A/CA) Steve Skroce	(CA) none
+0017	 (W) Dan Watters	 (A/CA) Caspar Wijngaard	(CA) none
+0018	 (W) Dan Watters	 (A/CA) Jan Wijngaard	(CA) none
+0019	 (W) Simon Spurrier	 (A/CA) Jan Wijngaard	(CA) none
+0020	 (W) Jeff Lemire	 (A/CA) Andrea Sorrentino, Dave Stewart	(CA) none
+0021	 (W) Jeff Lemire	 (A) Andrea Sorrentino, Dave Stewart	 (CA) Jeff Lemire
+0022	 (W) Jeff Lemire	 (A/CA) Andrea Sorrentino	(CA) none
+0023	 (W) Jeff Lemire	 (A/CA) Andrea Sorrentino	(CA) none
+0024	 (W) Jeff Lemire	 (A/CA) Andrea Sorrentino	(CA) none
+0025	 (W) Jeff Lemire	 (A/CA) Andrea Sorrentino, Dave Stewart	(CA) none
+0026	 (W) Levi Fleming, Stephanie Phillips	 (A) Cecillia Lo Valvo, Jesse Elliot	 (CA) Isaac Goodhart
+0027	 (W) Bryan Edward Hill, Matt Hawkins	 (A) Isaac Goodhart	 (CA) Linda Sejic
+0028	 (W) Bryan Edward Hill, Matt Hawkins	 (A/CA) Isaac Goodhart	(CA) none
+0029	 (W) Bryan Edward Hill, Isaac Goodhart	 (CA) Isaac Goodhart
+0030	 (W) Bryan Hill	 (A/CA) Isaac Goodhart	(CA) none
+0031	 (W) Bryan Hill	 (A/CA) Isaac Goodhart	(CA) none
+0032	 (W) Bryan Hill	 (A/CA) Isaac Goodhart	(CA) none
+0033	 (W) Bryan Hill	 (A/CA) Isaac Goodhart	(CA) none
+0035	 (W) Sean Lewis	 (A/CA) Caitlin Yarsky	(CA) none
+0036	 (W) Sean Lewis	 (A/CA) Caitlin Yarsky	(CA) none
+0037	 (W) Sean Lewis	 (A/CA) Hayden Sherman	(CA) none
+0038	 (W) Sean Lewis	 (A/CA) Ben Mackey	(CA) none
+0039	 (W) Mike Costa	 (A) Nate Bellegarde, Tamra Bonvillain	 (CA) Jason Howard
+0040	 (W) Robert Kirkman	 (A) Tony Moore	 (A/CA) Cliff Rathburn	(CA) none
+0041	 (W) Bob Brown	 (A) Andy Kuhn	 (A/CA) Cliff Rathburn	(CA) none
+0042	 (W) Bruce Brown, Robert Kirkman	 (A) Andy Kuhn	 (A/CA) Nate Bellegarde	(CA) none
+0043	 (W) Benito Cereno, Robert Kirkman	 (A/CA) Nate Bellegarde	(CA) none
+0044	 (W) Eric Stephenson	 (A) Jordie Bellaire	 (CA) Fonographiks	 (A/CA) Nate Bellegarde
+0045	 (W) Eric Stephenson	 (A) Jordie Bellaire	 (CA) Fonographiks	 (A/CA) Nate Bellegarde
+0046	 (W) Joe Henderson	 (A) Antonio Fabela	 (A/CA) Lee Garbett	(CA) none
+0047	 (W) Joe Henderson	 (A/CA) Lee Garbett	(CA) none
+0048	 (W) Joe Henderson	 (A/CA) Lee Garbett	(CA) none
+0049	 (W) Joe Henderson	 (A/CA) Lee Garbett	(CA) none
+0050	 (W) Chris Condon	 (A/CA) Jacob Phillips	(CA) none
+0051	 (W) Ed Brubaker	 (A/CA) Sean Phillips	(CA) none
+0052	 (W) Ed Brubaker	 (A/CA) Sean Phillips	(CA) none
+0053	 (W) Ed Brubaker	 (A/CA) Sean Phillips	(CA) none
+0054	 (W) Ed Brubaker	 (A/CA) Sean Phillips	(CA) none
+0055	 (W) Ed Brubaker	 (A/CA) Sean Phillips	(CA) none
+0056	 (W) Ed Brubaker	 (A/CA) Sean Phillips	(CA) none
+0057	 (W) Ed Brubaker	 (A/CA) Sean Phillips	(CA) none
+0058	 (W) Jason Aaron	 (A/CA) Jason Latour	(CA) none
+0059	 (W) Jason Aaron	 (A/CA) Jason Latour	(CA) none
+0060	 (W) Jason Aaron, Jason Latour	 (A) Chris Brunner	 (A/CA) Jason Latour	(CA) none
+0061	 (W) Jason Aaron, Jason Latour	 (A) Chris Brunner	 (A/CA) Jason Latour	(CA) none
+0062	 (W) Jeff Lemire	 (A/CA) Dustin Nguyen	(CA) none
+0063	 (W) Jeff Lemire	 (A/CA) Dustin Nguyen	(CA) none
+0064	 (W) Jeff Lemire	 (A/CA) Dustin Nguyen	(CA) none
+0065	 (W) Jeff Lemire	 (A/CA) Dustin Nguyen	(CA) none
+0066	 (W) Jeff Lemire	 (A/CA) Dustin Nguyen	(CA) none
+0067	 (W) Jeff Lemire	 (A/CA) Dustin Nguyen	(CA) none
+0068	 (W) Jeff Lemire	 (A/CA) Dustin Nguyen	(CA) none
+0069	 (W) Jeff Lemire	 (A/CA) Dustin Nguyen	(CA) none
+0070	 (W) Jeff Lemire	 (A/CA) Dustin Nguyen	(CA) none
+0071	 (W) Dan Watters	 (A/CA) Dani	(CA) none
+0072	 (W) Dan Watters	 (A/CA) Dani	(CA) none
+0073	 (W) Kieron Gillen	 (A/CA) Stephanie Hans	(CA) none
+0074	 (W) Kieron Gillen	 (A/CA) Stephanie Hans	(CA) none
+0075	 (W) Kieron Gillen	 (A/CA) Jamie McKelvie	(CA) none
+0076	 (W) Kieron Gillen	 (A/CA) Jamie McKelvie	(CA) none
+0077	 (W) Kieron Gillen	 (A/CA) Jamie McKelvie	(CA) none
+0078	 (W) Kieron Gillen	 (A/CA) Ryan Kelly, Jordie Bellaire	(CA) none
+0079	 (W) Kieron Gillen	 (A/CA) Jamie McKelvie	(CA) none
+0080	 (W) Kieron Gillen	 (A/CA) Jamie McKelvie	(CA) none
+0081	 (W) Kieron Gillen	 (A) Kate Brown, Tula Lotay, Stephanie Hans, Leila Del Duca, Brandon Graham	 (A/CA) Jamie McKelvie	(CA) none
+0082	 (W) Kieron Gillen	 (A/CA) Jamie McKelvie	(CA) none
+0083	 (W) Kieron Gillen	 (A/CA) Jamie McKelvie	(CA) none
+0084	 (W) Kieron Gillen	 (A/CA) Jamie McKelvie	(CA) none
+0085	 (W) Kieron Gillen	 (A/CA) Jamie McKelvie, Matt Wilson	(CA) none
+0086	 (W) Kieron Gillen	 (A) Stephanie Hans, Andre Araujo, Kris Anka, Jen Bartel, Rachael Stott, Chynna Clugston Flores, Emma Vieceli, Carla Speed McNeil, Aud Koch, Ryan Kelly	(CA) none
+0087	 (W) Kieron Gillen	 (A/CA) Jamie McKelvie	(CA) none
+0088	 (W) Robert Kirkman, Scott Gimple	 (A) Erik Burnham	 (CA) Chris Burnham	 (A/CA) Nathan Fairbairn
+0089	 (W) Robert Kirkman, Scott Gimple	 (A/CA) Chris Burnham	(CA) none
+0090	 (W) Robert Kirkman	 (A/CA) Lorenzo De Felici	(CA) none
+0091	 (W) Robert Kirkman, Lorenzo De Felici	 (A) Lorenzo De Felici	(CA) none
+0092	 (W) Robert Kirkman	 (A/CA) Lorenzo De Felici	(CA) none
+0093	 (W) Robert Kirkman	 (A/CA) Lorenzo De Felici	(CA) none
+0094	 (W) Robert Kirkman	 (A/CA) Paul Azaceta, Elizabeth Breitweiser	(CA) none
+0095	 (W) Robert Kirkman	 (A/CA) Paul Azaceta	(CA) none
+0096	 (W) Robert Kirkman	 (A/CA) Paul Azaceta	(CA) none
+0097	 (W) Robert Kirkman	 (A/CA) Paul Azaceta	(CA) none
+0098	 (W) Robert Kirkman	 (A/CA) Paul Azaceta	(CA) none
+0099	 (W) Robert Kirkman	 (A/CA) Paul Azaceta	(CA) none
+0100	 (W) Robert Kirkman	 (A/CA) Paul Azaceta	(CA) none
+0101	 (W) Robert Kirkman	 (A/CA) Paul Azaceta	(CA) none
+0102	 (W) Robert Kirkman	 (A/CA) Paul Azaceta	(CA) none
+0103	 (W) Robert Kirkman	 (A/CA) Paul Azaceta	(CA) none
+0104	 (W) Robert Kirkman	 (A/CA) Paul Azaceta	(CA) none
+0105	 (W) Derek Hunter, Jason Young	 (A/CA) Derek Hunter	(CA) none
+0106	 (W) Derek Hunter, Jason Young	 (A/CA) Derek Hunter	(CA) none
+0107	 (W) Erik Larsen	 (A/CA) Erik Larsen	(CA) none
+0108	 (W) Erik Larsen	 (A/CA) Erik Larsen	(CA) none
+0109	 (W) Erik Larsen	 (A/CA) Erik Larsen	(CA) none
+0110	 (W) Erik Larsen	 (A/CA) Erik Larsen	(CA) none
+0111	 (W) Erik Larsen	 (A/CA) Erik Larsen	(CA) none
+0112	 (W) Erik Larsen	 (A/CA) Erik Larsen	(CA) none
+0113	 (W) Erik Larsen	 (A/CA) Erik Larsen	(CA) none
+0114	 (W) Erik Larsen	 (A/CA) Erik Larsen	(CA) none
+0115	 (W) Erik Larsen	 (A/CA) Erik Larsen	(CA) none
+0116	 (W) Erik Larsen	 (A/CA) Erik Larsen	(CA) none
+0117	 (W) Erik Larsen	 (A/CA) Erik Larsen	(CA) none
+0118	 (W) Erik Larsen	 (A/CA) Erik Larsen	(CA) none
+0119	 (W) Erik Larsen	 (A/CA) Erik Larsen	(CA) none
+0120	 (W) Erik Larsen	 (A/CA) Erik Larsen	(CA) none
+0121	 (W) Brian K. Vaughan	 (A/CA) Fiona Staples	(CA) none
+0122	 (W) Brian K. Vaughan	 (A/CA) Fiona Staples	(CA) none
+0123	 (W) Brian K. Vaughan	 (A/CA) Fiona Staples	(CA) none
+0124	 (W) Brian K. Vaughan	 (A/CA) Fiona Staples	(CA) none
+0125	 (W) Robert Kirkman	 (A) Tony Moore	 (A/CA) Charlie Adlard	(CA) none
+0126	 (W) Robert Kirkman	 (A/CA) Charlie Adlard, Cliff Rathburn	(CA) none
+0127	 (W) Robert Kirkman	 (A) Stefano Gaudiano, Cliff Rathburn	 (A/CA) Charlie Adlard	(CA) none
+0128	 (W) Robert Kirkman	 (A) Stefano Gaudiano, Cliff Rathburn	 (CA) Dave Stewart	 (A/CA) Charlie Adlard
+0129	 (W) Robert Kirkman	 (A) Cliff Rathburn	 (CA) Dave Stewart	 (A/CA) Charlie Adlard
+0130	 (W) Robert Kirkman	 (A) Charlie Adlard, Cliff Rathburn	 (A/CA) Tony Moore	(CA) none
+0131	 (W) Robert Kirkman	 (A) Cliff Rathburn	 (A/CA) Charlie Adlard	(CA) none
+0132	 (W) Robert Kirkman	 (A) Cliff Rathburn	 (A/CA) Charlie Adlard	(CA) none
+0133	 (W) Robert Kirkman	 (A) Cliff Rathburn	 (A/CA) Charlie Adlard	(CA) none
+0134	 (W) Robert Kirkman	 (A/CA) Charlie Adlard	(CA) none
+0135	 (W) Robert Kirkman	 (A/CA) Charlie Adlard	(CA) none
+0136	 (W) Robert Kirkman	 (A/CA) Charlie Adlard	(CA) none
+0137	 (W) Robert Kirkman	 (A/CA) Charlie Adlard, Cliff Rathburn	(CA) none
+0138	 (W) Robert Kirkman	 (A/CA) Charlie Adlard, Cliff Rathburn	(CA) none
+0139	 (W) Robert Kirkman	 (A/CA) Charlie Adlard, Cliff Rathburn	(CA) none
+0140	 (W) Robert Kirkman	 (A) Cliff Rathburn, Stefano Gaudiano	 (A/CA) Charlie Adlard	(CA) none
+0141	 (W) Robert Kirkman	 (A) Stefano Gaudiano	 (A/CA) Charlie Adlard, Cliff Rathburn	(CA) none
+0142	 (W) Robert Kirkman	 (A) Stefano Gaudiano	 (A/CA) Cliff Rathburn, Charlie Adlard	(CA) none
+0143	 (W) Brian K. Vaughan	 (A/CA) Cliff Chiang	(CA) none
+0144	 (W) Brian K. Vaughan	 (A/CA) Cliff Chiang	(CA) none
+0145	 (W) Marjorie M. Liu	 (A/CA) Sana Takeda	(CA) none
+0146	 (W) Marjorie M. Liu	 (A/CA) Sana Takeda	(CA) none
+0147	 (W) Robert Kirkman	 (A) Cory Walker	 (A/CA) Ryan Ottley	(CA) none
+0148	 (W) Robert Kirkman	 (A) Cory Walker, Cliff Rathburn, Jason Howard	 (CA) John Rauch	 (A/CA) Ryan Ottley
+0149	 (W) Robert Kirkman	 (A) Cory Walker, Dexter Vines, Mark Morales, Cliff Rathburn	 (A/CA) Ryan Ottley	(CA) none
+0150	 (W) Robert Kirkman	 (A) Cory Walker	 (A/CA) Ryan Ottley	(CA) none
+0151	 (W) Robert Kirkman	 (A) Joshua Luna, Todd Nauck, Khary Randolph, Matthew Roberts, Cory Walker	 (CA) Bill Crabtree, Kanila Tripp	 (A/CA) Ryan Ottley
+0152	 (W) Robert Kirkman	 (A/CA) Ryan Ottley	(CA) none
+0153	 (W) Robert Kirkman	 (A/CA) Ryan Ottley	(CA) none
+0154	 (W) Robert Kirkman	 (A/CA) Ryan Ottley	(CA) none
+0155	 (W) Robert Kirkman	 (A) Cory Walker, Cliff Rathburn	 (A/CA) Ryan Ottley	(CA) none
+0156	 (W) Robert Kirkman	 (A) Cliff Rathburn	 (A/CA) Ryan Ottley	(CA) none
+0157	 (W) Robert Kirkman	 (A) Cory Walker, Cliff Rathburn	 (A/CA) Ryan Ottley	(CA) none
+0158	 (W) Robert Kirkman	 (A) Cliff Rathburn	 (A/CA) Ryan Ottley, John Rauch	(CA) none
+0159	 (W) Robert Kirkman	 (A) Cliff Rathburn	 (A/CA) Ryan Ottley	(CA) none
+0160	 (W) Robert Kirkman	 (A) Cory Walker	 (A/CA) Ryan Ottley, Nathan Fairbairn	(CA) none
+0161	 (W) Robert Kirkman	 (A) Cory Walker, Dexter Vines, Mark Morales	 (A/CA) Ryan Ottley	(CA) none
+0162	 (W) Jeff Lemire	 (A/CA) Dustin Nguyen	(CA) none
+0163	 (W) Jeff Lemire	 (A/CA) Dustin Nguyen	(CA) none
+0164	 (W) Jonathan Hickman	 (A/CA) Nick Dragotta	(CA) none
+0165	 (W) Jonathan Hickman	 (A/CA) Nick Dragotta	(CA) none
+0166	 (W) Robert Kirkman	 (A) Annalisa Leoni	 (A/CA) Lorenzo De Felici	(CA) none
+0167	 (W) Warren Ellis, Brian Haberlin, David Wohl, Christina Z., David Finch	 (A) Marc Silvestri, Tony Daniel, Nathan Cabrera, David Finch, Billy Tan	 (A/CA) Michael Turner	(CA) none
+0168	 (W) Warren Ellis, Brian Haberlin, David Wohl, Christina Z., David Finch	 (A) Marc Silvestri, Tony Daniel, Nathan Cabrera, Brian Finch, Billy Tan	 (A/CA) Michael Turner	(CA) none
+0169	 (W) Skottie Young	 (A) Jeffrey Chamba Cruz	 (A/CA) Skottie Young	(CA) none
+0170	 (W) Skottie Young	 (A/CA) Skottie Young	(CA) none
+0171	 (W) Skottie Young	 (A/CA) Skottie Young	(CA) none
+0172	 (W) Frank Miller, Alan Moore, Todd McFarlane, Neil Gaiman, Dave Sim	 (A) Todd McFarlane	 (CA) Greg Capullo
+0173	 (W) Todd McFarlane	 (A/CA) Todd McFarlane	(CA) none
+0174	 (W) Todd McFarlane	 (A/CA) Todd McFarlane	(CA) none
+0175	 (W) Todd McFarlane, Alan Moore	 (A) Todd McFarlane, Tony S. Daniel, Kevin Conrad	 (A/CA) Greg Capullo	(CA) none
+0176	 (W) Todd McFarlane	 (A) Greg Capullo, Todd McFarlane, Danny Miki, Chance Wolf	 (CA) Clayton Crain
+0177	 (W) Todd McFarlane	 (A) Greg Capullo, Todd McFarlane, Danny Miki, Chance Wolf	 (CA) Clayton Crain
+0178	 (W) Todd McFarlane, Brian Holguin	 (A) Angel Medina	 (CA) Clayton Crain
+0179	 (W) Brian Holguin, Todd McFarlane	 (A) Angel Medina, Danny Miki	 (CA) Clayton Crain
+0180	 (W) Stjepan Sejic	 (A/CA) Stjepan Sejic	(CA) none
+0181	 (W) Stjepan Sejic	 (A/CA) Stjepan Sejic	(CA) none
+0182	 (W) Kurtis J. Wiebe	 (A) Roc Upchurch, Stjepan Sejic, Tess Fowler, Fiona Staples, Riley Rossmo, Tyler Jenkins, Michael Avon Oeming, Jenny Frison	(CA) none
+0183	 (W) Kurtis J. Wiebe	 (A) Owen Gieni	(CA) none
+0184	 (W) Brian K. Vaughan	 (A/CA) Marcos Martin	(CA) none
+0185	 (W) Matt Fraction	 (A/CA) Chip Zdarsky	(CA) none
+0186	 (W) Matt Fraction	 (A/CA) Chip Zdarsky	(CA) none
+0187	 (W) Jason Howard	 (A/CA) Jason Howard	(CA) none
+0188	 (W) Jimmie Robinson	 (A/CA) Jimmie Robinson	(CA) none
+0189	 (W) Jimmie Robinson	 (A/CA) Jimmie Robinson	(CA) none
+0190	 (W) Steve Orlando	 (A/CA) Davide Tinto	(CA) none
+0191	 (W) Steve Orlando	 (A) Davide Tinto	 (CA) Cully Hamner
+0192	 (W) Steve Orlando	 (A) Davide Tinto	 (CA) Elias Chatzoudis
+0193	 (W) Donny Cates	 (A/CA) Geoff Shaw, Dee Cunniffe, John J. Hill	(CA) none
+0194	 (W) Jonathan Hickman	 (A/CA) Mike Huddleston	(CA) none
+0195	 (W) Jonathan Hickman	 (A/CA) Mike Huddleston	(CA) none
+0196	 (W) James TynionIV	 (A/CA) Martin Simmonds	(CA) none
+0197	 (W) James TynionIV	 (A) Martin Simmonds	 (CA) Tradd Moore
+0198	 (W) Brandon Thomas	 (A/CA) Khary Randolph, Emilio Lopez	(CA) none
+0199	 (W) Jeff Lemire	 (A/CA) Phil Hester, Ryan Cody, Eric Gapstur	(CA) none
+0200	 (W) Robert Kirkman	 (A/CA) Chris Samnee, Matthew Wilson	(CA) none
+0201	 (W) Sina Grace, Omar Spahi	 (A) Mx Struble	 (A/CA) Jenny Fine	(CA) none
+0202	 (W) Andrew MacLean	 (A) Jordie Bellaire	 (A/CA) Andrew MacLean	(CA) none
+0203	 (W) Andrew MacLean	 (A) Andrew MacLean, Jordie Bellaire	 (CA) Tradd Moore
+0204	 (W) W. Maxwell Prince	 (A/CA) Martin Morazzo, Chris O'Halloran	(CA) none
+0205	 (W) W. Maxwell Prince	 (A) Martin Morazzo, Chris O'Halloran	 (CA) Sam Wolfe Connelly
+0206	 (W) Emma Kubert, Rusty Gladd	 (A/CA) Emma Kubert, Rusty Gladd	(CA) none
+0207	 (W) Steve Niles	 (A) Marcelo Frusin	 (CA) John Romita
+0208	 (W) Steve Niles	 (A) Marcelo Frusin	 (CA) John Romita
+0209	 (W) Rodney Barnes	 (A/CA) Jason Shawn Alexander	(CA) none
+0210	 (W) Rodney Barnes	 (A) Jason Shawn Alexander	 (CA) Duncan Fegredo
+0211	 (W) Ales Kot	 (A/CA) Luca Casalanguida, Heather Moore	(CA) none
+0212	 (W) Brian Haberlin	 (A) Geirrod Van Dyke	 (A/CA) Brian Haberlin	(CA) none
+0213	 (W) Brian Haberlin	 (A) Geirrod Van Dyke	 (A/CA) Brian Haberlin	(CA) none
+0214	 (W) Brian Haberlin	 (A) Geirrod Van Dyke	 (A/CA) Brian Haberlin	(CA) none
+0215	 (W) Marjorie M. Liu	 (A/CA) Sana Takeda	(CA) none
+0216	 (W) Joshua Williamson	 (A/CA) Mike Henderson, Adam Guzowski	(CA) none
+0217	 (W) Robert Kirkman	 (A) Annalisa Leoni	 (A/CA) Lorenzo De Felici	(CA) none
+0218	 (W) Ryan Ferrier	 (A) Moritat, Casey Silver	 (CA) Priscilla Petraites, Marco Lesko
+0219	 (W) Erik Larsen	 (A/CA) Erik Larsen	(CA) none
+0220	 (W) Jason Aaron, Dennis "Hopeless" Hallum	 (A/CA) Stephen Green, Rico Renzi	(CA) none
+0221	 (W) Rick Remender	 (A/CA) Moreno DiNisio, Eric Powell	(CA) none
+0222	 (W) Rick Remender	 (A) Eric Powell, Moreno DiNisio	 (CA) Dave Guertin
+0223	 (W) Rick Remender	 (A/CA) Jerome Opena, Matt Hollingsworth	(CA) none
+0224	 (W) Rick Remender	 (A) Jerome Opena, Matt Hollingsworth	 (CA) Tula Lotay
+0225	 (W) Todd McFarlane	 (A) Carlo Barberi	 (CA) Francesco Mattina
+0226	 (W) Todd McFarlane	 (A) Carlo Barberi	 (CA) Todd McFarlane
+0227	 (W) Todd McFarlane	 (A/CA) Carlo Barberi	(CA) none
+0228	 (W) Chip Zdarsky	 (A) Mike Spicer	 (A/CA) Ramon K. Perez	(CA) none
+0229	 (W) Johnnie Christmas	 (A/CA) Andrew Krahnke	(CA) none
+0230	 (W) Johnnie Christmas	 (A) Andrew Krahnke	 (CA) Chris Brunner, Rico Renzi
+0231	 (W) Charles Soule, Scott Snyder	 (A) Leonardo Marcello Grassi, Matt Wilson	 (A/CA) Giuseppe Camuncoli	(CA) none
+0232	 (W) Charles Soule, Scott Snyder	 (A) Giuseppe Camuncoli, Matt Wilson, Leonardo Marcello Grassi	 (CA) Mirka Andolfo
+0233	 (W) Robert Kirkman	 (A) Tony Moore	 (CA) David Finch	 (A/CA) Dave McCaig
+0234	 (W) Robert Kirkman	 (A/CA) Tony Moore, Dave McCaig	(CA) none
+0235	 (W) Robert Kirkman	 (A) Tony Moore	 (CA) Charlie Adlard	 (A/CA) Dave McCaig
+0236	 (W) Robert Kirkman	 (A) Tony Moore	 (CA) Arthur Adams	 (A/CA) Dave McCaig
+0237	 (W) Robert Kirkman	 (A) Tony Moore	 (CA) David Finch	 (A/CA) Dave McCaig
+0238	 (W) Robert Kirkman	 (A/CA) Tony Moore, Dave McCaig	(CA) none
+0239	 (W) Robert Kirkman	 (A) Tony Moore	 (CA) Charlie Adlard	 (A/CA) Dave McCaig
+0240	 (W) Mariko Tamaki	 (A) Babs Tarr	 (CA) Bengal
+0241	 (W) Mariko Tamaki	 (A/CA) Babs Tarr	(CA) none
+0243	 (W) Robert Brooks, Matt Burns, Micky Neilson, Andrew Robinson, James Waugh	 (A) Bengal, Jeffrey Chamba Cruz, Espen Grundetjern, Joe Ng	(CA) none
+0244	 (W) Matthew Mercer, Jody Houser	 (A) Olivia Samson	(CA) none
+0245	 (W) Michael Dante Dimartino, Bryan Konietzko	 (CA) Bryan Konietzko, Joaquim Dos Santos
+0246	 (W) Michael Dante Dimartino, Bryan Konietzko	 (CA) Bryan Konietzko, Joaquim Dos Santos
+0247	 (W) Faith Erin Hicks	 (A/CA) Peter Wartman	(CA) none
+0248	 (W) Gene Yuen Lang, Michael Dante Dimartino, Bryan Konietzko	 (A/CA) Gurihiru	(CA) none
+0249	 (W) Jody Houser, Jim Zub	 (A) Diego Galindo	 (CA) E.M. Gist
+0250	 (W) Jody Houser, Jim Zub	 (A) Diego Galindo	 (CA) Anna Dittman
+0251	 (W) Jody Houser, Jim Zub	 (A) Diego Galindo	 (CA) David Michael Beck
+0252	 (W) Jody Houser, Jim Zub	 (A) Diego Galindo	 (CA) Max Dunbar
+0253	 (W) Jody Houser	 (A) Edgar Salazar	 (CA) Viktor Kalvachev
+0254	 (W) Jody Houser	 (A) Edgar Salazar	 (CA) Sebastian Piriz
+0255	 (W) Jody Houser	 (A) Edgar Salazar	 (CA) Pius Bak
+0256	 (W) Jody Houser	 (A) Stefano Martino, Keith Champagne	 (CA) Aleksi Briclot
+0257	 (W) Jody Houser	 (A) Edgar Salazar, Keith Champagne	 (CA) Kyle Lambert
+0258	 (W) Greg Pak	 (A) Valeria Favoccia	 (CA) Ron Chan
+0259	 (W) Mike Mignola	 (A/CA) Tiernen Trevallion	(CA) none
+0260	 (W) Mike Mignola	 (A) Tiernen Trevallion	 (CA) Mike Mignola
+0261	 (W) Mike Mignola, Scott Allie	 (A) Duncan Fegredo, Ben Stenbeck, Christopher Mitten	 (A/CA) Adam Hughes	(CA) none
+0262	 (W) James Romberger	 (A/CA) James Romberger	(CA) none
+0263	 (W) Gerard Way, Shaun Simon	 (A/CA) Leonardo Romero	(CA) none
+0264	 (W) Gerard Way, Shaun Simon	 (A) Leonardo Romero	 (CA) Becky Cloonan
+0265	 (W) Gerard Way, Shaun Simon	 (A) Leonardo Romero	 (CA) Andrew MacLean
+0266	 (W) Shaun Simon, Gerard Way	 (A/CA) Becky Cloonan	(CA) none
+0267	 (W) Gerard Way, Shaun Simon	 (A) I.N.J. Culbard	 (CA) Gabriel Ba
+0268	 (W) Gerard Way, Shaun Simon	 (A) I.N.J. Culbard	 (CA) I. N. J. Culbard
+0269	 (W) Gerard Way, Shaun Simon	 (A) I. N. J. Culbard	 (CA) James Harren
+0270	 (W) Gerard Way	 (A) Gabriel B?	(CA) none
+0271	 (W) Gerard Way	 (A/CA) Gabriel B?	(CA) none
+0272	 (W) Gerard Way	 (A/CA) Gabriel Ba	(CA) none
+0273	 (W) Chip Zdarsky	 (A/CA) Jason Loo	(CA) none
+0274	 (W) BioWare	(CA) none
+0275	 (W) Cristiano Seixas	 (A/CA) Guilherme Balbi	(CA) none
+0276	 (W) Cristiano Seixas	 (A) Guilherme Balbi	 (CA) Dave Stewart, Walter Simonson
+0277	 (W) Neil Gaiman, P. Craig Russell	 (A) Mike Mignola, Jerry Ordway	 (A/CA) P. Craig Russell	(CA) none
+0278	 (W) Neil Gaiman, P. Craig Russell	 (A) P. Craig Russell, Mike Mignola, Jerry Ordway	 (CA) David Mack
+0279	 (W) Neil Gaiman, P. Craig Russell	 (A) Scott Hampton, Walter Simonson, Colleen Doran	 (CA) Glenn Fabry
+0280	 (W) Neil Gaiman, P. Craig Russell	 (A) P. Craig Russell, Scott Hampton	 (CA) David Mack
+0281	 (W) Neil Gaiman, P. Craig Russell	 (A) P. Craig Russell, Scott Hampton	 (CA) David Mack
+0282	 (W) Chelsea Cain	 (A) Elise McCall	 (CA) Lia Miternique
+0283	 (W) Chelsea Cain	 (A) Elise McCall	 (CA) Lia Miternique
+0284	 (W) Peter Hogan	 (A/CA) Steve Parkhouse	(CA) none
+0285	 (W) Peter Hogan	 (A/CA) Steve Parkhouse	(CA) none
+0286	 (W) Cullen Bunn	 (A/CA) Miguel Valderrama	(CA) none
+0287	 (W) Marcin Batylda	(CA) none
+0288	 (W) Cavan Scott	 (A) Martin Tunica	 (CA) Douglas P. Lobo
+0289	 (W) Bartosz Sztybor	 (A) Amad Mir	 (CA) Evan Cagle
+0290	 (W) Bartosz Sztybor	 (A) Amad Mir	 (CA) Jeremy Wilson
+0291	 (W) Paul Tobin	 (A) Joe Querio, Max Bertolini, Piotr Kowalski	 (CA) Mike Mignola
+0292	 (W) David Goodman	 (A/CA) David Cabeza	(CA) none
+0293	 (W) David Goodman	 (A/CA) David Cabeza	(CA) none
+0294	 (W) Tate Brombal	 (A/CA) Gabriel Hernandez Walta	(CA) none
+0295	 (W) Tate Brombal, Jeff Lemire	 (A) Gabriel Hernandez Walta	 (CA) Kevin Wada
+0296	 (W) Jeff Lemire	 (A/CA) Tyler Crook	(CA) none
+0297	 (W) Jeff Lemire	 (A) Tyler Crook	 (CA) John McCrea, Mike Spicer
+0298	 (W) Jeff Lemire	 (A/CA) Wilfredo Torres	(CA) none
+0299	 (W) Jeff Lemire	 (A/CA) David Rubin	(CA) none
+0300	 (W) Jeff Lemire	 (A) David Rubin, Max Fiumara	 (CA) Dean Ormston
+0301	 (W) Evan Dorkin	 (A) Roger Langridge	 (CA) Evan Dorkin
+0302	 (W) Evan Dorkin	 (A) Roger Langridge	 (CA) Ben Dewey
+0305	 (W) Zack Keller	 (A/CA) Shawn Dickinson	(CA) none
+0306	 (W) Zack Keller	 (A/CA) Shawn Dickinson	(CA) none
+0307	 (W) Ubisoft	(CA) none
+0308	 (W) Various	 (A) Various	(CA) none
+0309	 (W) Rob Reger, Jessica Gruner, Brian Brooks, Kitty Remington, Nicomi Nix Turner, Buffy Visick, Buzz Parker	 (A) Ryan Hill, Derek Fridolfs, Nicomi Nix Turner	 (A/CA) Buzz Parker	(CA) none
+0310	 (W) Paul Tobin	 (A/CA) Sara Soler	(CA) none
+0311	 (W) McCranie, Stephen	 (A/CA) McCranie, Stephen	(CA) none
+0312	 (W) McCranie, Stephen	 (A/CA) McCranie, Stephen	(CA) none
+0313	 (W) McCranie, Stephen	 (A/CA) McCranie, Stephen	(CA) none
+0314	 (W) McCranie, Stephen	 (A/CA) McCranie, Stephen	(CA) none
+0315	 (W) McCranie, Stephen	 (A/CA) McCranie, Stephen	(CA) none
+0316	 (W) McCranie, Stephen	 (A/CA) McCranie, Stephen	(CA) none
+0317	 (W) McCranie, Stephen	 (A/CA) McCranie, Stephen	(CA) none
+0318	 (W) McCranie, Stephen	 (A/CA) McCranie, Stephen	(CA) none
+0319	 (W) Pau	 (A/CA) Pau	(CA) none
+0320	 (W) Alessandro Ferrari	 (A) Christina Giorgilli, Francesco Abrignani	(CA) none
+0321	 (W) Bobbi J. G. Weiss	 (A) Colleen Doran	 (CA) Meugniot
+0322	 (W) Don Ferguson	 (A) Richard Moore	(CA) none
+0323	 (W) Disney	 (A) Disney	(CA) none
+0324	 (W) Regis Maine, Mario Cortes	 (CA) Comicup Studio
+0325	 (W) Alessandro Ferrari	 (A) Various	(CA) none
+0326	 (W) Fran?ois Corteggiani	 (A) Mario Cortes	(CA) none
+0327	 (W) Alessandro Ferrari	 (A) Veronica Di Lorenzo	 (CA) Alberto Zanon, Grzegorz Krysinsky
+0328	 (W) Disney	(CA) none
+0330	 (W) Liz Marsham	 (A/CA) Nicoletta Baldari	(CA) none
+0331	 (W) Alessandro Ferrari	 (A) Various	(CA) none
+0332	 (W) Alessandro Ferrari	 (A) Emilio Urbano, Andrea Greppi	 (CA) Marco Ghiglione	 (A/CA) Marco Forcelloni
+0333	 (W) Alessandro Ferrari	 (A) Ettore Gula, Marco Forcelloni, Andrea Greppi	(CA) none
+0334	 (W) Liz Marsham	 (A/CA) Tara Nicole Whitaker	(CA) none
+0335	 (W) Nidhi Chanani	 (A/CA) Nidhi Chanani	(CA) none
+0336	 (W) Rhona Cleary, Eduardo Jauregui, Tea Orsi, Antonia Reed	 (A) Antonia Reed, Rhona Cleary, Eduardo Jauregui, Tea Orsi	(CA) none
+0337	 (W) Jimmy Gownley	 (A/CA) Leandro Ricardo Da Silva	(CA) none
+0338	 (W) Jimmy Gownley	 (A/CA) Leandro Ricardo Da Silva	(CA) none
+0339	 (W) Jimmy Gownley	 (A/CA) Leandro Ricardo Da Silva	(CA) none
+0340	 (W) Jimmy Gownley, Leandro Ricardo Da Silva	 (CA) Leandro Ricardo Da Silva
+0341	 (W) Hiroaki Samura	 (A/CA) Hiroaki Samura	(CA) none
+0342	 (W) Hiroaki Samura	 (A/CA) Hiroaki Samura	(CA) none
+0345	 (W) James Siciliano	 (A) James McDermott	(CA) none
+0346	 (W) Respawn Entertainment	(CA) none
+0347	 (W) Daniel Wallace, Dave Filoni, Carrie Beck	(CA) none
+0348	 (W) Naughty Dog Studios	 (A) Naughty Dog Studios	(CA) none
+0349	 (W) Gene Luen Yang	 (A/CA) Gurihiru	(CA) none
+0350	 (W) Gene Luen Yang	 (A/CA) Gurihiru	(CA) none
+0351	 (W) Gene Luen Yang, Michael Dante Dimartino, Bryan Konietzko	 (A/CA) Gurihiru	(CA) none
+0352	 (W) Michael Dante Dimartino, Bryan Konietzko, Gene Luen Yang	 (A/CA) Gurihiru	(CA) none
+0353	 (W) Gene Luen Yang, Michael Dante Dimartino, Bryan Konietzko	 (A/CA) Gurihiru	(CA) none
+0354	 (W) Kentaro Miura	 (A) Kentaro Miura	(CA) none
+0355	 (W) Kentaro Miura	 (A) Kentaro Miura	(CA) none
+0356	 (W) Taliesin Jaffe, Sarah Jaffe	 (A) Various	(CA) none
+0357	 (W) Matthew Colville, Matthew Mercer	 (A) Olivia Samson	 (CA) Stjepan Sejic
+0367	 (W) John Byrne, Mike Mignola	 (A/CA) Mike Mignola	(CA) none
+0368	 (W) Mike Mignola	 (A/CA) Mike Mignola	(CA) none
+0369	 (W) Mike Mignola	 (A/CA) Mike Mignola	(CA) none
+0370	 (W) Mike Mignola	 (A) Richard Corben	 (CA) Others, Dave Stewart	 (A/CA) Mike Mignola
+0371	 (W) Mike Mignola	 (A) Duncan Fegredo	 (CA) Mike Mignola, Dave Stewart
+0372	 (W) Mike Mignola	 (A) Duncan Fegredo, Richard Corben, Kevin Nowlan, Scott Hampton	 (CA) Mike Mignola
+0375	 (W) Mike Mignola, John Byrne	 (A/CA) Mike Mignola	(CA) none
+0376	 (W) Mike Mignola	 (A) Richard Corben, Gary Gianni	 (A/CA) Mike Mignola	(CA) none
+0377	 (W) Mike Mignola	 (A) Duncan Fegredo	 (CA) Mike Mignola
+0378	 (W) Mike Mignola	 (A/CA) Mike Mignola	(CA) none
+0380	 (W) Kohta Hirano	 (A) Kohta Hirano	(CA) none
+0381	 (W) Michael Dante Dimartino, Bryan Konietzko	 (CA) Bryan Konietzko, Joaquim Dos Santos
+0382	 (W) Usa Nintendo	 (A) Usa Nintendo	(CA) none
+0383	 (W) Usa Nintendo	 (A/CA) Usa Nintendo	(CA) none
+0384	 (W) Usa Nintendo	 (A) Usa Nintendo	(CA) none
+0385	 (W) Netflix	 (A) Netflix	(CA) none
+0386	 (W) Hope Larson, Kevin Panetta, Rafer Roberts, Ryan North, McCranie, Stephen, Ian Flynn	 (A) Meredith Gran, Savanna Ganucheau, Ryan Maniulit, McCranie, Stephen, Jenn St-Onge	(CA) none
+0387	 (W) Sfe R. Monster	 (A/CA) Sarah Graley	(CA) none
+0388	 (W) Kristen Gudsnuk	 (A/CA) Kristen Gudsnuk	(CA) none
+0389	 (W) Neil Gaiman	 (A) P. Craig Russell, Rafael Albuquerque, Gabriel Ba, Shane Oakley	 (A/CA) F?bio Moon	(CA) none
+0390	 (W) Usa Nintendo	 (A) Usa Nintendo	(CA) none
+0391	 (W) Usa Nintendo	(CA) none
+0396	 (W) Gerard Way	 (A) Gabriel Ba	(CA) none
+0397	 (W) Gerard Way	 (A) Gabriel Ba	(CA) none
+0409	 (W) Marcin Batylda	(CA) none
+0410	 (W) Brian Ruckley	 (A/CA) Bethany McGuire-Smith	(CA) none
+0411	 (W) Brian Ruckley	 (A) Bethany McGuire-Smith	 (CA) Chan Winton
+0412	 (W) Brian Ruckley	 (A) Bethany McGuire-Smith	 (CA) Sara Pitre-Durocher
+0413	 (W) Brian Ruckley	 (A) Bethany McGuire-Smith	 (CA) Sara Pitre-Durocher
+0414	 (W) Simon Furman	 (A/CA) Guido Guidi	(CA) none
+0415	 (W) Brian Ruckley	 (A) Anna Malkova	 (CA) Freddie Williams II
+0416	 (W) Brian Ruckley	 (A) Anna Malkova	 (CA) Billie Montfort
+0417	 (W) Brian Ruckley	 (A) Anna Malkova	 (CA) Alex Milne
+0418	 (W) Cavan Scott	 (A/CA) Juan Samu	(CA) none
+0419	 (W) Cavan Scott	 (A) Juan Samu	 (CA) Phil Murphy
+0420	 (W) Cavan Scott	 (A) Juan Samu	 (CA) Dan Schoening
+0421	 (W) Chris Eliopoulos	 (A/CA) Lanna Souvanny	(CA) none
+0422	 (W) Chris Eliopoulos	 (A) Lanna Souvanny	 (CA) Agnes Garbowska
+0423	 (W) Matthew K. Manning	 (A/CA) Jon Sommariva	(CA) none
+0424	 (W) Delilah S Dawson	 (A/CA) Fico Ossio	(CA) none
+0425	 (W) Kyle Baker	 (A) Juan Samu	 (CA) Paulina Ganucheau
+0426	 (W) Sam Maggs	 (A/CA) Sweeney Boo	(CA) none
+0427	 (W) Vita Ayala	 (A/CA) Arianna Florean	(CA) none
+0428	 (W) Matthew K. Manning	 (A) Sean Parsons, Jimmy Reyes	 (A/CA) Jon Sommariva	(CA) none
+0429	 (W) Matthew K. Manning	 (A) Marcio Fiorito	 (CA) Jon Sommariva
+0430	 (W) Erik Burnham	 (A/CA) Christopher Jones	(CA) none
+0431	 (W) Delilah Dawson	 (A/CA) Fico Ossio	(CA) none
+0432	 (W) Sarah Graley, Stef Purenins	 (A/CA) Philip Murphy	(CA) none
+0433	 (W) Sarah Graley, Stef Purenins	 (A) Philip Murphy	 (CA) Arianna Florean
+0434	 (W) Ian Flynn	 (A/CA) Adam Bryce Thomas	(CA) none
+0435	 (W) Ian Flynn	 (A) Tracy Yardley, Adam Bryce Thomas, Evan Stanley	 (CA) Nathalie Fourdraine
+0436	 (W) Evan Stanley	 (A) Evan Stanley	 (CA) Dan Schoening
+0437	 (W) Evan Stanley	 (A) Evan Stanley	 (CA) Reggie Graham
+0438	 (W) Ian Flynn	 (A) Jack Lawrence	 (CA) Nathalie Fourdraine
+0439	 (W) Ian Flynn	 (A) Jack Lawrence	 (CA) Aaron Hammerstrom
+0440	 (W) Ian Flynn	 (A) Jack Lawrence	 (CA) Diana Skelly
+0441	 (W) Ian Flynn	 (A/CA) Jack Lawrence	(CA) none
+0442	 (W) Nicole Dubuc, Justin Eisinger, Josh Haber	 (A) VARIOUS	(CA) none
+0443	 (W) Mary Kenney	 (A/CA) Trish Forstner	(CA) none
+0444	 (W) Mary Kenney	 (A) Trish Forstner	 (CA) JustaSuta
+0445	 (W) Mary Kenney	 (A) Trish Forstner	 (CA) Konrad Kachel
+0446	 (W) Marieke Nijkamp	 (A) Yasmin Flores Montanez	 (CA) Bill Underwood
+0447	 (W) Marieke Nijkamp	 (A) Yasmin Flores Montanez	 (CA) Clara Meath
+0448	 (W) David M. Booher	 (A/CA) Drew Zucker	(CA) none
+0449	 (W) David M. Booher	 (A) Drew Zucker	 (CA) Phillip Sevy
+0450	 (W) Alessandro Ferrari	 (A) Various	 (CA) Cryssy Cheung
+0451	 (W) Greg Rucka, Alec Worley	 (A/CA) Ingo Romling	(CA) none
+0452	 (W) Michael Moreci	 (A) Megan Levens	 (CA) Francesco Francavilla
+0453	 (W) Michael Moreci, Jordan Clark	 (A) Megan Levens	 (CA) Yael Nathan
+0454	 (W) Michael Moreci, Sam Maggs	 (A) Ray-Anthony Heights, Davide Tinto	 (CA) Francesco Francavilla
+0455	 (W) Matthew K. Manning	 (A/CA) Chad Thomas	(CA) none
+0456	 (W) Matthew K. Manning	 (A/CA) Chad Thomas	(CA) none
+0457	 (W) Matthew K. Manning	 (A/CA) Chad Thomas	(CA) none
+0458	 (W) Brahm Revel	 (A/CA) Brahm Revel	(CA) none
+0459	 (W) Brahm Revel	 (A) Brahm Revel	 (CA) Natacha Bustos
+0460	 (W) Sophie Campbell	 (A/CA) Jodie Nishijima	(CA) none
+0461	 (W) Sophie Campbell	 (A) Jodie Nishijima	 (CA) Kevin Eastman
+0462	 (W) Sophie Campbell	 (A) Jodie Nishijima	 (CA) Justin Mason
+0463	 (W) Stan Sakai	 (A/CA) Stan Sakai	(CA) none
+0464	 (W) Stan Sakai	 (A) Stan Sakai	 (CA) Jon Sommariva
+0465	 (W) Stan Sakai	 (A) Stan Sakai	 (CA) Peach Momoko
+0466	 (W) AJ Mendez, Aimee Garcia	 (A/CA) Martin Coccolo	(CA) none
+0467	 (W) AJ Mendez, Aimee Garcia	 (A) Martin Coccolo	 (CA) Max Davenport
+0468	 (W) AJ Mendez, Aimee Garcia	 (A) Martin Coccolo	 (CA) Netho Diaz
+0469	 (W) Jim McCann	 (A) Angel Hernandez	 (CA) Stephen Thompson
+0470	 (W) Jim McCann	 (A) Angel Hernandez	 (CA) J.J. Lendl
+0471	 (W) Dave Baker	 (A/CA) Angel Hernandez	(CA) none
+0472	 (W) Dave Baker	 (A/CA) Angel Hernandez	(CA) none
+0473	 (W) Dave Baker	 (A/CA) Angel Hernandez	(CA) none
+0474	 (W) Larry Hama	 (A/CA) Dan Schoening	(CA) none
+0475	 (W) Larry Hama	 (A) Dan Schoening	 (CA) Jamie Sullivan
+0476	 (W) Larry Hama	 (A) Dan Schoening	 (CA) John Royle
+0477	 (W) Stephen King, Owen King, Rio Youers	 (A) Alison Sampson	 (CA) Jenn Woodall
+0478	 (W) Rich Douek	 (A/CA) Alex Cormack	(CA) none
+0479	 (W) Rich Douek	 (A) Alex Cormack	 (CA) Matthew Dow Smith
+0480	 (W) George Takei, Justin Eisinger, Steve Scott	 (A/CA) Harmony Becker	(CA) none
+0481	 (W) Ian Flynn	 (A) Tracy Yardley, Adam Bryce Thomas, Jennifer Hernandez, Evan Stanley, Jim Amash, Bob Smith	 (CA) Tyson Hesse
+0482	 (W) Jarod Rosello	 (A/CA) Jarod Rosello	(CA) none
+0483	 (W) Joe Hill	 (A/CA) Gabriel Rodriguez	(CA) none
+0484	 (W) Fred Van Lente, Ryan Dunlavey	 (A/CA) Ryan Dunlavey	(CA) none
+0485	 (W) Fred Van Lente	 (A/CA) Ryan Dunlavey	(CA) none
+0486	 (W) Fred Van Lente	 (A/CA) Ryan Dunlavey	(CA) none
+0487	 (W) Nick Roche	 (A/CA) Nick Roche	(CA) none
+0488	 (W) Nick Roche	 (A) Nick Roche	 (CA) John Allison
+0489	 (W) Sen-Foong Lim, Jessey Wright	 (A) Chris Fenoglio, Jack Lawrence, More	 (CA) TableTaffy
+0490	 (W) Richard Launius, Michael Guigliano	 (A) Jack Lawrence, TableTaffy	(CA) none
+0491	 (W) Jon Cohn	 (A/CA) Dan Schoening	(CA) none
+0494	 (W) Alex Randolph, Bruno Faidutti	 (A/CA) Kwanchai Moriya	(CA) none
+0496	 (W) Donny Cates	 (A/CA) Ryan Stegman	(CA) none
+0497	 (W) Donny Cates	 (A/CA) Ryan Stegman	(CA) none
+0498	 (W) Donny Cates	 (A) Ryan Stegman	 (CA) Iban Coello
+0499	 (W) Donny Cates	 (A) Ryan Stegman	 (CA) Leinil Francis Yu
+0500	 (W) Donny Cates	 (A) Ryan Stegman	(CA) none
+0501	 (W) Donny Cates	 (A) Ryan Stegman	(CA) none
+0502	 (W) Donny Cates	 (A) Ryan Stegman	 (CA) Philip Tan
+0503	 (W) Donny Cates	 (A/CA) Ryan Stegman	(CA) none
+0504	 (W) Donny Cates	 (A) Ryan Stegman	 (CA) Taurin Clarke
+0505	 (W) Donny Cates	 (A) Ryan Stegman	 (CA) Ian Bederman
+0506	 (W) Donny Cates	 (A) Ryan Stegman	 (CA) Peach Momoko
+0507	 (W) Donny Cates	 (A) Ryan Stegman	 (CA) Superlog
+0508	 (W) Donny Cates	 (A) Ryan Stegman	 (CA) Donny Cates
+0509	 (W) Donny Cates	 (A) Ryan Stegman	(CA) none
+0510	 (W) Donny Cates	 (A/CA) Ryan Stegman	(CA) none
+0511	 (W) Donny Cates	 (A) Ryan Stegman	 (CA) Leinil Francis Yu
+0512	 (W) Donny Cates	 (A) Ryan Stegman	 (CA) Joshua Cassara
+0513	 (W) Donny Cates	 (A) Ryan Stegman	 (CA) Ian Bederman
+0514	 (W) Donny Cates	 (A) Ryan Stegman	 (CA) Declan Shalvey
+0515	 (W) Donny Cates	 (A/CA) Iban Coello	(CA) none
+0516	 (W) Donny Cates	 (A) Iban Coello	 (CA) Ryan Stegman
+0517	 (W) Donny Cates	 (A) Iban Coello	 (CA) Ryan Stegman
+0518	 (W) Donny Cates	 (A) Iban Coello	 (CA) Francisco Herrera
+0519	 (W) Peter David	 (A/CA) Greg Land	(CA) none
+0520	 (W) Peter David	 (A) Greg Land	 (CA) Declan Shalvey
+0521	 (W) Jed MacKay	 (A) C.F. Villa, Nina Vakueya	 (CA) Pepe Larraz
+0522	 (W) Jed MacKay	 (A) C.F. Villa, Nina Vakueya	 (CA) Pepe Larraz
+0523	 (W) Jed MacKay	 (A) Nina Vakueya	 (A/CA) C.F. Villa	(CA) none
+0524	 (W) Jed MacKay	 (A) C.F. Villa, Nina Vakueya	 (CA) Sara Pichelli
+0525	 (W) Jed MacKay	 (A) C.F. Villa, Nina Vakueva	 (CA) Skottie Young
+0526	 (W) Jed MacKay	 (A) C.F. Villa, Nina Vakueya	 (CA) Patrick Gleason
+0527	 (W) Jed MacKay	 (A) C.F. Villa, Nina Vakueya	 (CA) Taurin Clarke
+0528	 (W) Jed MacKay	 (A) C.F. Villa, Nina Vakueya	 (CA) Todd Nauck
+0529	 (W) Christopher Cantwell	 (A/CA) Salvador Larroca	(CA) none
+0530	 (W) Christopher Cantwell	 (A) Salvador Larroca	 (CA) Dan Mora
+0531	 (W) Al Ewing	 (A/CA) Aaron Kuder	(CA) none
+0532	 (W) Al Ewing	 (A/CA) Aaron Kuder	(CA) none
+0533	 (W) Al Ewing	 (A) Aaron Kuder	 (CA) Joe Bennett
+0534	 (W) Kurt Busiek	 (A) Ben Dewey	 (CA) Leinil Francis Yu
+0535	 (W) Kurt Busiek	 (A) Ben Dewey, Jonas Scharf	 (CA) Leinil Francis Yu
+0536	 (W) Kurt Busiek	 (A) Ben Dewey, Jonas Scharf	 (CA) Cory Smith
+0537	 (W) Karla Pacheco	 (A) Pere Perez	 (CA) Jung-Geun Yoon
+0538	 (W) Karla Pacheco	 (A) Pere Perez	 (CA) Sway
+0539	 (W) Karla Pacheco	 (A) Pere Perez	 (CA) George Perez
+0540	 (W) Donny Cates	 (A) Ryan Stegman, Danilo Beyruth, Mark Bagley	 (CA) Inhyuk Lee
+0541	 (W) Donny Cates	 (A) Ryan Stegman, Danilo Beyruth, Mark Bagley	 (CA) Inhyuk Lee
+0542	 (W) Mike O'Sullivan, The Ohotmu Team	 (CA) Ron Lim
+0543	 (W) Kieron Gillen	 (A/CA) Esad Ribic	(CA) none
+0544	 (W) Kieron Gillen	 (A) Esad Ribic	 (CA) Phil Jimenez
+0545	 (W) Kieron Gillen	 (A) Esad Ribic	 (CA) Jamie McKelvie
+0546	 (W) Kieron Gillen	 (A) Esad Ribic	 (CA) Todd Nauck
+0547	 (W) Kieron Gillen	 (A/CA) Esad Ribic	(CA) none
+0548	 (W) Vita Ayala, Chris Claremont, Saladin Ahmed	 (A) Greg Land, Kev Walker	 (A/CA) Salvador Larroca	(CA) none
+0549	 (W) Vita Ayala, Chris Claremont, Saladin Ahmed	 (A) Greg Land, Salvador Larroca, Kev Walker	 (CA) Natacha Bustos
+0550	 (W) Jordan Blum, Patton Oswalt	 (A) Scott Hepburn	 (CA) Cully Hamner
+0551	 (W) Jordan Blum, Patton Oswalt	 (A) Scott Hepburn	 (CA) Skottie Young
+0552	 (W) Patton Oswalt, Jordan Blum	 (A) Scott Hepburn	 (CA) Doaly
+0557	 (W) Zeb Wells	 (A/CA) Gurihiru	(CA) none
+0558	 (W) Zeb Wells	 (A) Gurihiru	 (CA) Joe Quesada
+0559	 (W) Zeb Wells	 (A) Gurihiru	 (CA) Ron Lim
+0560	 (W) Gerry Duggan	 (A/CA) Phil Noto	(CA) none
+0561	 (W) Zeb Wells	 (A/CA) Stephen Segovia	(CA) none
+0562	 (W) Leah Williams	 (A) David Baldeon	 (CA) Ivan Shavrin
+0563	 (W) Ben Percy	 (A) Viktor Bogdanovic	 (A/CA) Adam Kubert	(CA) none
+0564	 (W) Ben Percy	 (A) Adam Kubert, Viktor Bogdanovic	 (CA) Mike Del Mundo
+0565	 (W) Ben Percy	 (A) Adam Kubert, Viktor Bogdanovic	 (CA) Arthur Adams
+0566	 (W) Ben Percy	 (A) Adam Kubert, Viktor Bogdanovic	 (CA) David Finch
+0567	 (W) Ben Percy	 (A) Adam Kubert, Viktor Bogdanovic	 (CA) Bill Sienkiewicz
+0568	 (W) Vita Ayala	 (A/CA) Rod Reis	(CA) none
+0569	 (W) Ben Percy	 (A/CA) Joshua Cassara	(CA) none
+0570	 (W) Tini Howard	 (A) Marcus To	 (CA) Mahmud Asrar
+0571	 (W) Jonathan Hickman	 (A) Phil Noto	 (CA) Leinil Francis Yu
+0572	 (W) Jonathan Hickman	 (A) Phil Noto	 (CA) Iban Coello
+0573	 (W) Gerry Duggan	 (A) Stefano Caselli	 (CA) Russell Dauterman
+0574	 (W) Chris Claremont	 (A) Brett Booth, Bill Sienkiewicz	 (CA) Salvador Larroca
+0575	 (W) Chris Claremont	 (A) Brett Booth, Bill Sienkiewicz	 (CA) Todd Nauck
+0576	 (W) Chris Claremont	 (A) Brett Booth, Bill Sienkiewicz	 (CA) TBD
+0577	 (W) Nick Spencer	 (A) Mark Bagley	 (CA) Patrick Gleason
+0578	 (W) Nick Spencer	 (A/CA) Mark Bagley	(CA) none
+0579	 (W) Nick Spencer	 (A) Mark Bagley	 (CA) Gavin Goulden
+0580	 (W) Nick Spencer	 (A) Mark Bagley	 (CA) Paulo Siqueira
+0581	 (W) Matthew Rosenberg, Nick Spencer	 (A) Federico Vicentini, Takeshi Miyagawa	 (CA) Marcelo Ferreira
+0582	 (W) Matthew Rosenberg, Nick Spencer	 (A) Federico Vicentini, Takeshi Miyagawa	 (CA) Mark Bagley
+0583	 (W) Nick Spencer	 (A/CA) Patrick Gleason	(CA) none
+0584	 (W) Nick Spencer	 (A) Patrick Gleason	 (CA) Brian Horton
+0585	 (W) Nick Spencer	 (A) Patrick Gleason	 (CA) Ron Lim
+0586	 (W) Nick Spencer	 (A) Patrick Gleason	 (CA) Gabriele Dell'Otto
+0587	 (W) Saladin Ahmed	 (A) Marcelo Ferreira	 (CA) Javi Garron
+0588	 (W) Saladin Ahmed	 (A) Marcelo Ferreira	 (CA) Inhyuk Lee
+0589	 (W) Saladin Ahmed	 (A) Marcelo Ferreira	 (CA) Nick Schumacher
+0590	 (W) Kieron Gillen	 (A) Jacen Burrows	 (CA) James Stokoe
+0591	 (W) Kieron Gillen	 (A/CA) Jacen Burrows	(CA) none
+0592	 (W) Kyle Higgins, Mat Groom	 (A) Francesco Manna	 (CA) Jorge Molina
+0593	 (W) Kyle Higgins, Mat Groom	 (A) Francesco Manna	 (CA) Ed McGuinness
+0594	 (W) Kyle Higgins, Mat Groom	 (A) Francesco Manna	 (CA) E. J. Su
+0595	 (W) Kelly Thompson	 (A) Elena Casagrande, Carlos E. Gomez	 (CA) Adam Hughes
+0596	 (W) Kelly Thompson	 (A) Elena Casagrande, Carlos E. Gomez	 (CA) Marco Checchetto
+0597	 (W) Kelly Thompson	 (A) Elena Casagrande, Carlos E. Gomez	 (CA) Patrick Brown
+0598	 (W) Kelly Thompson	 (A) Elena Casagrande, Carlos E. Gomez	 (CA) Skan
+0599	 (W) Donny Cates	 (A) Nic Klein	 (CA) Olivier Coipel
+0600	 (W) Donny Cates	 (A) Nic Klein	 (CA) Ken Lashley
+0601	 (W) Donny Cates	 (A) Nic Klein	 (CA) Ryan Ottley
+0602	 (W) Donny Cates	 (A/CA) Nic Klein	(CA) none
+0603	 (W) Al Ewing	 (A) Juan Cabal	 (CA) Rafael Albuquerque
+0604	 (W) Al Ewing	 (A) Juan Cabal	 (CA) Ryan Brown
+0605	 (W) Howard Mackie	 (A) Javier Saltares	 (CA) Ron Garney
+0606	 (W) Howard Mackie	 (A) Javier Saltares	 (CA) Ryan Stegman
+0607	 (W) Howard Mackie	 (A) Javier Saltares	 (CA) Ryan Stegman
+0608	 (W) Howard Mackie	 (A) Javier Saltares	 (CA) Kyle Hotz
+0609	 (W) Gerry Duggan	 (A) Patrick Zircher	 (CA) Valerio Giangiordano
+0610	 (W) Gerry Duggan	 (A) Patrick Zircher	 (CA) Alexander Lozano
+0611	 (W) Gerry Duggan	 (A) Patrick Zircher	 (CA) Valerio Giangiordano
+0612	 (W) Gerry Duggan	 (A) Patrick Zircher	 (CA) Carlos Pacheco
+0613	 (W) Jason Aaron	 (A) Dale Keown	 (CA) In-Hyuk Lee
+0614	 (W) Jason Aaron	 (A) Dale Keown	 (CA) Greg Tocchini
+0615	 (W) Jason Aaron	 (A) Javi Garron	 (CA) Leinil Francis Yu
+0616	 (W) Jason Aaron	 (A) Javi Garron	 (CA) Dustin Weaver
+0617	 (W) Jason Aaron	 (A) Javi Garron	 (CA) Joshua Swaby
+0618	 (W) Jason Aaron	 (A) Javi Garron	 (CA) Taurin Clarke
+0619	 (W) Jason Aaron	 (A) Javi Garron	 (CA) Art Adams
+0620	 (W) Jason Aaron	 (A/CA) Javi Garron	(CA) none
+0621	 (W) Christopher Cantwell	 (A) CAFU	 (CA) Alex Ross
+0622	 (W) Christopher Cantwell	 (A) CAFU	 (CA) Ron Lim
+0623	 (W) Christopher Cantwell	 (A) CAFU	 (CA) Todd Nauck
+0624	 (W) Christopher Cantwell	 (A) CAFU	 (CA) Dave Rapoza
+0625	 (W) Peter David	 (A) German Peralta	 (A/CA) Dale Keown	(CA) none
+0626	 (W) Peter David	 (A) German Peralta, Dale Keown	 (CA) Becky Cloonan
+0627	 (W) Christopher Cantwell	 (A) Filipe Andrade	 (CA) Valerio Giangiordano
+0628	 (W) Christopher Cantwell	 (A) Filipe Andrade	 (CA) Cory Smith
+0629	 (W) Christopher Cantwell	 (A) Filipe Andrade	 (CA) Mike Del Mundo
+0630	 (W) Christopher Cantwell	 (A) Filipe Andrade	 (CA) David Nakayama
+0631	 (W) Dan Slott	 (A) R. B. Silva	 (CA) Mark Brooks
+0632	 (W) Dan Slott	 (A) R. B. Silva	 (CA) Juan Ferreyra
+0633	 (W) Al Ewing	 (A) Joe Bennett	 (CA) Alex Ross
+0634	 (W) Al Ewing	 (A/CA) Joe Bennett	(CA) none
+0635	 (W) Al Ewing	 (A) Joe Bennett, Adam Gorham, Rachael Stott	 (CA) Alex Ross
+0636	 (W) Al Ewing	 (A) Adam Gorham, Rachael Stott	 (A/CA) Joe Bennett	(CA) none
+0637	 (W) Al Ewing, Rachael Stott	 (A) Joe Bennett, Adam Gorham	 (CA) Alexander Lozano
+0638	 (W) Christopher Priest	 (A) Stefano Landini	 (CA) Marco Checchetto
+0639	 (W) Christopher Priest	 (A) Stefano Landini	 (CA) Dan Panosian
+0640	 (W) Christopher Priest	 (A) Stefano Landini	 (CA) Dave Rapoza
+0641	 (W) Ta-Nehisi Coates	 (A) Leonard Kirk	 (CA) Alex Ross
+0642	 (W) Ta-Nehisi Coates	 (A) Leonard Kirk	 (CA) Julian Totino Tedesco
+0643	 (W) Christopher Cantwell	 (A/CA) Salvador Larroca	(CA) none
+0644	 (W) Kelly Thompson	 (A) Lee Garbett, Belen Ortega	 (CA) Jorge Molina
+0645	 (W) Kelly Thompson	 (A) Lee Garbett, Belen Ortega	 (CA) Tradd Moore
+0646	 (W) Saladin Ahmed	 (A) Minkyu Jung	 (CA) Mirka Andolfo
+0647	 (W) Skottie Young	 (A/CA) Humberto Ramos	(CA) none
+0648	 (W) Skottie Young	 (A) Humberto Ramos	 (CA) Sara Pichelli
+0649	 (W) Skottie Young	 (A) Humberto Ramos	 (CA) Art Adams
+0650	 (W) Fabian Nicieza	 (A) Ron Garney	 (CA) Geoff Shaw
+0651	 (W) Gene Luen Yang	 (A) Dike Ruan, Philip Tan	 (CA) Bernard Chang
+0652	 (W) Gene Luen Yang	 (A) Dike Ruan, Philip Tan	 (CA) Rafael Albuquerque
+0653	 (W) Gene Luen Yang	 (A) Dike Ruan, Philip Tan	 (CA) Khary Randolph
+0654	 (W) Kelly Thompson	 (A) Gerardo Sandoval	 (CA) Chris Bachalo
+0655	 (W) Chip Zdarsky	 (A/CA) Marco Checchetto	(CA) none
+0656	 (W) Chip Zdarsky	 (A) Marco Checchetto	 (CA) Salvador Larroca
+0657	 (W) Chip Zdarsky	 (A) Marco Checchetto	 (CA) Jerome Opena
+0658	 (W) Richard Thomas, Kurt Busiek, Chris Claremont, Kevin Eastman, Steven S. DeKnight	 (A) Steve McNiven, Pete Woods, Roberto de la Torre, Kevin Eastman, Jesus Saiz	 (CA) Andrew Robinson
+0659	 (W) Kurt Busiek, Chris Claremont, Kevin Eastman, Steven S. DeKnight, Roy Thomas	 (A) Steve McNiven, Pete Woods, Roberto de la Torre, Kevin Eastman	 (A/CA) Jesus Saiz	(CA) none
+0660	 (W) Roy Thomas, Kurt Busiek, Chris Claremont, Kevin Eastman, Steven S. DeKnight	 (A) Steve McNiven, Pete Woods, Roberto de la Torre, Kevin Eastman, Jesus Saiz	 (CA) Jen Bartel
+0661	 (W) Roy Thomas, Kurt Busiek, Chris Claremont, Kevin Eastman, Steven S. DeKnight	 (A) Steve McNiven, Pete Woods, Roberto de la Torre, Kevin Eastman, Jesus Saiz	 (CA) Joe Jusko
+0662	 (W) Roy Thomas, Kurt Busiek, Chris Claremont, Kevin Eastman, Steven S. DeKnight	 (A) Steve McNiven, Pete Woods, Roberto de la Torre, Kevin Eastman, Jesus Saiz	 (CA) Carlos Pacheco
+0663	 (W) Roy Thomas, Kurt Busiek, Chris Claremont, Kevin Eastman, Steven S. DeKnight	 (A) Steve McNiven, Pete Woods, Roberto de la Torre, Kevin Eastman, Jesus Saiz	 (CA) Todd Nauck
+0664	 (W) Roy Thomas, Kurt Busiek, Chris Claremont, Kevin Eastman, Steven S. DeKnight	 (A) Kevin Eastman, Steve McNiven, Pete Woods, Roberto de la Torre, Jesus Saiz	 (CA) John Buscema
+0665	 (W) Roy Thomas, Kurt Busiek, Chris Claremont, Kevin Eastman, Steven S. DeKnight	 (A) Steve McNiven, Pete Woods, Roberto de la Torre, Jesus Saiz	 (A/CA) Kevin Eastman	(CA) none
+0666	 (W) Jim Zub	 (A) Robert Gill	 (CA) E.M Gist
+0667	 (W) Jim Zub	 (A) Robert Gill	 (CA) Alexander Lozano
+0668	 (W) Charles Soule	 (A) Jan Bazaldua	 (CA) Carlo Pagulayan
+0669	 (W) Charles Soule	 (A) Jan Bazaldua	 (CA) John Tyler Christopher
+0670	 (W) Charles Soule	 (A) Jan Bazaldua	 (CA) Chris Sprouse
+0671	 (W) Charles Soule	 (A) Jan Bazaldua	 (CA) Tony S. Daniel
+0672	 (W) Greg Pak	 (A) Raffaele Ienco	 (CA) Aaron Kuder
+0673	 (W) Greg Pak	 (A) Raffaele Ienco	 (CA) Chris Sprouse
+0674	 (W) Greg Pak	 (A/CA) Raffaele Ienco	(CA) none
+0675	 (W) Sacks, Ethan	 (A/CA) Paolo Villanelli	(CA) none
+0676	 (W) Sacks, Ethan	 (A) Paolo Villanelli	 (CA) Chris Sprouse
+0677	 (W) Alyssa Wong	 (A) Ray-Anthony Height	 (CA) Sway
+0678	 (W) Alyssa Wong	 (A) Ray-Anthony Height	 (CA) Jenny Frison
+0679	 (W) Mark Verheiden, Mike Richardson, More, John Arcudi, Jerry Prosser, Stephen R. Bissette, Steven Grant	 (A) Mark A. Nelson, Denis Beauvais, Sam Kieth, Damon Willis, Kelley Jones, Dave Dorman, Chris Taylor, Paul Guinan, More	 (CA) Greg Land
+0680	 (W) Mark Verheiden, Mike Richardson, John Arcudi, Jerry Prosser, Stephen R. Bissette, Steven Grant, More	 (A) Kelley Jones, Dave Dorman, Chris Taylor, Paul Guinan, Denis Beauvais, Sam Kieth, More	 (CA) Mark A. Nelson
+0681	 (W) Roger Stern	 (A) Marie Severin, Jim Mooney, Ron Frenz, Mike Zeck, John Byrne, Steve Leialoha, Rick Leonardi, Denys Cowan, Luke McDonnell, Ed Hannigan, Al Milgrom, Bob Hall	 (A/CA) John Romita	(CA) none
+0682	 (W) Roger Stern	 (A) More	 (A/CA) John Romita	(CA) none
+0683	 (W) Tom Taylor	 (A) David Lopez, David Navarrot, Marcio Takara, More	 (CA) Bengal
+0684	 (W) Tom Taylor	 (A) David Lopez, David Navarrot, Marcio Takara, More, Adam Kubert	(CA) none
+0685	 (W) Roy Thomas, Steve Englehart, Len Wein	 (A) Sal Buscema, Ross Andru, Bob Brown, Gil Kane, Jim Starlin, Jack Kirby, Bill Everett	(CA) none
+0686	 (W) Roy Thomas, Steve Englehart, Len Wein, Tony Isabella, Chris Claremont, Stan Lee, Steve Ditko, Bill Everett, Dennis O'Neil	 (A) Sal Buscema, Ross Andru, Bob Brown, Gil Kane, Jim Starlin, Jack Kirby, Bill Everett	 (CA) Neal Adams
+0687	 (W) Roy Thomas, Steve Englehart, Len Wein	 (A) Sal Buscema, Ross Andru	 (CA) Gil Kane
+0688	 (W) Karl Kesel, Roger Stern, Joe Casey, Peter David, John Ostrander, Kurt Busiek, Barbara Kesel	 (A) Jeff Johnson, Ron Frenz, Leonardo Manco, Steve Epting, Mike Deodato, Sal Buscema, Pasqual Ferry, George Perez	 (A/CA) Mark Bagley	(CA) none
+0689	 (W) Kurt Busiek, Roger Stern, Joe Casey, Peter David, John Ostrander, Karl Kesel, Barbara Kesel	 (A) Jeff Johnson, Ron Frenz, Leonardo Manco, Steve Epting, Mike Deodato, Sal Buscema, Pasqual Ferry, George Perez	 (A/CA) Mark Bagley	(CA) none
+0690	 (W) Peter B. Gillis, Don McGregor	 (A) Gene Colan, Tom Palmer	 (A/CA) Denys Cowan	(CA) none
+0691	 (W) Peter B. Gillis, Don McGregor	 (A) Gene Colan, Tom Palmer	 (A/CA) Denys Cowan	(CA) none
+0692	 (W) Mark Gruenwald, Ralph Macchio, Doug Moench, More	 (A) Rick Leonardi, Alan Kupperberg, Luke McDonnell	 (A/CA) Keith Pollard	(CA) none
+0693	 (W) Mark Gruenwald, Ralph Macchio, Doug Moench, More	 (A) Rick Leonardi, Alan Kupperberg, Luke McDonnell	 (A/CA) Keith Pollard	(CA) none
+0694	 (W) Jess Harrold	 (A/CA) George Perez	(CA) none
+0695	 (W) Jonathan Hickman, Tini Howard, Vita Ayala, Ben Percy, Ed Brisson, Gerry Duggan, Zeb Wells, Leah Williams	 (A) Mahmud A. Asrar, Joshua Cassara, Leinil Francis Yu, R. B. Silva, Matteo Lolli, Viktor Bogdanovic, Rod Reis, Phil Noto, Carmen Nunez Carnero, Carlos E. Gomez	 (A/CA) Pepe Larraz	(CA) none
+0696	 (W) Jonathan Hickman, Tini Howard, Vita Ayala, Ben Percy, Ed Brisson, Gerry Duggan, Zeb Wells, Leah Williams	 (A) Pepe Larraz, Mahmud A. Asrar, Joshua Cassara, Leinil Francis Yu, R. B. Silva, Matteo Lolli, Viktor Bogdanovic, Rod Reis, Phil Noto, Carmen Nunez Carnero, Carlos E. Gomez	 (CA) Mark Brooks
+0697	 (W) Joss Whedon	 (A) John Cassaday, John Cassaday	(CA) none
+0698	 (W) Jack Kirby, Danny Fingeroth, Bob Harras, Mark Gruenwald, Ralph Macchio	 (A) Jack Kirby, Jim Valentino, Steve Epting, Ron Wilson, Rich Buckler	 (CA) Todd Nauck
+0699	 (W) Peter B. Gillis, Walter Simonson, Roger Stern, Mark Gruenwald, Ralph Macchio	 (A) Sal Buscema, Al Milgrom, Ron Wilson, Luke McDonnell, Keith Pollard, Paul Ryan, Rich Buckler	 (CA) Walter Simonson
+0700	 (W) Charles Knauf, Daniel Knauf, Fred Van Lente	 (A) Eric Nguyen, Pascal Alixe	 (A/CA) Daniel Acuna	(CA) none
+0701	 (W) Roy Thomas, Mark Gruenwald, Ralph Macchio	 (A) Keith Pollard, Walter Simonson, Arvell M. Jones	 (A/CA) John Buscema	(CA) none
+0702	 (W) Jason Aaron	 (A) Ed McGuinness, Francesco Manna, Javi Garron, More	 (CA) Matteo Scalera
+0704	 (W) Al Ewing	 (A) Joe Bennett	 (CA) Alex Ross
+0705	 (W) Jed MacKay	 (A) Joey Vazquez, Carlos Villa, Juan Gedeon, Natacha Bustos, Patrick Gleason	 (CA) J. Scott Campbell
+0706	 (W) J. J. Abrams, Henry Abrams	 (A) Sara Pichelli	 (CA) Olivier Coipel
+0707	 (W) J. J. Abrams, Henry Abrams	 (A) Sara Pichelli	 (CA) Chip Kidd
+0708	 (W) Ed Brisson, Zeb Wells, Ben Percy, Tini Howard	 (A) Flaviano, Marcus To, Stephen Segovia, Viktor Bogdanovic	(CA) none
+0709	 (W) Derek Landy	 (A) Federico Vicentini	 (CA) Dan Mora
+0710	 (W) Zhou Liefen, Amy Chu	 (A/CA) Keng	(CA) none
+0711	 (W) Shuizhu, Amy Chu	 (A/CA) Gunji	(CA) none
+0712	 (W) Alyssa Wong	 (A) Cresta, Marika	 (CA) Valentina Remenar
+0713	 (W) Roger Stern	 (A/CA) Bob Hall	(CA) none
+0714	 (W) Stan Lee, Gerry Conway	 (A) Gil Kane	 (A/CA) John Romita	(CA) none
+0715	 (W) Chris Claremont, John Byrne	 (A) John Romita	 (A/CA) John Byrne	(CA) none
+0716	 (W) Don McGregor, More	 (A) Dwayne Turner, Gene Colan, More	 (CA) Denys Cowan
+0717	 (W) Roy Thomas, Archie Goodwin, Harlan Ellison	 (A) Dick Ayers, Sam Grainger, Sal Buscema	 (A/CA) Herb Trimpe	(CA) none
+0718	 (W) Brian Wood	 (A) Becky Cloonan, Vasilis Lolos, Declan Shalvey, Mirko Colak, Andrea Mutti, Davide Gianfelice, Paul Azaceta, Riccardo Burchielli, Leandro Fernandez	 (CA) Massimo Carnevale
+0719	 (W) Frank Cho	 (A/CA) Frank Cho	(CA) none
+0720	 (W) Nick Spencer, More	 (A) Daniel Acuna, Angel Unzueta, Paul Renaud, Sean Izaakse, Joe Bennett, Jesus Saiz, More	 (CA) Alex Ross
+0721	 (W) James Robinson	 (A) Marco Rudy, Steve Dillon, Chris Visions, Javier Pulido, More	 (CA) Siya Oum
+0722	 (W) Kelly Sue DeConnick, Margaret Stohl	 (A) Terry Dodson, Marcio Takara, Brent Schoonover	 (CA) Jamie McKelvie
+0723	 (W) Skottie Young	 (A/CA) Humberto Ramos	(CA) none
+0728	 (W) Dan Abnett	 (A) Paul Davidson	 (CA) Jae Lee
+0729	 (W) Dan Abnett	 (A) Paul Davidson	 (CA) Peach Momoko
+0730	 (W) Dan Abnett	 (A) Paul Davidson	 (CA) Joseph Michael Linsner
+0731	 (W) Dan Abnett	 (A) Paul Davidson	 (CA) Jung-Geun Yoon
+0732	 (W) Dan Abnett	 (A) Paul Davidson	 (CA) Cosplay
+0733	 (W) Dan Abnett	 (A) Paul Davidson	 (CA) Jae Lee
+0734	 (W) Dan Abnett	 (A) Paul Davidson	 (CA) Will Robson
+0735	 (W) Dan Abnett	 (A) Paul Davidson	 (CA) Kano
+0736	 (W) Dan Abnett	 (A/CA) Paul Davidson	(CA) none
+0737	 (W) Dan Abnett	 (A) Paul Davidson	 (CA) Peach Momoko
+0738	 (W) Dan Abnett	 (A) Paul Davidson	 (CA) Will Robson
+0739	 (W) Dan Abnett	 (A) Paul Davidson	 (CA) Kano
+0740	 (W) Dan Abnett	 (A/CA) Paul Davidson	(CA) none
+0741	 (W) Dan Abnett	 (A) Paul Davidson	 (CA) Joseph Michael Linsner
+0742	 (W) Dan Abnett	 (A) Paul Davidson	 (CA) Jae Lee
+0743	 (W) Dan Abnett	 (A) Paul Davidson	 (CA) Cosplay
+0744	 (W) Dan Abnett	 (A) Paul Davidson	 (CA) Jae Lee
+0745	 (W) Dan Abnett	 (A) Paul Davidson	 (CA) Jung-Geun Yoon
+0746	 (W) Dan Abnett	 (A) Paul Davidson	 (CA) Peach Momoko
+0747	 (W) Dan Abnett	 (A) Paul Davidson	 (CA) Jae Lee
+0748	 (W) Dan Abnett	 (A) Paul Davidson	 (CA) Peach Momoko
+0749	 (W) Dan Abnett	 (A) Paul Davidson	 (CA) Joseph Michael Linsner
+0750	 (W) Dan Abnett	 (A) Paul Davidson	 (CA) Jae Lee
+0751	 (W) Dan Abnett	 (A) Paul Davidson	 (CA) Peach Momoko
+0752	 (W) Dan Abnett	 (A) Paul Davidson	 (CA) Joseph Michael Linsner
+0753	 (W) Dan Abnett	 (A) Paul Davidson	 (CA) Jung-Geun Yoon
+0754	 (W) Dan Abnett	 (A) Paul Davidson	(CA) none
+0755	 (W) Dan Abnett	 (A) Paul Davidson	(CA) none
+0756	 (W) Dan Abnett	 (A) Paul Davidson	(CA) none
+0757	 (W) Dan Abnett	 (A) Paul Davidson	 (CA) Peach Momoko
+0758	 (W) Dan Abnett	 (A) Paul Davidson	 (CA) Jae Lee
+0759	 (W) Dan Abnett	 (A) Paul Davidson	 (CA) Will Robson
+0760	 (W) Joseph Michael Linsner	 (A/CA) Joseph Michael Linsner	(CA) none
+0761	 (W) Shawn Aldridge	 (A) Rapha Lobosco	 (CA) Jenny Frison
+0762	 (W) Christopher Sebela	 (A) Annapaola Martello	 (CA) Carli Ihde
+0763	 (W) Mark Rahner	 (A) Jethro Morales	 (CA) Tim Seeley
+0764	 (W) Erik Burnham	 (A) Ediano Silva	 (CA) Jay Anacleto
+0765	 (W) Joe Harris	 (A) Ivan Rodriguez	 (CA) Joseph Michael Linsner
+0766	 (W) Cullen Bunn	 (A) Blacky Shepherd	 (CA) Johnny Desjardins
+0767	 (W) Marc Andreyko	 (A) Patrick Berkenkotter, Jose Malaga	 (CA) Fabiano Neves
+0768	 (W) Luke Lieberman	 (A) Walter Geovani	 (CA) Arthur Suydam
+0769	 (W) Luke Lieberman	 (A) Walter Geovani	 (CA) Michael Golden
+0770	 (W) Luke Lieberman	 (A) Walter Geovani	 (CA) Joseph Michael Linsner
+0771	 (W) Luke Lieberman	 (A/CA) Walter Geovani	(CA) none
+0772	 (W) Luke Lieberman	 (A) Walter Geovani	 (CA) Cosplay
+0773	 (W) Luke Lieberman	 (A) Walter Geovani	 (CA) Michael Golden
+0774	 (W) Luke Lieberman	 (A/CA) Walter Geovani	(CA) none
+0775	 (W) Luke Lieberman	 (A) Walter Geovani	 (CA) Cosplay
+0776	 (W) Luke Lieberman	 (A/CA) Walter Geovani	(CA) none
+0777	 (W) Luke Lieberman	 (A) Walter Geovani	 (CA) Joseph Michael Linsner
+0778	 (W) Luke Lieberman	 (A) Walter Geovani	 (CA) Arthur Suydam
+0779	 (W) Luke Lieberman	 (A) Walter Geovani	 (CA) Michael Golden
+0780	 (W) Luke Lieberman	 (A) Walter Geovani	 (CA) Joseph Michael Linsner
+0781	 (W) Luke Lieberman	 (A) Walter Geovani	 (CA) Arthur Suydam
+0782	 (W) Luke Lieberman	 (A) Walter Geovani	 (CA) Michael Golden
+0783	 (W) Luke Lieberman	 (A) Walter Geovani	 (CA) Joseph Michael Linsner
+0784	 (W) Luke Lieberman	 (A/CA) Walter Geovani	(CA) none
+0785	 (W) Luke Lieberman	 (A) Walter Geovani	 (CA) Arthur Suydam
+0786	 (W) Luke Lieberman	 (A) Walter Geovani	 (CA) Joseph Michael Linsner
+0787	 (W) Luke Lieberman	 (A) Walter Geovani	 (CA) Joseph Michael Linsner
+0788	 (W) Luke Lieberman, Ethan Ryker	 (A) Lui Antonio	 (CA) Paul Renaud
+0789	 (W) Luke Lieberman, Ethan Ryker	 (A/CA) Lucio Parrillo	(CA) none
+0790	 (W) Luke Lieberman	 (A) David Sampere	 (CA) Lucio Parrillo
+0791	 (W) Luke Lieberman	 (A) Mel Rubi	 (CA) Lucio Parillo
+0792	 (W) Luke Lieberman	 (A) Fritz Casas	 (CA) Lucio Parillo
+0793	 (W) Luke Lieberman	 (A) Milton Estevam	 (CA) Lucio Parrillo
+0794	 (W) Luke Lieberman	 (A) Max Dunbar	 (CA) Lucio Parrillo
+0801	 (W) Declan Shalvey	 (A) Justin Mason, Chris O'Halloran	 (CA) Peach Momoko
+0802	 (W) Declan Shalvey	 (A) Justin Mason, Chris O'Halloran	 (CA) Peach Momoko
+0807	 (W) Fred Van Lente	 (A) Vincenzo Carratu	 (CA) Lucio Parrillo
+0808	 (W) Fred Van Lente	 (A) Vincenzo Carratu	 (CA) Arthur Suydam
+0809	 (W) Fred Van Lente	 (A) Vincenzo Carratu	 (CA) Lucio Parrillo
+0810	 (W) Fred Van Lente	 (A) Vincenzo Carratu	 (CA) Will Robson
+0811	 (W) Fred Van Lente	 (A) Vincenzo Carratu	 (CA) Lucio Parrillo
+0812	 (W) Fred Van Lente	 (A) Vincenzo Carratu	 (CA) Will Robson
+0813	 (W) Fred Van Lente	 (A) Vincenzo Carratu	 (CA) Lucio Parrillo
+0814	 (W) Fred Van Lente	 (A) Vincenzo Carratu	 (CA) Lucio Parrillo
+0815	 (W) Fred Van Lente	 (A) Vincenzo Carratu	 (CA) Lucio Parrillo
+0816	 (W) Fred Van Lente	 (A) Vincenzo Carratu, Arthur Suydam	(CA) none
+0817	 (W) Fred Van Lente	 (A) Vincenzo Carratu	 (CA) Lucio Parrillo
+0818	 (W) Christopher Priest	 (A) Ergun Gunduz	 (CA) Lucio Parrillo
+0819	 (W) Christopher Priest	 (A) Ergun Gunduz	 (CA) Giovanni Timpano
+0820	 (W) Christopher Priest	 (A) Ergun Gunduz	 (CA) Vitali Iakovlev
+0821	 (W) Christopher Priest	 (A/CA) Ergun Gunduz	(CA) none
+0822	 (W) Christopher Priest	 (A) Ergun Gunduz	 (CA) Cosplay
+0823	 (W) Christopher Priest	 (A) Ergun Gunduz	 (CA) Will Robson
+0824	 (W) Christopher Priest	 (A) Ergun Gunduz	 (CA) Lucio Parrillo
+0825	 (W) Christopher Priest	 (A/CA) Ergun Gunduz	(CA) none
+0826	 (W) Christopher Priest	 (A) Ergun Gunduz	 (CA) Cosplay
+0827	 (W) Christopher Priest	 (A/CA) Ergun Gunduz	(CA) none
+0828	 (W) Christopher Priest	 (A) Ergun Gunduz	 (CA) Vitali Iakovlev
+0829	 (W) Christopher Priest	 (A) Ergun Gunduz	 (CA) Lucio Parrillo
+0830	 (W) Christopher Priest	 (A) Ergun Gunduz	 (CA) Lucio Parrillo
+0831	 (W) Christopher Priest	 (A) Ergun Gunduz	 (CA) Lucio Parrillo
+0832	 (W) Christopher Priest	 (A) Ergun Gunduz	 (CA) Giovanni Timpano
+0833	 (W) Christopher Priest	 (A) Ergun Gunduz	 (CA) Vitali Iakovlev
+0834	 (W) Christopher Priest	 (A) Ergun Gunduz	 (CA) Will Robson
+0835	 (W) Christopher Priest	 (A) Julius Ohta	 (CA) Lucio Parrillo
+0836	 (W) Christopher Priest	 (A) Julius Ohta	 (CA) St?phane Roux
+0837	 (W) Christopher Priest	 (A) Julius Ohta	 (CA) Elias Chatzoudis
+0838	 (W) Christopher Priest	 (A) Julius Ohta	 (CA) Fay Dalton
+0839	 (W) Christopher Priest	 (A) Julius Ohta	 (CA) Derrick Chew
+0840	 (W) Christopher Priest	 (A) Julius Ohta	 (CA) Elias Chatzoudis
+0841	 (W) Christopher Priest	 (A) Julius Ohta	 (CA) Fay Dalton
+0842	 (W) Christopher Priest	 (A) Julius Ohta	 (CA) Derrick Chew
+0843	 (W) Christopher Priest	 (A) Julius Ohta	 (CA) Lucio Parrillo
+0844	 (W) Christopher Priest	 (A) Julius Ohta	 (CA) Lucio Parrillo
+0845	 (W) Christopher Priest	 (A) Julius Ohta	 (CA) St?phane Roux
+0846	 (W) Christopher Priest	 (A) Julius Ohta	 (CA) Lucio Parrillo
+0847	 (W) Garth Ennis	 (A) Russell Braun	 (CA) Darick Robertson
+0848	 (W) Dan Abnett	 (A) Sebastian Piriz	 (CA) Lucio Parrillo
+0849	 (W) Dan Abnett	 (A) Sebastian Piriz	 (CA) Vasco Georgiev
+0850	 (W) Dan Abnett	 (A) Sebastian Piriz	 (CA) Joseph Michael Linsner
+0851	 (W) Dan Abnett	 (A) Sebastian Piriz	 (CA) Cosplay
+0852	 (W) Dan Abnett	 (A) Sebastian Piriz	 (CA) Lucio Parrillo
+0853	 (W) Dan Abnett	 (A) Sebastian Piriz	 (CA) Joseph Michael Linsner
+0854	 (W) Dan Abnett	 (A) Sebastian Piriz	 (CA) Vasco Georgiev
+0855	 (W) Dan Abnett	 (A) Sebastian Piriz	 (CA) Cosplay
+0856	 (W) Dan Abnett	 (A) Sebastian Piriz	 (CA) Joseph Michael Linsner
+0857	 (W) Dan Abnett	 (A) Sebastian Piriz	 (CA) Lucio Parrillo
+0858	 (W) Dan Abnett	 (A) Vasco Georgiev	 (CA) Lucio Parrillo
+0859	 (W) Dan Abnett	 (A/CA) Vasco Georgiev	(CA) none
+0860	 (W) Dan Abnett	 (A) Vasco Georgiev	 (CA) Joseph Michael Linsner
+0861	 (W) Dan Abnett	 (A) Vasco Georgiev	 (CA) Joseph Michael Linsner
+0862	 (W) George R. R. Martin, Landry Walker	 (A) Mel Rubi	 (CA) Mike Miller
+0863	 (W) George R. R. Martin, Landry Walker	 (A/CA) Mel Rubi	(CA) none
+0864	 (W) George R. R. Martin, Landry Walker	 (A/CA) Mel Rubi	(CA) none
+0865	 (W) George R. R. Martin, Landry Walker	 (A/CA) Mel Rubi	(CA) none
+0866	 (W) George R. R. Martin, Landry Walker	 (A) Mel Rubi	 (CA) Mike Miller
+0867	 (W) John Layman	 (A) Fran Strukan	 (CA) Arthur Suydam
+0868	 (W) John Layman	 (A) Fran Strukan	 (CA) Luca Strati
+0869	 (W) John Layman	 (A) Fran Strukan	 (CA) Barry Kitson
+0870	 (W) John Layman	 (A) Fran Strukan	 (CA) Barry Kitson
+0871	 (W) John Layman	 (A) Fran Strukan	 (CA) Barry Kitson
+0872	 (W) John Layman	 (A) Fran Strukan	 (CA) Luca Strati
+0873	 (W) John Layman	 (A) Fran Strukan	 (CA) Arthur Suydam
+0874	 (W) Mark Russell	 (A) Alessandro Miracolo	 (CA) Jae Lee
+0875	 (W) Mark Russell	 (A) Alessandro Miracolo	 (CA) Joseph Michael Linsner
+0876	 (W) Mark Russell	 (A) Alessandro Miracolo	 (CA) Rachael Stott
+0877	 (W) Mark Russell	 (A) Alessandro Miracolo	 (CA) Cosplay
+0878	 (W) Mark Russell	 (A) Alessandro Miracolo	 (CA) Will Robson
+0879	 (W) Mark Russell	 (A) Alessandro Miracolo	 (CA) Will Robson
+0880	 (W) Mark Russell	 (A) Alessandro Miracolo	 (CA) Joseph Michael Linsner
+0881	 (W) Mark Russell	 (A) Alessandro Miracolo	 (CA) Jae Lee
+0882	 (W) Mark Russell	 (A) Alessandro Miracolo	 (CA) Rachael Stott
+0883	 (W) Mark Russell	 (A) Alessandro Miracolo	 (CA) Jae Lee
+0884	 (W) Mark Russell	 (A) Alessandro Miracolo	 (CA) Joseph Michael Linsner
+0885	 (W) Tom Sniegoski	 (A) Michael Sta. Maria	 (CA) Lucio Parrillo
+0886	 (W) Tom Sniegoski	 (A) Michael Sta. Maria	 (CA) Ben Oliver
+0887	 (W) Tom Sniegoski	 (A) Michael Sta. Maria	 (CA) Stephen Segovia
+0888	 (W) Tom Sniegoski	 (A) Michael Sta. Maria	 (CA) Cosplay
+0889	 (W) Tom Sniegoski	 (A) Michael Sta. Maria	 (CA) Stephen Segovia
+0890	 (W) Tom Sniegoski	 (A) Michael Sta. Maria	 (CA) Cosplay
+0891	 (W) Tom Sniegoski	 (A) Michael Sta. Maria	 (CA) Ben Oliver
+0892	 (W) Tom Sniegoski	 (A) Michael Sta. Maria	 (CA) Ben Oliver
+0893	 (W) Tom Sniegoski	 (A) Michael Sta. Maria	 (CA) Lucio Parrillo
+0894	 (W) Tom Sniegoski	 (A) Michael Sta. Maria	 (CA) Ben Oliver
+0895	 (W) Tom Sniegoski	 (A) Michael Sta. Maria	 (CA) Lucio Parrillo
+0896	 (W) Tom Sniegoski	 (A) Michael Sta. Maria	 (CA) Ben Oliver
+0898	 (W) Christopher Priest	 (A) Ergun Gunduz	 (CA) Cosplay
+0902	 (W) Kat Leyh, Shannon Watters	 (A) Brooklyn Allen, Kanesha C. Bryant	 (CA) Kat Leyh
+0903	 (W) Kat Leyh, Shannon Watters	 (A) Brooklyn Allen, Kanesha C. Bryant	 (CA) Harriet Moulton
+0904	 (W) Kat Leyh, Shannon Watters	 (A) Brooklyn Allen, Kanesha C. Bryant	 (CA) Tillie Walden
+0905	 (W) Shannon Watters, Kat Leyh	 (A) Kanesha C. Bryant	 (CA) Kat Leyh
+0906	 (W) Corinna Bechko	 (A) Alejandro Aragon	 (CA) W. Scott Forbes
+0907	 (W) Corinna Bechko	 (A) Alejandro Aragon	 (CA) Tigh Walker
+0908	 (W) Corinna Bechko	 (A) Alejandro Aragon	 (CA) Lorenzo De Felici
+0909	 (W) Corinna Bechko	 (A) Alejandro Aragon	 (CA) W. Scott Forbes
+0910	 (W) Greg Pak	 (A) Lalit Kumar Sharma, Daniel Bayliss	 (CA) Marc Aspinall
+0911	 (W) Greg Pak	 (A) Lalit Kumar Sharma, Daniel Bayliss	 (CA) George Kambadais
+0912	 (W) Greg Pak	 (A) Lalit Kumar Sharma	 (A/CA) Daniel Bayliss	(CA) none
+0913	 (W) Greg Pak	 (A) Lalit Kumar Sharma, Daniel Bayliss	 (CA) Afu Chan
+0914	 (W) Greg Pak	 (A) Lalit Kumar Sharma, Daniel Bayliss	 (CA) Marc Aspinall
+0915	 (W) Greg Pak	 (A) Lalit Kumar Sharma, Daniel Bayliss	 (CA) George Kambadais
+0916	 (W) Greg Pak	 (A) Lalit Kumar Sharma, Daniel Bayliss	 (CA) Frany
+0917	 (W) Greg Pak	 (A) Lalit Kumar Sharma, Daniel Bayliss	 (CA) Frany
+0918	 (W) Greg Pak	 (A) Dan McDaid	 (CA) Nimit Malavia
+0919	 (W) Greg Pak	 (A) Dan McDaid	 (CA) Christian Ward
+0920	 (W) Greg Pak	 (A) Dan McDaid	 (CA) Lorenzo De Felici
+0921	 (W) Greg Pak	 (A) Dan McDaid	 (CA) Christian Ward
+0922	 (W) Lara Elena Donnelly	 (A) French Carlomagno, Samantha Dodge	 (CA) Jenny Frison
+0923	 (W) Lara Elena Donnelly	 (A) French Carlomagno, Samantha Dodge	 (CA) Evan Cagle
+0924	 (W) Lara Elena Donnelly	 (A) French Carlomagno, Samantha Dodge	 (CA) Jenny Frison
+0925	 (W) Jeffrey Addiss, Will Matthews	 (A) Jo Migyeong, Matthew Erman	 (CA) Mona Finden
+0926	 (W) Audra Winslow	 (A/CA) Audra Winslow	(CA) none
+0927	 (W) Jenna Ayoub	 (A/CA) Jenna Ayoub	(CA) none
+0928	 (W) Ryan Parrott	 (A) Marco Renna	 (CA) In-Hyuk Lee
+0929	 (W) Ryan Parrott	 (A) Marco Renna	 (CA) Eleonora Carlini
+0930	 (W) Ryan Parrott	 (A) Marco Renna	 (CA) Blank Sketch Cover
+0931	 (W) Ryan Parrott	 (A) Marco Renna	 (CA) Dan Mora
+0932	 (W) Ryan Parrott	 (A) Marco Renna	 (CA) Peach Momoko
+0933	 (W) Ryan Parrott	 (A) Marco Renna	 (CA) Inhyuk Lee
+0934	 (W) Ryan Parrott	 (A) Marco Renna	 (CA) Eleonora Carlini
+0935	 (W) Ryan Parrott	 (A) Marco Renna	 (CA) Peach Momoko
+0936	 (W) Ryan Parrott	 (A) Francesco Mortarino	 (CA) Matteo Scalera
+0937	 (W) Ryan Parrott	 (A) Francesco Mortarino	 (CA) Daniele Di Nicuolo
+0938	 (W) Ryan Parrott	 (A) Francesco Mortarino	 (CA) Blank Sketch Cover
+0939	 (W) Ryan Parrott	 (A) Francesco Mortarino	 (CA) Dan Mora
+0940	 (W) Ryan Parrott	 (A) Francesco Mortarino	 (CA) Goni Montes
+0941	 (W) Ryan Parrott	 (A) Francesco Mortarino	 (CA) Matteo Scalera
+0942	 (W) Ryan Parrott	 (A) Francesco Mortarino	 (CA) Daniele Nicuolo
+0943	 (W) Ryan Parrott	 (A) Francesco Mortarino	 (CA) Goni Montes
+0944	 (W) Ryan Parrott	 (A) Moises Hidalgo	 (CA) Jamal Campbell
+0945	 (W) AJ Marchisello	 (A) Stefano Simeone	 (CA) Toni Infante
+0946	 (W) AJ Marchisello	 (A) Stefano Simeone	 (CA) Miguel Mercado
+0947	 (W) AJ Marchisello	 (A) Stefano Simeone	 (CA) Alex Garner
+0948	 (W) Brian Herbet, Kevin J. Anderson	 (A) Dev Pramanik	 (CA) Jae Lee
+0949	 (W) Brian Herbet, Kevin J. Anderson	 (A) Dev Pramanik	 (CA) Rod Reis
+0950	 (W) Brian Herbet, Kevin J. Anderson	 (A) Dev Pramanik	 (CA) Rod Reis
+0951	 (W) Brian Herbet, Kevin J. Anderson	 (A) Dev Pramanik	 (CA) Jae Lee
+0952	 (W) Matt Kindt, Keanu Reeves	 (CA) Rafael Gramp?
+0953	 (W) Matt Kindt, Keanu Reeves	(CA) none
+0954	 (W) Matt Kindt, Keanu Reeves	 (A) Alessandro Vitti	 (CA) Jeff Dekal
+0955	 (W) Tom Taylor	 (A/CA) Daniele Di Nicuolo	(CA) none
+0956	 (W) Tom Taylor	 (A) Daniele Di Nicuolo	 (CA) Derrick Chew
+0957	 (W) Tom Taylor	 (A) Daniele Di Nicuolo	 (CA) Miguel Mercado
+0958	 (W) Tom Taylor	 (A) Daniele Di Nicuolo	 (CA) Derrick Chew
+0959	 (W) Al Ewing	 (A/CA) Simone Di Meo	(CA) none
+0960	 (W) Al Ewing	 (A) Simone Di Meo	 (CA) Toni Infante
+0961	 (W) Al Ewing	 (A) Simone Di Meo	 (CA) Valerio Schiti
+0962	 (W) Clay Chapman	 (A/CA) Jakub Rebelka	(CA) none
+0963	 (W) Clay Chapman	 (A/CA) Jakub Rebelka	(CA) none
+0964	 (W) Jordie Bellaire	 (A) Ramon Bachs	 (CA) David Lopez
+0965	 (W) Jordie Bellaire	 (A) Ramon Bachs	 (CA) Marguerite Sauvage
+0966	 (W) Jordie Bellaire	 (A) Ramon Bachs	 (CA) Becca Carey
+0967	 (W) Jordie Bellaire	 (A) Ramon Bachs	 (CA) David Lopez
+0968	 (W) Kieron Gillen	 (A/CA) Dan Mora	(CA) none
+0969	 (W) Dan Panosian	 (A) Marianna Ignazzi	 (A/CA) Dan Panosian	(CA) none
+0970	 (W) Dan Panosian	 (A) Marianna Ignazzi, Dan Panosian	 (CA) Qistina Khalidah
+0971	 (W) Dan Panosian	 (A) Marianna Ignazzi	 (CA) Dani Pendergast
+0972	 (W) James TynionIV	 (A/CA) Werther Dell'Edera	(CA) none
+0973	 (W) James TynionIV	 (A) Werther Dell'Edera	 (CA) Frany
+0974	 (W) Jeremy Haun	 (A) Danny Luckert	 (CA) Jeremy Haun
+0975	 (W) Brian Azzarello	 (A/CA) Maria Llovet	(CA) none
+0976	 (W) Robert E. Howard, Robin Recht	 (A) Robin Recht	 (CA) Peach Momoko
+0977	 (W) Robert E. Howard, Robin Recht	 (A) Robin Recht	 (CA) Jung-Geun Yoon
+0978	 (W) Robert E. Howard, Robin Recht	 (A) Robin Recht	 (CA) Jay Anacleto
+0979	 (W) Robert E. Howard, Robin Recht	 (A/CA) Robin Recht	(CA) none
+0980	 (W) Robert E. Howard, Robin Recht	 (A) Robin Recht	 (CA) Fritz Casas
+0981	 (W) Robert E. Howard, Robin Recht	 (A) Robin Recht	 (CA) Blank Cover
+0982	 (W) Robert E. Howard, Robin Recht	 (A) Robin Recht	 (CA) Peach Momoko
+0983	 (W) Robert E. Howard, Robin Recht	 (A) Robin Recht	(CA) none
+0984	 (W) Robert E. Howard, Robin Recht	 (A) Robin Recht	(CA) none
+0985	 (W) Mirka Andolfo, Davide Goy	 (A) Gabriele Bagnoli, Pere Perez, Federica Salfo	 (A/CA) Mirka Andolfo	(CA) none
+0986	 (W) Mirka Andolfo, Davide Goy	 (A) Mirka Andolfo, Various	 (CA) Anna Zhuo
+0987	 (W) Mirka Andolfo, Davide Goy	 (A) Mirka Andolfo, Various	 (CA) Elias Chatzoudis
+0988	 (W) Mirka Andolfo, Davide Goy	 (A) Mirka Andolfo	 (CA) Gabriele Bagnoli
+0989	 (W) Mirka Andolfo	 (A/CA) Mirka Andolfo	(CA) none
+0990	 (W) Mirka Andolfo	 (A/CA) Mirka Andolfo	(CA) none
+0991	 (W) Aurelien Ducoudray	 (A/CA) Jocelyn Joret	(CA) none
+0992	 (W) Kachou Hashimoto	 (A/CA) Kachou Hashimoto	(CA) none
+0993	 (W) Dave Sim, Benjamin Hobbs, David Birdsong, Matt Dow	 (A) Dave Sim, Gustave Dore, David Birdsong	 (A/CA) Benjamin Hobbs	(CA) none
+0994	 (W) Dave Sim	 (A/CA) Dave Sim	(CA) none
+0996	 (W) Benny Powell	 (A) Iwan Nazif	 (CA) Benny Powell
+0997	 (W) Benny Powell	 (A) Iwan Nazif	 (CA) Genzoman
+0998	 (W) Chris Crosby, Mike Rosenzweig	 (A) Tina Francisco	 (CA) Ruiz Burgos
+0999	 (W) Chris Crosby, Mike Rosenzweig	 (A) Tina Francisco	 (CA) Genzoman
