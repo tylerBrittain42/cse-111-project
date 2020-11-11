@@ -49,17 +49,22 @@ DROP TABLE Artist;
 DROP TABLE Writer;
 DROP TABLE ReccList;
 
-
-
-
-
-
-
-
-
-
 .mode "csv"
 .separator "\t"
 .import /home/tyler/Documents/cse-111/final_project/cse-111-project/data/pull_w_tabs.txt Issues
 
+INSERT INTO readerList(r_id, r_name) VALUES (1, 'Tyler')
+DELETE FROM readerList WHERE r_name = 'Tyler'
+
+SELECT * 
+FROM readerList
+
+INSERT INTO ReadingList(rl_readerID, rl_issueID, rl_ownStat) VALUES (1, 1, 'Yes')
+INSERT INTO ReadingList(rl_readerID, rl_issueID, rl_ownStat) VALUES (2, 4, 'No')
+INSERT INTO ReadingList(rl_readerID, rl_issueID, rl_ownStat) VALUES (3, 7, 'Yes')
+DELETE FROM ReadingList WHERE rl_ownStat = 'Yes'
+UPDATE ReadingList SET rl_ownStat = 'Yes'
+
+SELECT * 
+FROM ReadingList
 
