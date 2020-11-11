@@ -39,11 +39,12 @@ CREATE TABLE ReccList(
     r_wId decimal(9,0) NOT NULL,
     r_readerID decimal(9,0) NOT NULL,
     r_issueID decimal(9,0) NOT NULL
-)
+);
 
 --Drop all tables
 DROP TABLE Issues;
 DROP TABLE ReadingList;
+DROP TABLE readerList;
 DROP TABLE FollowList;
 DROP TABLE Artist;
 DROP TABLE Writer;
@@ -54,7 +55,9 @@ DROP TABLE ReccList;
 
 
 
-
+SELECT * 
+FROM Artist,Issues
+WHERE a_id = i_id
 
 
 

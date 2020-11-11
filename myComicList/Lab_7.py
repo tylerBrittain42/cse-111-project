@@ -30,19 +30,70 @@ def closeConnection(_conn, _dbFile):
     print("++++++++++++++++++++++++++++++++++")
 
 
+#Creates all the relevant tables
 def createTable(_conn):
     print("++++++++++++++++++++++++++++++++++")
     print("Create table")
 
     try:
-        sql = """CREATE TABLE warehouse (
-                    w_warehousekey DECIMAL(9,0) NOT NULL,
-                    w_name CHAR(100) NOT NULL,
-                    w_capacity DECIMAL(6, 0) NOT NULL,
-                    w_suppkey DECIMAL(9,0) NOT NULL,
-                    w_nationkey DECIMAL(2,0) NOT NULL)"""
+        #Issues
+        sql = """CREATE TABLE Issues (
+                    i_id decimal(9,0) NOT NULL PRIMARY KEY,
+                    i_title char(50) NOT NULL,
+                    i_issue char(50), --considering removing this
+                    i_date date(4,0) NOT NULL,
+                    i_srp decimal(2,2) NOT NULL
+                )"""
         _conn.execute(sql)
 
+        #readerList
+        sql = """CREATE TABLE readerList(
+                    r_id  decimal(9,0) NOT NULL PRIMARY KEY,
+                    r_name char(50) NOT NULL) """
+        _conn.execute(sql)
+
+        #readingList
+        sql = """CREATE TABLE ReadingList(
+                    rl_readerID decimal(9,0) NOT NULL,
+                    rl_issueID char(4)  NOT NULL,
+                    rl_ownStat char(10) NOT NULL
+                ) """
+        _conn.execute(sql)
+
+        #FollowList
+        sql = """CREATE TABLE FollowList(
+                    fl_id decimal(9,0) NOT NULL PRIMARY KEY,
+                    --Do i need to change this part?
+                    fl_artistID decimal(9,0) NOT NULL,
+                    fl_writerID decimal(9,0) NOT NULL
+                ) """
+        _conn.execute(sql)
+
+        #artist
+        sql = """CREATE TABLE Artist(
+                    a_id decimal(9,0) NOT NULL PRIMARY KEY,
+                    a_name char(50) NOT NULL
+                )"""
+        _conn.execute(sql)
+
+        #Writer
+        sql = """CREATE TABLE Writer(
+                    w_id decimal(9,0) NOT NULL PRIMARY KEY,
+                    w_name char(50) NOT NULL
+                ) """
+        _conn.execute(sql)
+
+        #ReccList
+        sql = """CREATE TABLE ReccList(
+                    r_aId decimal(9,0) NOT NULL,
+                    r_wId decimal(9,0) NOT NULL,
+                    r_readerID decimal(9,0) NOT NULL,
+                    r_issueID decimal(9,0) NOT NULL
+                )"""
+        _conn.execute(sql)
+
+
+        print('success')
 
 
     except Error as e:
@@ -52,14 +103,35 @@ def createTable(_conn):
     print("++++++++++++++++++++++++++++++++++")
 
 
+#Drops all tables in the database
 def dropTable(_conn):
     print("++++++++++++++++++++++++++++++++++")
     print("Drop tables")
 
     try:
-        sql = "DROP TABLE warehouse"
+
+        sql = "DROP TABLE Issues"
         _conn.execute(sql)
 
+        sql = "DROP TABLE readerList"
+        _conn.execute(sql)
+
+        sql = "DROP TABLE ReadingList"
+        _conn.execute(sql)
+
+        sql = "DROP TABLE FollowList"
+        _conn.execute(sql)
+
+        sql = "DROP TABLE Artist"
+        _conn.execute(sql)
+
+        sql = "DROP TABLE Writer"
+        _conn.execute(sql)
+
+        sql = "DROP TABLE ReccList"
+        _conn.execute(sql)
+
+        print('success')
 
     except Error as e:
         _conn.rollback()
@@ -69,102 +141,77 @@ def dropTable(_conn):
     print("++++++++++++++++++++++++++++++++++")
 
 
-def populateTable(_conn):
+#reads in pull information from text file
+def populateIssues(_conn):
     print("++++++++++++++++++++++++++++++++++")
-    print("Populate table")
+    print("Populate issues")
 
     try:
-        curKey = 0
-        for i in range(100):
-            curKey = curKey + 1
 
+        inF = open("data/pull_w_tabs.txt", "r")
 
-            #Grabs the relevant date for the supplier
-            #sql = """SELECT (s_name || '___' || n_name) AS name, s_suppkey, n_nationkey, sum(p_size)
-            sql = """SELECT (s_name || '___' || n_name) AS name, sum(p_size), s_suppkey, n_nationkey
-                FROM lineitem, orders, customer,nation, supplier, part
-                WHERE l_orderkey = o_orderkey AND
-                    o_custkey = c_custkey AND
-                    c_nationkey = n_nationkey AND
-                    s_suppkey = l_suppkey AND
-                    p_partkey = l_partkey AND
-                    --CHANGE TO WHATEVER
-                    l_suppkey = ?
-                GROUP BY c_nationkey
-                ORDER BY COUNT(*) DESC, n_name ASC
-                LIMIT 2"""
-            args = [(i+1)]
+        contents = inF.readlines()
 
-            cur = _conn.cursor()
-            cur.execute(sql,args)
+        for x in contents:
 
-            #w_warehousekey, w_name, w_capacity, w_suppkey, w_nationkey
-            rows = cur.fetchall()
+            currentIssue = x.split('\t')
 
-            sql = """SELECT sum(p_size)
-                        FROM lineitem, orders, customer,nation, supplier, part
-                        WHERE l_orderkey = o_orderkey AND
-                            o_custkey = c_custkey AND
-                            c_nationkey = n_nationkey AND
-                            s_suppkey = l_suppkey AND
-                            p_partkey = l_partkey AND
-                            --CHANGE TO WHATEVER
-                            l_suppkey = ?
-                        GROUP BY c_nationkey
-                        ORDER BY SUM(p_size) DESC
-                        --ORDER BY COUNT(*) DESC, n_name ASC
-                        LIMIT 1
-            """
-            cur = _conn.cursor()
-            cur.execute(sql,args)
-            cap = cur.fetchall()
-            
-
-
-
-            #First warehouse
-            sql = """ INSERT INTO warehouse(w_warehousekey, w_name, w_capacity, w_suppkey, w_nationkey) 
+            sql = """ INSERT INTO Issues(i_id, i_title, i_issue, i_date, i_srp) 
                             VALUES(?, ?, ?, ?, ?)
                     """
 
-            args = [curKey, rows[0][0], (cap[0][0] * 2), rows[0][2], rows[0][3]]
-
-            # if(rows[0][1] > rows [1][1]):
-            #     args = [curKey, rows[0][0], (rows[0][1] * 2), rows[0][2], rows[0][3]]
-            # else:
-            #     args = [curKey, rows[0][0], (rows[1][1] * 2), rows[0][2], rows[0][3]]
-
-
-            _conn.execute(sql, args)
-            
-            curKey = curKey + 1
-
-
-            #Second warehouse
-            sql = """ INSERT INTO warehouse(w_warehousekey, w_name, w_capacity, w_suppkey, w_nationkey) 
-                            VALUES(?, ?, ?, ?, ?)
-                    """
-
-            args = [curKey, rows[1][0], (cap[0][0] * 2), rows[1][2], rows[1][3]]
-
-            # if(rows[0][1] > rows [1][1]):
-            #     args = [curKey, rows[1][0], (rows[0][1] * 2), rows[1][2], rows[1][3]]
-            # else:
-            #     args = [curKey, rows[1][0], (rows[1][1] * 2), rows[1][2], rows[1][3]]
-
-
+            args = [currentIssue[0], currentIssue[1], currentIssue[2], currentIssue[3], currentIssue[4]]            
             _conn.execute(sql, args)
 
-            
-
-   
-
+        print('success')
 
     except Error as e:
         _conn.rollback()
         print(e)
 
     print("++++++++++++++++++++++++++++++++++")
+
+
+#Reads in information for writer and artist list
+def populateCreative(_conn):
+    print("++++++++++++++++++++++++++++++++++")
+    print("Populate creative")
+
+    try:
+
+        inF = open("data/revisedCreator.txt", "r")
+
+        contents = inF.readlines()
+
+        #Since the writer and artists are stored in the same line, we will insert into both lists at the same time
+
+        for x in contents:
+
+            currentLine= x.split('\t')
+            
+            print(currentLine)
+
+            sql = """ INSERT INTO Artist(a_id, a_name) 
+                            VALUES(?, ?)
+                    """
+
+            args = [currentLine[0], (currentLine[2])]            
+            _conn.execute(sql, args)
+
+            sql = """ INSERT INTO Writer(w_id, w_name) 
+                            VALUES(?, ?)
+                    """
+
+            args = [currentLine[0], (currentLine[1])]            
+            _conn.execute(sql, args)
+
+    except Error as e:
+        _conn.rollback()
+        print(e)
+
+    print("++++++++++++++++++++++++++++++++++")
+
+
 
 
 def Q1(_conn):
@@ -421,9 +468,7 @@ def Q5(_conn):
             outF.write(sName +  nat + "\n")
 
 
-        targetReg = 'ASIA'
-
-        cur.execute(sql, [targetNat, targetReg, targetReg])
+        targetReg = 'ASIA'>Nat, targetReg, targetReg
 
         rows = cur.fetchall()
         
@@ -490,9 +535,10 @@ def main():
     # create a database connection
     conn = openConnection(database)
     with conn:
-        #dropTable(conn)
+        dropTable(conn)
         createTable(conn)
-        #populateTable(conn)
+        populateIssues(conn)
+        populateCreative(conn)
 
         # #works
         # Q1(conn)
