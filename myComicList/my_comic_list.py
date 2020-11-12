@@ -187,8 +187,8 @@ def updateReccList(_conn, readerID):
     try:
 
         #Deleting all entries
-        sql = """DELETE FROM readerList
-                    WHERE r_id = ?"""
+        sql = """DELETE FROM reccList
+                    WHERE r_readerID = ?"""
         args = [readerID]
         _conn.execute(sql, args)
 
