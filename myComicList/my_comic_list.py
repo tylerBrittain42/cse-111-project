@@ -454,184 +454,125 @@ def addToReadingList(_conn, userID, issueID,ownership):
     print("++++++++++++++++++++++++++++++++++")  
 
 
-def
-
-
-def Q1(_conn):
+def deleteFromReadingList(_conn,reader, issue):
     print("++++++++++++++++++++++++++++++++++")
-    print("Q1")
+    print("Deleting " + str(issue) + " from "  + str(reader) + "'s reading list")
 
     try:
 
-        outF = open("output/1.out","w")
-        outF.write("       wId wName                                          wCap        sId        nId\n")
-        
-        
 
-        sql = """SELECT *
-                From warehouse
-                ORDER BY w_warehousekey ASC
-        """
 
+        sql = """DELETE FROM ReadingList
+                    WHERE rl_readerID = ? AND
+                    rl_issueID = ?"""
+        args = [reader, issue]
+        _conn.execute(sql, args)
+
+
+
+        print('success')
+
+
+    except Error as e:
+        _conn.rollback()
+        print(e)
+
+    print("++++++++++++++++++++++++++++++++++")
+
+
+def changeOwnership(_conn, readerID, issueID, newStatus):
+    print("++++++++++++++++++++++++++++++++++")
+    print("Updating "  + str(readerID) + "'s reading list")
+
+    try:
+
+
+
+        sql = """UPDATE readingList
+                    SET rl_ownStat = ?
+                    WHERE rl_readerID = ? AND
+                    rl_issueID = ?"""
+        args = [newStatus, readerID, issueID]
+        _conn.execute(sql, args)
+
+
+
+        print('success')
+
+
+    except Error as e:
+        _conn.rollback()
+        print(e)
+
+    print("++++++++++++++++++++++++++++++++++")
+
+
+def viewAllReadingLists(_conn):
+    print("++++++++++++++++++++++++++++++++++")
+    print("View all reading lists")
+
+    try:
+
+        sql = """ SELECT r_name,i_title,i_issue
+                    FROM ReadingList, readerList, Issues
+                    WHERE r_id = rl_readerID AND
+                        i_id = rl_issueID
+                    ORDER BY rl_readerID, rl_issueID asc
+                """
         cur = _conn.cursor()
         cur.execute(sql)
+        readerCount = cur.fetchall()
 
+
+
+        for x in readerCount:
+            print(x[0] + "\t" + x[1] + "\t" + x[2].split(' ')[0])
+
+        print('success')
         
 
-
-        rows = cur.fetchall()
-        for i in range(200):
-            wId = '{:>10}'.format(rows[i][0]) 
-            wName = '{:<40}'.format(rows[i][1]) #from char to char
-            wCap = '{:>11}'.format((rows[i][2]))
-            sId = '{:>11}'.format((rows[i][3]))
-            nId = '{:>11}'.format((rows[i][4]))
-
-
-            #print(wId + ' ' + wName + wCap + sId + nId)
-            outF.write(wId + ' ' + wName + wCap + sId + nId)
-            outF.write("\n")
-
-        outF.close()
     except Error as e:
+        _conn.rollback()
         print(e)
 
-
-
     print("++++++++++++++++++++++++++++++++++")
 
 
-def Q2(_conn):
+def viewSpecReadingList(_conn, readerID):
     print("++++++++++++++++++++++++++++++++++")
-    print("Q2")
-
-    try:
-        outF = open("output/2.out","w")
-        sql = """SELECT n_name, COUNT(w_warehousekey), SUM(w_capacity)
-                 FROM warehouse,nation
-                 WHERE w_nationkey = n_nationkey
-                 GROUP BY n_nationkey
-                 ORDER BY COUNT(w_warehousekey) DESC, SUM(w_capacity) DESC, n_name ASC
-        """
-
-        cur = _conn.cursor()
-        cur.execute(sql)
-
-        outF.write("nation                                         numW     totCap\n")
-
-
-        rows = cur.fetchall()
-        for i in range(21):
-            nName = '{:<29}'.format(rows[i][0]) 
-            numW = '{:>21}'.format(rows[i][1]) 
-            totCap = '{:>11}'.format((rows[i][2]))
-
-            outF.write(nName + ' ' + numW + totCap +"\n")
-        outF.close()
-
-    except Error as e:
-        print(e)
-
-
-    print("++++++++++++++++++++++++++++++++++")
-
-
-def Q3(_conn):
-    print("++++++++++++++++++++++++++++++++++")
-    print("Q3")
+    print("View " + str(readerID) + "s reading lists")
 
     try:
 
-        inF = open("input/3.in", "r")
-        arg = [inF.readline().replace('\n','')]
+        sql = """SELECT r_name,i_title,i_issue
+                    FROM ReadingList, readerList, Issues
+                    WHERE r_id = rl_readerID AND
+                        i_id = rl_issueID AND
+                        r_id = ?
+                    ORDER BY rl_issueID asc
+                """
 
-        inF.close()
-        
-        outF = open("output/3.out","w")
-        sql = """SELECT s_name, n_name, sq1.warehouseName
-                 FROM nation,supplier,
-                 (
-                 SELECT w_name AS warehouseName, w_suppkey AS wareSupp
-                 FROM warehouse,nation
-                 WHERE w_nationkey = n_nationkey AND
-                     --Change this to var
-                     n_name = ?
-                 )sq1
-                 WHERE sq1.wareSupp = s_suppkey AND
-                 n_nationkey = s_nationkey
-                 ORDER BY s_name ASC
-        """ 
-
+        args = [readerID] 
         cur = _conn.cursor()
-        
-        cur.execute(sql, arg)
-
-        outF.write("supplier             nation               warehouse               \n")
-
-
-        rows = cur.fetchall()
-        
-        for row in rows:
-            sName = '{:<21}'.format(row[0]) 
-            nat = '{:<21}'.format(row[1]) 
-            wName = '{:>11}'.format((row[2]))
-            outF.write(sName +  nat + wName +"\n")
-        outF.close()
-
-    except Error as e:
-        print(e)
-
-
-
-    print("++++++++++++++++++++++++++++++++++")
-
-
-def Q4(_conn):
-    print("++++++++++++++++++++++++++++++++++")
-    print("Q4")
-
-    try:
-
-        inF = open("input/4.in", "r")
-        targetReg = inF.readline().replace('\n','')
-        targetCap = inF.readline().replace('\n','')
-        args = [targetReg, targetCap]
-        inF.close()
-        
-        outF = open("output/4.out","w")
-        sql = """ SELECT w_name, w_capacity
-                  FROM warehouse, nation, region
-                  WHERE w_nationkey = n_nationkey AND
-                      n_regionkey = r_regionkey AND
-                      r_name = ? AND
-                       (w_capacity >  ?) 
-                  ORDER BY w_capacity DESC
-        """ 
-
-        cur = _conn.cursor()
-        
         cur.execute(sql, args)
+        readerCount = cur.fetchall()
 
-        outF.write("warehouse                                  capacity\n")
 
 
-        rows = cur.fetchall()
+        for x in readerCount:
+            print(x[0] + "\t" + x[1] + "\t" + x[2].split(' ')[0])
+
+        print('success')
         
-        for row in rows:
-            sName = '{:<43}'.format(row[0]) 
-            nat = '{:<21}'.format(row[1]) 
-            outF.write(sName +  nat + "\n")
-        outF.close()
 
     except Error as e:
+        _conn.rollback()
         print(e)
-
-
 
     print("++++++++++++++++++++++++++++++++++")
 
 
-def Q5(_conn):
+def q5():
     print("++++++++++++++++++++++++++++++++++")
     print("Q5")
 
@@ -788,9 +729,6 @@ def main():
         addReader(conn, "Jim")
         addReader(conn, "Bill")
         viewReaderList(conn)
-
-        #DELETING A READER IS ALSO GOING TO NEED TO DELETE THERE FOLLOWING AND READING LISTS
-        #ADD THIS
         deleteReader(conn, "Joe")
         addReader(conn, "tim")
         viewReaderList(conn)
@@ -803,7 +741,14 @@ def main():
         viewFollowList(conn, 5)
 
         addToReadingList(conn,5,20,'o')
-        
+        addToReadingList(conn,5,196 ,'o')
+        addToReadingList(conn, 1, 193, 'w')
+        addToReadingList(conn,3, 189, 'w')
+        addToReadingList(conn,3, 534, 'w')
+        deleteFromReadingList(conn, 5, 20)
+        changeOwnership(conn, 5, 196, 'E')
+        viewAllReadingLists(conn)
+        viewSpecReadingList(conn, 3)
 
 
 
