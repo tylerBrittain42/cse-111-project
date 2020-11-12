@@ -88,10 +88,165 @@ WHERE r_id = rl_readerID AND
 ORDER BY rl_readerID, rl_issueID asc
 
 
-SELECT r_name,i_title,i_issue
-FROM ReadingList, readerList, Issues
+SELECT r_name,i_title,i_issue, a_name, w_name
+FROM ReadingList, readerList, Issues, Artist, Writer
 WHERE r_id = rl_readerID AND
     i_id = rl_issueID AND
-    r_id = 3
+    r_id = 3 AND 
+    w_id = i_id AND
+    a_id = i_id
 ORDER BY rl_issueID asc
 
+
+
+---------------------------
+SELECT issueName, Writers, writerQ.Artists
+FROM
+(
+    
+    SELECT issueName, Writers, Artists--* 
+    FROM
+    (
+    SELECT fl_id , w_name AS 'Writers', a_name AS 'Artists', fl_issueID AS sq1_id, *
+    FROM FollowList, Writer,Artist
+    WHERE a_id = fl_issueID AND
+        w_id = fl_issueID AND
+        fl_id = 5
+    )sq1,
+
+    (
+    SELECT i_id AS sq2_id, i_title || i_issue AS issueName, w_name AS sqW
+    FROM Issues,Writer,Artist
+    WHERE i_id = w_id AND
+        i_id = a_id
+    )
+    sq2
+
+    WHERE Writers = sqW 
+) writerQ,
+
+
+(
+    
+    SELECT issueName2, Artists--* 
+    FROM
+    (
+    SELECT fl_id , w_name AS 'Writers', a_name AS 'Artists', fl_issueID AS sq1_id, *
+    FROM FollowList, Writer,Artist
+    WHERE a_id = fl_issueID AND
+        w_id = fl_issueID AND
+        fl_id = 5
+    )sq1,
+
+    (
+    SELECT i_id AS sq2_id, i_title || i_issue AS issueName2, a_name AS sqA
+    FROM Issues,Writer,Artist
+    WHERE i_id = w_id AND
+        i_id = a_id
+    )
+    sq2
+
+    WHERE Artists = sqA 
+) ArtistQ
+WHERE issueName = issueName2
+
+
+
+----------------------
+
+SELECT issueName, Writers, writerQ.Artists
+FROM
+(
+    --Grabs all books written by the followed arthors
+    SELECT issueName, Writers, Artists--* 
+    FROM
+    --Grabs artists and writers followed info
+    (
+    SELECT fl_id , w_name AS 'Writers', a_name AS 'Artists', fl_issueID AS sq1_id, *
+    FROM FollowList, Writer,Artist
+    WHERE a_id = fl_issueID AND
+        w_id = fl_issueID AND
+        fl_id = 5
+    )sq1,
+
+    --Grabs list of issues with wrtier and artist names
+    (
+    SELECT i_id AS sq2_id, i_title || i_issue AS issueName, w_name AS sqW
+    FROM Issues,Writer,Artist
+    WHERE i_id = w_id AND
+        i_id = a_id
+    )
+    sq2
+
+    WHERE Writers = sqW 
+    
+) writerQ,
+
+
+(
+    
+    SELECT issueName2, Artists--* 
+    FROM
+    (
+    SELECT fl_id , w_name AS 'Writers', a_name AS 'Artists', fl_issueID AS sq1_id, *
+    FROM FollowList, Writer,Artist
+    WHERE a_id = fl_issueID AND
+        w_id = fl_issueID AND
+        fl_id = 5
+    )swq1,
+
+    (
+    SELECT i_id AS sq2_id, i_title || i_issue AS issueName2, a_name AS sqA
+    FROM Issues,Writer,Artist
+    WHERE i_id = w_id AND
+        i_id = a_id
+    )
+    sq2
+
+    WHERE Artists = sqA 
+) ArtistQ
+WHERE issueName = issueName2
+
+
+
+------------
+--Selects selects books with the same writers
+SELECT DISTINCT(i_id)
+FROM 
+(
+SELECT i_id--(i_title || i_issue) AS issueTitle, Writers, a_name --Writers, Writer.w_id
+FROM Writer,Issues,Artist,
+(
+SELECT fl_id , w_name AS 'Writers'--, a_name AS 'Artists', fl_issueID AS sq1_id, *
+FROM FollowList, Writer,Artist
+WHERE a_id = fl_issueID AND
+    w_id = fl_issueID AND
+    fl_id = 1 --use 5 to test multi
+)sq1
+WHERE Writer.w_name = Writers AND
+    Writer.w_id = i_id AND
+    Artist.a_id = i_id
+UNION 
+
+--Selects issues with the same artists
+SELECT i_id--(i_title || i_issue) AS issueTitle, Writer.w_name AS Writers, a_name 
+FROM Writer,Issues,Artist,
+(
+SELECT fl_id , a_name AS 'Artists'
+FROM FollowList, Writer,Artist
+WHERE a_id = fl_issueID AND
+    w_id = fl_issueID AND
+    fl_id = 1 
+)sq1
+WHERE Artist.a_name = Artists AND
+    Writer.w_id = i_id AND
+    Artist.a_id = i_id
+)sq1
+
+INSERT INTO ReccList(r_readerID, r_issueID) VALUES (?, ?)
+DELETE FROM readerList WHERE r_name = 'Tyler'
+
+SELECT (i_title || i_issue) AS issueTitle, i_date, i_srp
+FROM Issues, ReccList
+WHERE i_id = r_issueID AND
+    r_readerID = ?

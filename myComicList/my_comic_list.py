@@ -87,8 +87,8 @@ def createTable(_conn):
 
         #ReccList
         sql = """CREATE TABLE ReccList(
-                    r_aId decimal(9,0) NOT NULL,
-                    r_wId decimal(9,0) NOT NULL,
+                    --r_aId decimal(9,0) NOT NULL,
+                    --r_wId decimal(9,0) NOT NULL,
                     r_readerID decimal(9,0) NOT NULL,
                     r_issueID decimal(9,0) NOT NULL
                 )"""
@@ -173,6 +173,108 @@ def populateIssues(_conn):
 
     #print("++++++++++++++++++++++++++++++++++")
 
+
+#Updating is a three step process
+#Remove all entries from this readerID
+#Select all new recommendations
+#insert all new recommendations
+def updateRecList(_conn, readerID):
+    #print("++++++++++++++++++++++++++++++++++")
+    print("Update Recc List")
+
+    try:
+
+        #Deleting all entries
+        sql = """DELETE FROM readerList
+                    WHERE r_id = ?"""
+        args = [readerID]
+        _conn.execute(sql, args)
+
+        #Seleing all new recommendations
+        sql = """SELECT DISTINCT(i_id)
+                    FROM 
+                    (
+                    SELECT i_id--(i_title || i_issue) AS issueTitle, Writers, a_name --Writers, Writer.w_id
+                    FROM Writer,Issues,Artist,
+                    (
+                    SELECT fl_id , w_name AS 'Writers'--, a_name AS 'Artists', fl_issueID AS sq1_id, *
+                    FROM FollowList, Writer,Artist
+                    WHERE a_id = fl_issueID AND
+                        w_id = fl_issueID AND
+                        fl_id = ?
+                    )sq1
+                    WHERE Writer.w_name = Writers AND
+                        Writer.w_id = i_id AND
+                        Artist.a_id = i_id
+                    UNION 
+
+                    --Selects issues with the same artists
+                    SELECT i_id--(i_title || i_issue) AS issueTitle, Writer.w_name AS Writers, a_name 
+                    FROM Writer,Issues,Artist,
+                    (
+                    SELECT fl_id , a_name AS 'Artists'
+                    FROM FollowList, Writer,Artist
+                    WHERE a_id = fl_issueID AND
+                        w_id = fl_issueID AND
+                        fl_id = ? 
+                    )sq1
+                    WHERE Artist.a_name = Artists AND
+                        Writer.w_id = i_id AND
+                        Artist.a_id = i_id
+                    )sq1
+                    """
+        cur = _conn.cursor()
+        args = [readerID, readerID]
+        cur.execute(sql, args)
+        toAdd = cur.fetchall()
+
+        #inserting all new recomendations
+        for x in toAdd:
+            sql = """INSERT INTO ReccList(r_readerID, r_issueID) 
+                        VALUES (?, ?)"""
+            args = [readerID, x[0]]            
+            _conn.execute(sql, args)
+
+
+
+
+        print('update recc list success')
+        
+
+    except Error as e:
+        _conn.rollback()
+        print(e)
+
+    #print("++++++++++++++++++++++++++++++++++")
+
+
+def viewRecclist(_conn, readerID):
+    #print("++++++++++++++++++++++++++++++++++")
+    print(str(readerID) + "'s recc list")
+
+    try:
+
+        sql = """SELECT (i_title || i_issue) AS issueTitle, i_date, i_srp
+                    FROM Issues, ReccList
+                    WHERE i_id = r_issueID AND
+                        r_readerID = ?"""
+        cur = _conn.cursor()
+        args = [readerID]
+        cur.execute(sql, args)
+        readerCount = cur.fetchall()
+
+        for x in readerCount:
+            print(x)
+
+        print('view recc list success')
+        
+
+    except Error as e:
+        _conn.rollback()
+
+
+#Reads in information for writer and artist list
+#Reads in information for writer and artist list
 
 def viewIssues(_conn):
     #print("++++++++++++++++++++++++++++++++++")
@@ -660,145 +762,7 @@ def viewSpecReadingList(_conn, readerID):
     #print("++++++++++++++++++++++++++++++++++")
 
 
-def q5(_conn):
-    print("++++++++++++++++++++++++++++++++++")
-    print("Q5")
 
-    try:
-
-        inF = open("input/5.in", "r")
-        
-        targetNat = inF.readline().replace('\n','')
-        inF.close()
-        
-        outF = open("output/5.out","w")
-        outF.write("region                           capacity\n")
-        outF.close()
-        outF = open("output/5.out","a")
-        sql = """   SELECT r_name, SUM(w_capacity)
-                    FROM warehouse, region,
-                    (
-                    SELECT w_name AS natName
-                    FROM nation,supplier,warehouse
-                    WHERE s_suppkey = w_suppkey AND
-                        s_nationkey = n_nationkey AND
-                        --change this
-                        n_name = ?
-                    ORDER BY w_name ASC
-                    )sq1,
-
-                    (
-                    SELECT w_name AS regName
-                    FROM warehouse,region,nation
-                    WHERE w_nationkey = n_nationkey AND
-                        n_regionkey = r_regionkey AND 
-                        --Change this
-                        r_name = ?
-                    )sq2
-
-                    WHERE natName = regName AND
-                        w_name = regName AND
-                        --delete this
-                        r_name = ?
-        """ 
-
-
-
-        cur = _conn.cursor()
-        
-        targetReg = 'AFRICA'
-
-        cur.execute(sql, [targetNat, targetReg, targetReg])
-
-        rows = cur.fetchall()
-        
-        for row in rows:
-            sName = '{:<33}'.format(str(row[0])) 
-            if str(row[1]) == 'None':
-                sName = '{:<33}'.format(targetReg) 
-                nat = '{:>8}'.format(str(0))
-            else: 
-                nat = '{:>8}'.format(str(row[1])) 
-            
-            outF.write(sName +  nat + "\n")
-
-    
-        targetReg = 'AMERICA'
-
-        cur.execute(sql, [targetNat, targetReg, targetReg])
-
-        rows = cur.fetchall()
-        
-        for row in rows:
-            sName = '{:<33}'.format(str(row[0])) 
-            if str(row[1]) == 'None':
-                sName = '{:<33}'.format(targetReg) 
-                nat = '{:>8}'.format(str(0))
-            else: 
-                nat = '{:>8}'.format(str(row[1])) 
-            
-            outF.write(sName +  nat + "\n")
-
-
-        #targetReg = 'ASIA'>Nat, targetReg, targetReg
-
-        rows = cur.fetchall()
-        
-        for row in rows:
-            sName = '{:<33}'.format(str(row[0])) 
-            if str(row[1]) == 'None':
-                sName = '{:<33}'.format(targetReg) 
-                nat = '{:>8}'.format(str(0))
-            else: 
-                nat = '{:>8}'.format(str(row[1])) 
-            
-            outF.write(sName +  nat + "\n")
-
-            
-        targetReg = 'EUROPE'
-
-        cur.execute(sql, [targetNat, targetReg, targetReg])
-
-        rows = cur.fetchall()
-        
-        for row in rows:
-            sName = '{:<33}'.format(str(row[0])) 
-            if str(row[1]) == 'None':
-                sName = '{:<33}'.format(targetReg) 
-                nat = '{:>8}'.format(str(0))
-            else: 
-                nat = '{:>8}'.format(str(row[1])) 
-            
-            outF.write(sName +  nat + "\n")
-
-        targetReg = 'MIDDLE EAST'
-
-        cur.execute(sql, [targetNat, targetReg, targetReg])
-
-        rows = cur.fetchall()
-        
-        for row in rows:
-            sName = '{:<33}'.format(str(row[0])) 
-            if str(row[1]) == 'None':
-                sName = '{:<33}'.format(targetReg) 
-                nat = '{:>8}'.format(str(0))
-            else: 
-                nat = '{:>8}'.format(str(row[1])) 
-            
-            outF.write(sName +  nat + "\n")
-        
-        
-        
-        
-        
-        outF.close()
-
-    except Error as e:
-        print(e)
-
-
-
-    #print("++++++++++++++++++++++++++++++++++")
 
 
 def main():
@@ -831,7 +795,7 @@ def main():
         addToFollowList(conn, 5, 20)
         addToFollowList(conn, 1, 193)
         addToFollowList(conn, 5, 196)
-        deleteFromFollowList(conn,'tim' , 20)
+        #deleteFromFollowList(conn,'tim' , 20)
         print('\n')
         viewFollowList(conn, 5)
         print('\n')
@@ -854,6 +818,9 @@ def main():
         #viewWriters(conn)
         #print('\n')
         #viewArtists(conn)
+        updateRecList(conn, 5)
+        updateRecList(conn,1)
+        viewRecclist(conn, 5)
 
 
     closeConnection(conn, database)
