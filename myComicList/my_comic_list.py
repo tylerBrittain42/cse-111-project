@@ -143,7 +143,7 @@ def dropTable(_conn):
     #print("++++++++++++++++++++++++++++++++++")
 
 
-#reads in pull information from text file
+#Inserts information from txt file into Issues
 def populateIssues(_conn):
     #print("++++++++++++++++++++++++++++++++++")
     #print("Populate issues")
@@ -178,7 +178,9 @@ def populateIssues(_conn):
 #Remove all entries from this readerID
 #Select all new recommendations
 #insert all new recommendations
-def updateRecList(_conn, readerID):
+#Note: we only update for a single user at a time
+#We will call this function anytime a change is made to a user's followinglist
+def updateReccList(_conn, readerID):
     #print("++++++++++++++++++++++++++++++++++")
     print("Update Recc List")
 
@@ -247,7 +249,9 @@ def updateRecList(_conn, readerID):
 
     #print("++++++++++++++++++++++++++++++++++")
 
-
+#Views a user's recommended list
+#Note: it is rare for a single artist to work on multiple books at a time so the majority of 
+#recommendations shown will be based off of the writer
 def viewRecclist(_conn, readerID):
     #print("++++++++++++++++++++++++++++++++++")
     print(str(readerID) + "'s recc list")
@@ -264,18 +268,17 @@ def viewRecclist(_conn, readerID):
         readerCount = cur.fetchall()
 
         for x in readerCount:
-            print(x)
-
+            print(x[0] + "\t" + x[1] + "\t" + x[2])
+            #print(x)
         print('view recc list success')
         
 
     except Error as e:
+        print(e)
         _conn.rollback()
 
 
-#Reads in information for writer and artist list
-#Reads in information for writer and artist list
-
+#Views a list of all of the issues 
 def viewIssues(_conn):
     #print("++++++++++++++++++++++++++++++++++")
     print("IssueList")
@@ -283,7 +286,9 @@ def viewIssues(_conn):
     try:
 
         sql = """ SELECT *
-                    FROM Issues
+                    FROM Issues,Writer,Artist
+                    WHERE i_id = a_id AND
+                        i_id = w_id
                     ORDER BY i_id ASC
                 """
         cur = _conn.cursor()
@@ -291,7 +296,7 @@ def viewIssues(_conn):
         readerCount = cur.fetchall()
 
         for x in readerCount:
-            print(str(x[0]) + "\t" + x[1] + "\t" + x[2].split(' ')[0] + "\t" + x[3] + "\t" + x[4])
+            print(str(x[0]) + "\t" + x[1] + "\t" + x[2].split(' ')[0] + "\t" + x[3] + "\t" + x[4] + "\t" + x[6] + "\t" + x[8])
 
         print('view Issue list success')
         
@@ -303,8 +308,7 @@ def viewIssues(_conn):
     #print("++++++++++++++++++++++++++++++++++")
 
 
-#Reads in information for writer and artist list
-#Reads in information for writer and artist list
+#Inserts from text file into Writer and Artist tables
 def populateCreative(_conn):
     #print("++++++++++++++++++++++++++++++++++")
     #print("Populate creative")
@@ -352,6 +356,7 @@ def populateCreative(_conn):
     #print("++++++++++++++++++++++++++++++++++")
 
 
+#Views a list of all of the writers
 def viewWriters(_conn):
     #print("++++++++++++++++++++++++++++++++++")
     print("Writer List")
@@ -367,7 +372,7 @@ def viewWriters(_conn):
         readerCount = cur.fetchall()
 
         for x in readerCount:
-            print(x)
+            print(x[0])
 
         print('view Writer list success')
         
@@ -378,7 +383,7 @@ def viewWriters(_conn):
 
     #print("++++++++++++++++++++++++++++++++++")
 
-
+#Views a list of all of the artists
 def viewArtists(_conn):
     #print("++++++++++++++++++++++++++++++++++")
     print("Artist List")
@@ -394,7 +399,7 @@ def viewArtists(_conn):
         readerCount = cur.fetchall()
 
         for x in readerCount:
-            print(x)
+            print(x[0])
 
         print('view Artist list success')
         
@@ -410,6 +415,9 @@ def viewArtists(_conn):
 
 #Relating to reader list
 ######################################3
+
+#Adds a new reader to the readerList
+#Note: we will assign the readerID to the current maximum readerID + one
 def addReader(_conn, reader):
     #print("++++++++++++++++++++++++++++++++++")
     #print("Add reader")
@@ -450,6 +458,7 @@ def addReader(_conn, reader):
     #print("++++++++++++++++++++++++++++++++++")
 
 
+#Views a list of all readers
 def viewReaderList(_conn):
     #print("++++++++++++++++++++++++++++++++++")
     print("ReaderList")
@@ -477,7 +486,6 @@ def viewReaderList(_conn):
 
 
 #when we are deleting a reader
-#we are also shifting down the id numbers to avoid gaps
 def deleteReader(_conn, reader):
     #print("++++++++++++++++++++++++++++++++++")
     #print("Delete reader" + reader)
@@ -549,23 +557,25 @@ def deleteFromFollowList(_conn,reader, issue):
 
     try:
 
-        sql = """ SELECT r_id
-                    FROM readerList
-                    WHERE r_name = ?
-                """
+        #Can find reader id given a name
+        # sql = """ SELECT r_id
+        #             FROM readerList
+        #             WHERE r_name = ?
+        #         """
 
-        args = [reader]
+        # args = [reader]
 
-        cur = _conn.cursor()
-        cur.execute(sql, args)
-        deletedReader = cur.fetchall()[0][0]
+        # cur = _conn.cursor()
+        # cur.execute(sql, args)
+        # deletedReader = cur.fetchall()[0][0]
        
 
 
         sql = """DELETE FROM followList
                     WHERE fl_id = ? AND
                     fl_issueID = ?"""
-        args = [deletedReader, issue]
+        #args = [deletedReader, issue]
+        args = [reader, issue]
         _conn.execute(sql, args)
 
 
@@ -617,12 +627,18 @@ def viewFollowList(_conn, userID):
 
 #Relating to reading list
 ######################################
+
+#Adds an issue to a specific reader's readling list
 def addToReadingList(_conn, userID, issueID,ownership):
     #print("++++++++++++++++++++++++++++++++++")
     #print("Add " + str(issueID) + " to " + str(userID) + "'s reading list")
 
     try:
 
+        #rl_ownStat key
+        #w = want
+        #o = own
+        #m = maybe
         sql = """ INSERT INTO ReadingList(rl_readerID, rl_issueID, rl_ownStat) 
                     VALUES (?, ?, ?)
                 """
@@ -643,7 +659,7 @@ def addToReadingList(_conn, userID, issueID,ownership):
 
     #print("++++++++++++++++++++++++++++++++++")  
 
-
+#Deletes a specific issue from a reader's reading list
 def deleteFromReadingList(_conn,reader, issue):
     #print("++++++++++++++++++++++++++++++++++")
     #print("Deleting " + str(issue) + " from "  + str(reader) + "'s reading list")
@@ -669,7 +685,7 @@ def deleteFromReadingList(_conn,reader, issue):
 
     #print("++++++++++++++++++++++++++++++++++")
 
-
+#Changes the ownnership status of a single issue from a single reader's reading list
 def changeOwnership(_conn, readerID, issueID, newStatus):
     #print("++++++++++++++++++++++++++++++++++")
     #print("Updating "  + str(readerID) + "'s reading list")
@@ -696,14 +712,14 @@ def changeOwnership(_conn, readerID, issueID, newStatus):
 
     #print("++++++++++++++++++++++++++++++++++")
 
-
+#View everyone's reading list
 def viewAllReadingLists(_conn):
     #print("++++++++++++++++++++++++++++++++++")
     print("View all reading lists")
 
     try:
 
-        sql = """ SELECT r_name,i_title,i_issue
+        sql = """ SELECT r_name,i_title,i_issue, rl_ownStat
                     FROM ReadingList, readerList, Issues
                     WHERE r_id = rl_readerID AND
                         i_id = rl_issueID
@@ -716,7 +732,7 @@ def viewAllReadingLists(_conn):
 
 
         for x in readerCount:
-            print(x[0] + "\t" + x[1] + "\t" + x[2].split(' ')[0])
+            print(x[0] + "\t" + x[1] + "\t" + x[2].split(' ')[0] + "\t" + x[3])
 
         print('success')
         
@@ -728,13 +744,14 @@ def viewAllReadingLists(_conn):
     #print("++++++++++++++++++++++++++++++++++")
 
 
+#View a specific student's reading list
 def viewSpecReadingList(_conn, readerID):
     #print("++++++++++++++++++++++++++++++++++")
     print("View " + str(readerID) + "s reading lists")
 
     try:
 
-        sql = """SELECT r_name,i_title,i_issue
+        sql = """SELECT r_name,i_title,i_issue, rl_ownStat
                     FROM ReadingList, readerList, Issues
                     WHERE r_id = rl_readerID AND
                         i_id = rl_issueID AND
@@ -750,7 +767,7 @@ def viewSpecReadingList(_conn, readerID):
 
 
         for x in readerCount:
-            print(x[0] + "\t" + x[1] + "\t" + x[2].split(' ')[0])
+            print(x[1] + "\t" + x[2].split(' ')[0] + "\t" + x[3])
 
         print('success')
         
@@ -771,57 +788,63 @@ def main():
     # create a database connection
     conn = openConnection(database)
     with conn:
-        print('\n')
+        #Testing intitial database setup
+        print()
         dropTable(conn)
         createTable(conn)
         populateIssues(conn)
         populateCreative(conn)
-        print('\n')
+        print()
 
+        #Testing tables view
+        #viewIssues(conn)
+        #print()
+        #viewWriters(conn)
+        #print()
+        #viewArtists(conn)
+
+        #Testing readerlist
         addReader(conn, "Bob")
         addReader(conn, "Joe")
         addReader(conn, "Jim")
         addReader(conn, "Bill")
-        print('\n')
-        viewReaderList(conn)
-        print('\n')
         deleteReader(conn, "Joe")
         addReader(conn, "tim")
-        print('\n')
+        print()
         viewReaderList(conn)
-        print('\n')
+        print()
 
-
+        #testing followList
         addToFollowList(conn, 5, 20)
         addToFollowList(conn, 1, 193)
         addToFollowList(conn, 5, 196)
-        #deleteFromFollowList(conn,'tim' , 20)
-        print('\n')
+        deleteFromFollowList(conn,5 , 20)
+        print()
         viewFollowList(conn, 5)
-        print('\n')
+        print()
 
-
+        #readingList tests
         addToReadingList(conn,5,20,'o')
         addToReadingList(conn,5,196 ,'o')
         addToReadingList(conn, 1, 193, 'w')
         addToReadingList(conn,3, 189, 'w')
         addToReadingList(conn,3, 534, 'w')
         deleteFromReadingList(conn, 5, 20)
-        changeOwnership(conn, 5, 196, 'E')
-        print('\n')
+        changeOwnership(conn, 5, 196, 'm')
+        print()
         viewAllReadingLists(conn)
-        print('\n')
+        print()
         viewSpecReadingList(conn, 3)
-        print('\n')
-        #viewIssues(conn)
-        print('\n')
-        #viewWriters(conn)
-        #print('\n')
-        #viewArtists(conn)
-        updateRecList(conn, 5)
-        updateRecList(conn,1)
-        viewRecclist(conn, 5)
+        print()
 
+
+
+        #ReccList tests
+        updateReccList(conn, 5)
+        updateReccList(conn,1)
+        print()
+        viewRecclist(conn, 5)
+        print()
 
     closeConnection(conn, database)
 
