@@ -370,7 +370,7 @@ def viewFollowList(_conn, userID):
 
 
 
-        print('success a')
+        print('success')
 
 
     except Error as e:
@@ -378,6 +378,34 @@ def viewFollowList(_conn, userID):
         print(e)
 
     print("++++++++++++++++++++++++++++++++++")
+
+
+def addToReadingList(_conn, userID, issueID,ownership):
+    print("++++++++++++++++++++++++++++++++++")
+    print("Add " + str(issueID) + " to " + str(userID) + "'s reading list")
+
+    try:
+
+        sql = """ INSERT INTO ReadingList(rl_readerID, rl_issueID, rl_ownStat) 
+                    VALUES (?, ?, ?)
+                """
+
+        args = [userID, issueID, ownership]
+
+        cur = _conn.cursor()
+        cur.execute(sql, args)
+
+
+
+        print('success')
+
+
+    except Error as e:
+        _conn.rollback()
+        print(e)
+
+    print("++++++++++++++++++++++++++++++++++")  
+
 
 def Q1(_conn):
     print("++++++++++++++++++++++++++++++++++")
@@ -721,7 +749,7 @@ def main():
         addToFollowList(conn, 5, 20)
         addToFollowList(conn, 1, 193)
         addToFollowList(conn, 5, 196)
-        # deleteFromFollowList(conn, 5, 20)
+        deleteFromFollowList(conn, 5, 20)
         viewFollowList(conn, 5)
 
 
