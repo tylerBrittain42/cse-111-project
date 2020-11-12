@@ -94,3 +94,4 @@ WHERE r_id = rl_readerID AND
     i_id = rl_issueID AND
     r_id = 3
 ORDER BY rl_issueID asc
+

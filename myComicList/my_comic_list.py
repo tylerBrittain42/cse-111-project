@@ -3,38 +3,38 @@ from sqlite3 import Error
 
 
 def openConnection(_dbFile):
-    print("++++++++++++++++++++++++++++++++++")
-    print("Open database: ", _dbFile)
+    #print("++++++++++++++++++++++++++++++++++")
+    #print("Open database: ", _dbFile)
 
     conn = None
     try:
         conn = sqlite3.connect(_dbFile)
-        print("success")
+        print("Connection Success")
     except Error as e:
         print(e)
 
-    print("++++++++++++++++++++++++++++++++++")
+    #print("++++++++++++++++++++++++++++++++++")
 
     return conn
 
 def closeConnection(_conn, _dbFile):
-    print("++++++++++++++++++++++++++++++++++")
-    print("Close database: ", _dbFile)
+    #print("++++++++++++++++++++++++++++++++++")
+    #print("Close database: ", _dbFile)
 
     try:
         _conn.close()
-        print("success")
+        print("Close success")
     except Error as e:
         print(e)
 
-    print("++++++++++++++++++++++++++++++++++")
+    #print("++++++++++++++++++++++++++++++++++")
 
 #Initial database setup
 ############################################
 #Creates all the relevant tables
 def createTable(_conn):
-    print("++++++++++++++++++++++++++++++++++")
-    print("Create table")
+    #print("++++++++++++++++++++++++++++++++++")
+    #print("Create table")
 
     try:
         #Issues
@@ -95,20 +95,20 @@ def createTable(_conn):
         _conn.execute(sql)
 
 
-        print('success')
+        print('tables created')
 
 
     except Error as e:
         _conn.rollback()
         print(e)
-
-    print("++++++++++++++++++++++++++++++++++")
+        
+    #print("++++++++++++++++++++++++++++++++++")
 
 
 #Drops all tables in the database
 def dropTable(_conn):
-    print("++++++++++++++++++++++++++++++++++")
-    print("Drop tables")
+    #print("++++++++++++++++++++++++++++++++++")
+    #print("Drop tables")
 
     try:
 
@@ -133,20 +133,20 @@ def dropTable(_conn):
         sql = "DROP TABLE ReccList"
         _conn.execute(sql)
 
-        print('success')
+        print('Drop table success')
 
     except Error as e:
         _conn.rollback()
         print(e)
 
 
-    print("++++++++++++++++++++++++++++++++++")
+    #print("++++++++++++++++++++++++++++++++++")
 
 
 #reads in pull information from text file
 def populateIssues(_conn):
-    print("++++++++++++++++++++++++++++++++++")
-    print("Populate issues")
+    #print("++++++++++++++++++++++++++++++++++")
+    #print("Populate issues")
 
     try:
 
@@ -165,20 +165,47 @@ def populateIssues(_conn):
             args = [currentIssue[0], currentIssue[1], currentIssue[2], currentIssue[3], currentIssue[4]]            
             _conn.execute(sql, args)
 
-        print('success')
+        print('Populate Issues success')
 
     except Error as e:
         _conn.rollback()
         print(e)
 
-    print("++++++++++++++++++++++++++++++++++")
+    #print("++++++++++++++++++++++++++++++++++")
+
+
+def viewIssues(_conn):
+    #print("++++++++++++++++++++++++++++++++++")
+    print("IssueList")
+
+    try:
+
+        sql = """ SELECT *
+                    FROM Issues
+                    ORDER BY i_id ASC
+                """
+        cur = _conn.cursor()
+        cur.execute(sql)
+        readerCount = cur.fetchall()
+
+        for x in readerCount:
+            print(str(x[0]) + "\t" + x[1] + "\t" + x[2].split(' ')[0] + "\t" + x[3] + "\t" + x[4])
+
+        print('view Issue list success')
+        
+
+    except Error as e:
+        _conn.rollback()
+        print(e)
+
+    #print("++++++++++++++++++++++++++++++++++")
 
 
 #Reads in information for writer and artist list
 #Reads in information for writer and artist list
 def populateCreative(_conn):
-    print("++++++++++++++++++++++++++++++++++")
-    print("Populate creative")
+    #print("++++++++++++++++++++++++++++++++++")
+    #print("Populate creative")
 
     try:
 
@@ -191,29 +218,90 @@ def populateCreative(_conn):
         for x in contents:
 
             currentLine= x.split('\t')
+            currentID = currentLine[0]
+
+            for y in range(len(currentLine)):
+                
+                currentLine[y] = currentLine[y].split(")")
             
 
             sql = """ INSERT INTO Artist(a_id, a_name) 
                             VALUES(?, ?)
                     """
 
-            args = [currentLine[0], (currentLine[2])]            
+            args = [currentID, (currentLine[2][1])]            
             _conn.execute(sql, args)
 
             sql = """ INSERT INTO Writer(w_id, w_name) 
                             VALUES(?, ?)
                     """
 
-            args = [currentLine[0], (currentLine[1])]            
+            args = [currentID, (currentLine[1][1])]            
             _conn.execute(sql, args)
 
-        print('success')
+            
+
+        print('PopulateCreative success')
 
     except Error as e:
         _conn.rollback()
         print(e)
 
-    print("++++++++++++++++++++++++++++++++++")
+    #print("++++++++++++++++++++++++++++++++++")
+
+
+def viewWriters(_conn):
+    #print("++++++++++++++++++++++++++++++++++")
+    print("Writer List")
+
+    try:
+
+        sql = """ SELECT DISTINCT(w_name)
+                    FROM Writer
+                    ORDER BY w_name ASC
+                """
+        cur = _conn.cursor()
+        cur.execute(sql)
+        readerCount = cur.fetchall()
+
+        for x in readerCount:
+            print(x)
+
+        print('view Writer list success')
+        
+
+    except Error as e:
+        _conn.rollback()
+        print(e)
+
+    #print("++++++++++++++++++++++++++++++++++")
+
+
+def viewArtists(_conn):
+    #print("++++++++++++++++++++++++++++++++++")
+    print("Artist List")
+
+    try:
+
+        sql = """ SELECT DISTINCT(a_name)
+                    FROM Artist
+                    ORDER BY a_name ASC
+                """
+        cur = _conn.cursor()
+        cur.execute(sql)
+        readerCount = cur.fetchall()
+
+        for x in readerCount:
+            print(x)
+
+        print('view Artist list success')
+        
+
+    except Error as e:
+        _conn.rollback()
+        print(e)
+
+    #print("++++++++++++++++++++++++++++++++++")
 
 
 
@@ -221,8 +309,8 @@ def populateCreative(_conn):
 #Relating to reader list
 ######################################3
 def addReader(_conn, reader):
-    print("++++++++++++++++++++++++++++++++++")
-    print("Add reader")
+    #print("++++++++++++++++++++++++++++++++++")
+    #print("Add reader")
 
     try:
 
@@ -232,7 +320,7 @@ def addReader(_conn, reader):
         cur = _conn.cursor()
         cur.execute(sql)
         readerMaxId = cur.fetchone()
-        print(readerMaxId[0])
+        
 
         if readerMaxId[0] == None:
             nextID = 0
@@ -250,19 +338,19 @@ def addReader(_conn, reader):
         args = [str(nextID), reader]            
         _conn.execute(sql, args)
 
-        print('success')
+        print('Added reader ' + reader + " successfully")
         
 
     except Error as e:
         _conn.rollback()
         print(e)
 
-    print("++++++++++++++++++++++++++++++++++")
+    #print("++++++++++++++++++++++++++++++++++")
 
 
 def viewReaderList(_conn):
-    print("++++++++++++++++++++++++++++++++++")
-    print("View ReaderList")
+    #print("++++++++++++++++++++++++++++++++++")
+    print("ReaderList")
 
     try:
 
@@ -276,21 +364,21 @@ def viewReaderList(_conn):
         for x in readerCount:
             print(x)
 
-        print('success')
+        print('viewReaderlist success')
         
 
     except Error as e:
         _conn.rollback()
         print(e)
 
-    print("++++++++++++++++++++++++++++++++++")
+    #print("++++++++++++++++++++++++++++++++++")
 
 
 #when we are deleting a reader
 #we are also shifting down the id numbers to avoid gaps
 def deleteReader(_conn, reader):
-    print("++++++++++++++++++++++++++++++++++")
-    print("Delete reader" + reader)
+    #print("++++++++++++++++++++++++++++++++++")
+    #print("Delete reader" + reader)
 
     try:
 
@@ -313,22 +401,22 @@ def deleteReader(_conn, reader):
 
 
 
-        print('success')
+        print("Deleted reader " + reader + " Success")
 
 
     except Error as e:
         _conn.rollback()
         print(e)
 
-    print("++++++++++++++++++++++++++++++++++")
+    #print("++++++++++++++++++++++++++++++++++")
 
 
 
 #Relating to following list
 ##########################################
 def addToFollowList(_conn, userID, issueID):
-    print("++++++++++++++++++++++++++++++++++")
-    print("Add " + str(issueID) + " to " + str(userID) + "'s followList")
+    #print("++++++++++++++++++++++++++++++++++")
+    #print("Add " + str(issueID) + " to " + str(userID) + "'s followList")
 
     try:
 
@@ -343,19 +431,19 @@ def addToFollowList(_conn, userID, issueID):
 
 
 
-        print('success')
+        print("Added " + str(issueID) + " to " + str(userID) + "'s followList Success")
 
 
     except Error as e:
         _conn.rollback()
         print(e)
 
-    print("++++++++++++++++++++++++++++++++++")  
+    #print("++++++++++++++++++++++++++++++++++")  
 
 
 def deleteFromFollowList(_conn,reader, issue):
-    print("++++++++++++++++++++++++++++++++++")
-    print("Deleting " + str(issue) + " from "  + str(reader) + "'s following list")
+    #print("++++++++++++++++++++++++++++++++++")
+    #print("Deleting " + str(issue) + " from "  + str(reader) + "'s following list")
 
     try:
 
@@ -369,7 +457,7 @@ def deleteFromFollowList(_conn,reader, issue):
         cur = _conn.cursor()
         cur.execute(sql, args)
         deletedReader = cur.fetchall()[0][0]
-        print(deletedReader)
+       
 
 
         sql = """DELETE FROM followList
@@ -380,19 +468,19 @@ def deleteFromFollowList(_conn,reader, issue):
 
 
 
-        print('success')
+        print("Deleted " + str(issue) + " from "  + str(reader) + "'s following list Success")
 
 
     except Error as e:
         _conn.rollback()
         print(e)
 
-    print("++++++++++++++++++++++++++++++++++")
+    #print("++++++++++++++++++++++++++++++++++")
 
 
 #for now we will add in all creators from a specific issue to the following list 
 def viewFollowList(_conn, userID):
-    print("++++++++++++++++++++++++++++++++++")
+    #print("++++++++++++++++++++++++++++++++++")
     print("Viewing " + str(userID) + "'s followList")
 
     try:
@@ -422,14 +510,14 @@ def viewFollowList(_conn, userID):
         _conn.rollback()
         print(e)
 
-    print("++++++++++++++++++++++++++++++++++")
+    #print("++++++++++++++++++++++++++++++++++")
 
 
 #Relating to reading list
 ######################################
 def addToReadingList(_conn, userID, issueID,ownership):
-    print("++++++++++++++++++++++++++++++++++")
-    print("Add " + str(issueID) + " to " + str(userID) + "'s reading list")
+    #print("++++++++++++++++++++++++++++++++++")
+    #print("Add " + str(issueID) + " to " + str(userID) + "'s reading list")
 
     try:
 
@@ -444,19 +532,19 @@ def addToReadingList(_conn, userID, issueID,ownership):
 
 
 
-        print('success')
+        print("Added " + str(issueID) + " to " + str(userID) + "'s reading list Success")
 
 
     except Error as e:
         _conn.rollback()
         print(e)
 
-    print("++++++++++++++++++++++++++++++++++")  
+    #print("++++++++++++++++++++++++++++++++++")  
 
 
 def deleteFromReadingList(_conn,reader, issue):
-    print("++++++++++++++++++++++++++++++++++")
-    print("Deleting " + str(issue) + " from "  + str(reader) + "'s reading list")
+    #print("++++++++++++++++++++++++++++++++++")
+    #print("Deleting " + str(issue) + " from "  + str(reader) + "'s reading list")
 
     try:
 
@@ -470,19 +558,19 @@ def deleteFromReadingList(_conn,reader, issue):
 
 
 
-        print('success')
+        print("Deleted " + str(issue) + " from "  + str(reader) + "'s reading list Success")
 
 
     except Error as e:
         _conn.rollback()
         print(e)
 
-    print("++++++++++++++++++++++++++++++++++")
+    #print("++++++++++++++++++++++++++++++++++")
 
 
 def changeOwnership(_conn, readerID, issueID, newStatus):
-    print("++++++++++++++++++++++++++++++++++")
-    print("Updating "  + str(readerID) + "'s reading list")
+    #print("++++++++++++++++++++++++++++++++++")
+    #print("Updating "  + str(readerID) + "'s reading list")
 
     try:
 
@@ -497,18 +585,18 @@ def changeOwnership(_conn, readerID, issueID, newStatus):
 
 
 
-        print('success')
+        print("Updated "  + str(readerID) + "'s reading list Success")
 
 
     except Error as e:
         _conn.rollback()
         print(e)
 
-    print("++++++++++++++++++++++++++++++++++")
+    #print("++++++++++++++++++++++++++++++++++")
 
 
 def viewAllReadingLists(_conn):
-    print("++++++++++++++++++++++++++++++++++")
+    #print("++++++++++++++++++++++++++++++++++")
     print("View all reading lists")
 
     try:
@@ -535,11 +623,11 @@ def viewAllReadingLists(_conn):
         _conn.rollback()
         print(e)
 
-    print("++++++++++++++++++++++++++++++++++")
+    #print("++++++++++++++++++++++++++++++++++")
 
 
 def viewSpecReadingList(_conn, readerID):
-    print("++++++++++++++++++++++++++++++++++")
+    #print("++++++++++++++++++++++++++++++++++")
     print("View " + str(readerID) + "s reading lists")
 
     try:
@@ -569,10 +657,10 @@ def viewSpecReadingList(_conn, readerID):
         _conn.rollback()
         print(e)
 
-    print("++++++++++++++++++++++++++++++++++")
+    #print("++++++++++++++++++++++++++++++++++")
 
 
-def q5():
+def q5(_conn):
     print("++++++++++++++++++++++++++++++++++")
     print("Q5")
 
@@ -710,7 +798,7 @@ def q5():
 
 
 
-    print("++++++++++++++++++++++++++++++++++")
+    #print("++++++++++++++++++++++++++++++++++")
 
 
 def main():
@@ -719,26 +807,35 @@ def main():
     # create a database connection
     conn = openConnection(database)
     with conn:
+        print('\n')
         dropTable(conn)
         createTable(conn)
         populateIssues(conn)
         populateCreative(conn)
+        print('\n')
 
         addReader(conn, "Bob")
         addReader(conn, "Joe")
         addReader(conn, "Jim")
         addReader(conn, "Bill")
+        print('\n')
         viewReaderList(conn)
+        print('\n')
         deleteReader(conn, "Joe")
         addReader(conn, "tim")
+        print('\n')
         viewReaderList(conn)
+        print('\n')
 
-        #should output tim and lemire
+
         addToFollowList(conn, 5, 20)
         addToFollowList(conn, 1, 193)
         addToFollowList(conn, 5, 196)
         deleteFromFollowList(conn,'tim' , 20)
+        print('\n')
         viewFollowList(conn, 5)
+        print('\n')
+
 
         addToReadingList(conn,5,20,'o')
         addToReadingList(conn,5,196 ,'o')
@@ -747,9 +844,16 @@ def main():
         addToReadingList(conn,3, 534, 'w')
         deleteFromReadingList(conn, 5, 20)
         changeOwnership(conn, 5, 196, 'E')
+        print('\n')
         viewAllReadingLists(conn)
+        print('\n')
         viewSpecReadingList(conn, 3)
-
+        print('\n')
+        #viewIssues(conn)
+        print('\n')
+        #viewWriters(conn)
+        #print('\n')
+        #viewArtists(conn)
 
 
     closeConnection(conn, database)
