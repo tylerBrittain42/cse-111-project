@@ -62,7 +62,7 @@ def createTable(_conn):
 
         #FollowList
         sql = """CREATE TABLE FollowList(
-                    fl_id decimal(9,0) NOT NULL PRIMARY KEY,
+                    fl_id decimal(9,0) NOT NULL,
                     fl_issueID char(4) NOT NULL
                     --Do i need to change this part?
                     --fl_artistID decimal(9,0) NOT NULL,
@@ -318,7 +318,6 @@ def deleteReader(_conn, reader):
     print("++++++++++++++++++++++++++++++++++")
 
 
-#for now we will add in all creators from a specific issue to the following list 
 def addToFollowList(_conn, userID, issueID):
     print("++++++++++++++++++++++++++++++++++")
     print("Add " + str(issueID) + " to " + str(userID) + "'s followList")
@@ -343,9 +342,42 @@ def addToFollowList(_conn, userID, issueID):
         _conn.rollback()
         print(e)
 
+    print("++++++++++++++++++++++++++++++++++")  
+
+
+#for now we will add in all creators from a specific issue to the following list 
+def viewFollowList(_conn, userID):
     print("++++++++++++++++++++++++++++++++++")
+    print("Viewing " + str(userID) + "'s followList")
+
+    try:
+
+        sql = """SELECT w_name AS 'Writers', a_name AS 'Artists'
+                    FROM FollowList, Writer,Artist
+                    WHERE a_id = fl_issueID AND
+                            w_id = fl_issueID AND
+                            fl_id = ?
+                """
+
+        args = [userID]
+
+        cur = _conn.cursor()
+        cur.execute(sql, args)
+        following = cur.fetchall()
+
+        for x in following:
+            print(x)
 
 
+
+        print('success')
+
+
+    except Error as e:
+        _conn.rollback()
+        print(e)
+
+    print("++++++++++++++++++++++++++++++++++")
 
 def Q1(_conn):
     print("++++++++++++++++++++++++++++++++++")
@@ -687,6 +719,10 @@ def main():
 
         #should output tim and lemire
         addToFollowList(conn, 5, 20)
+        addToFollowList(conn, 1, 193)
+        addToFollowList(conn, 5, 196)
+        # deleteFromFollowList(conn, 5, 20)
+        viewFollowList(conn, 5)
 
 
 

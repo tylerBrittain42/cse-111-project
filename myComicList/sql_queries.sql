@@ -73,3 +73,9 @@ FROM ReadingList
 UPDATE readerList
 SET r_id = (r_id - 1)
 WHERE r_id > ?
+
+SELECT w_name AS 'Writers', a_name AS 'Artists'
+FROM FollowList, Writer,Artist
+WHERE a_id = fl_issueID AND
+        w_id = fl_issueID AND
+        fl_id = 5
