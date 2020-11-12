@@ -29,7 +29,8 @@ def closeConnection(_conn, _dbFile):
 
     print("++++++++++++++++++++++++++++++++++")
 
-
+#Initial database setup
+############################################
 #Creates all the relevant tables
 def createTable(_conn):
     print("++++++++++++++++++++++++++++++++++")
@@ -215,6 +216,10 @@ def populateCreative(_conn):
     print("++++++++++++++++++++++++++++++++++")
 
 
+
+
+#Relating to reader list
+######################################3
 def addReader(_conn, reader):
     print("++++++++++++++++++++++++++++++++++")
     print("Add reader")
@@ -318,6 +323,9 @@ def deleteReader(_conn, reader):
     print("++++++++++++++++++++++++++++++++++")
 
 
+
+#Relating to following list
+##########################################
 def addToFollowList(_conn, userID, issueID):
     print("++++++++++++++++++++++++++++++++++")
     print("Add " + str(issueID) + " to " + str(userID) + "'s followList")
@@ -417,6 +425,8 @@ def viewFollowList(_conn, userID):
     print("++++++++++++++++++++++++++++++++++")
 
 
+#Relating to reading list
+######################################
 def addToReadingList(_conn, userID, issueID,ownership):
     print("++++++++++++++++++++++++++++++++++")
     print("Add " + str(issueID) + " to " + str(userID) + "'s reading list")
@@ -442,6 +452,9 @@ def addToReadingList(_conn, userID, issueID,ownership):
         print(e)
 
     print("++++++++++++++++++++++++++++++++++")  
+
+
+def
 
 
 def Q1(_conn):
@@ -788,6 +801,8 @@ def main():
         addToFollowList(conn, 5, 196)
         deleteFromFollowList(conn,'tim' , 20)
         viewFollowList(conn, 5)
+
+        addToReadingList(conn,5,20,'o')
         
 
 
