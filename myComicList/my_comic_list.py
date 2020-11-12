@@ -345,6 +345,43 @@ def addToFollowList(_conn, userID, issueID):
     print("++++++++++++++++++++++++++++++++++")  
 
 
+def deleteFromFollowList(_conn,reader, issue):
+    print("++++++++++++++++++++++++++++++++++")
+    print("Deleting " + str(issue) + " from "  + str(reader) + "'s following list")
+
+    try:
+
+        sql = """ SELECT r_id
+                    FROM readerList
+                    WHERE r_name = ?
+                """
+
+        args = [reader]
+
+        cur = _conn.cursor()
+        cur.execute(sql, args)
+        deletedReader = cur.fetchall()[0][0]
+        print(deletedReader)
+
+
+        sql = """DELETE FROM followList
+                    WHERE fl_id = ? AND
+                    fl_issueID = ?"""
+        args = [deletedReader, issue]
+        _conn.execute(sql, args)
+
+
+
+        print('success')
+
+
+    except Error as e:
+        _conn.rollback()
+        print(e)
+
+    print("++++++++++++++++++++++++++++++++++")
+
+
 #for now we will add in all creators from a specific issue to the following list 
 def viewFollowList(_conn, userID):
     print("++++++++++++++++++++++++++++++++++")
@@ -749,8 +786,9 @@ def main():
         addToFollowList(conn, 5, 20)
         addToFollowList(conn, 1, 193)
         addToFollowList(conn, 5, 196)
-        deleteFromFollowList(conn, 5, 20)
+        deleteFromFollowList(conn,'tim' , 20)
         viewFollowList(conn, 5)
+        
 
 
 
