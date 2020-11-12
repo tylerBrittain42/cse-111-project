@@ -63,9 +63,10 @@ def createTable(_conn):
         #FollowList
         sql = """CREATE TABLE FollowList(
                     fl_id decimal(9,0) NOT NULL PRIMARY KEY,
+                    fl_issueID char(4) NOT NULL
                     --Do i need to change this part?
-                    fl_artistID decimal(9,0) NOT NULL,
-                    fl_writerID decimal(9,0) NOT NULL
+                    --fl_artistID decimal(9,0) NOT NULL,
+                    --fl_writerID decimal(9,0) NOT NULL
                 ) """
         _conn.execute(sql)
 
@@ -214,9 +215,6 @@ def populateCreative(_conn):
     print("++++++++++++++++++++++++++++++++++")
 
 
-
-
-
 def addReader(_conn, reader):
     print("++++++++++++++++++++++++++++++++++")
     print("Add reader")
@@ -255,7 +253,6 @@ def addReader(_conn, reader):
         print(e)
 
     print("++++++++++++++++++++++++++++++++++")
-
 
 
 def viewReaderList(_conn):
@@ -310,11 +307,6 @@ def deleteReader(_conn, reader):
         _conn.execute(sql, args)
 
 
-        # sql = """UPDATE readerList
-        #             SET r_id = (r_id - 1)
-        #             WHERE r_id > ? """
-        # args = [deletedReader[0][0]]
-        # _conn.execute(sql, args)
 
         print('success')
 
@@ -324,6 +316,36 @@ def deleteReader(_conn, reader):
         print(e)
 
     print("++++++++++++++++++++++++++++++++++")
+
+
+#for now we will add in all creators from a specific issue to the following list 
+def addToFollowList(_conn, userID, issueID):
+    print("++++++++++++++++++++++++++++++++++")
+    print("Add " + str(issueID) + " to " + str(userID) + "'s followList")
+
+    try:
+
+        sql = """ INSERT INTO FollowList(fl_id, fl_issueID) 
+                    VALUES (?, ?)
+                """
+
+        args = [userID, issueID]
+
+        cur = _conn.cursor()
+        cur.execute(sql, args)
+
+
+
+        print('success')
+
+
+    except Error as e:
+        _conn.rollback()
+        print(e)
+
+    print("++++++++++++++++++++++++++++++++++")
+
+
 
 def Q1(_conn):
     print("++++++++++++++++++++++++++++++++++")
@@ -579,7 +601,7 @@ def Q5(_conn):
             outF.write(sName +  nat + "\n")
 
 
-        targetReg = 'ASIA'>Nat, targetReg, targetReg
+        #targetReg = 'ASIA'>Nat, targetReg, targetReg
 
         rows = cur.fetchall()
         
@@ -662,6 +684,9 @@ def main():
         deleteReader(conn, "Joe")
         addReader(conn, "tim")
         viewReaderList(conn)
+
+        #should output tim and lemire
+        addToFollowList(conn, 5, 20)
 
 
 
