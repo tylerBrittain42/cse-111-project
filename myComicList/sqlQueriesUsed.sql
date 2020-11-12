@@ -185,20 +185,20 @@ DELETE FROM ReadingList
     WHERE rl_readerID = 1 AND
     rl_issueID = 216
 
---changeOwnership
+--changeOwnership(Count: 1)
 UPDATE readingList
     SET rl_ownStat = 'Q'
     WHERE rl_readerID = 1 AND
         rl_issueID = 216
 
---viewAllReadingLists
+--viewAllReadingLists(Count: 1)
 SELECT r_name,i_title,i_issue, rl_ownStat
     FROM ReadingList, readerList, Issues
     WHERE r_id = rl_readerID AND
         i_id = rl_issueID
     ORDER BY rl_readerID, rl_issueID asc
 
---viewSpecReadingList
+--viewSpecReadingList(Count: 1)
 SELECT r_name,i_title,i_issue, rl_ownStat
 FROM ReadingList, readerList, Issues
 WHERE r_id = rl_readerID AND
@@ -206,3 +206,4 @@ WHERE r_id = rl_readerID AND
     r_id = 1
 ORDER BY rl_issueID asc
 
+--Total Queries: 37
