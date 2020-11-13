@@ -89,10 +89,18 @@ def createTable(_conn):
         sql = """CREATE TABLE ReccList(
                     --r_aId decimal(9,0) NOT NULL,
                     --r_wId decimal(9,0) NOT NULL,
-                    r_readerID decimal(9,0) NOT NULL,
-                    r_issueID decimal(9,0) NOT NULL
+                    rc_readerID decimal(9,0) NOT NULL,
+                    rc_issueID decimal(9,0) NOT NULL
                 )"""
         _conn.execute(sql)
+
+        #userCost
+        sql = """CREATE TABLE userCost(
+                    u_id  decimal(9,0) NOT NULL PRIMARY KEY,
+                    u_cost decimal(4,2) NOT NULL
+                )"""
+        _conn.execute(sql)
+
 
 
         print('tables created')
@@ -131,6 +139,9 @@ def dropTable(_conn):
         _conn.execute(sql)
 
         sql = "DROP TABLE ReccList"
+        _conn.execute(sql)
+
+        sql = "DROP TABLE UserCost"
         _conn.execute(sql)
 
         print('Drop table success')
@@ -188,7 +199,7 @@ def updateReccList(_conn, readerID):
 
         #Deleting all entries
         sql = """DELETE FROM reccList
-                    WHERE r_readerID = ?"""
+                    WHERE rc_readerID = ?"""
         args = [readerID]
         _conn.execute(sql, args)
 
@@ -232,7 +243,7 @@ def updateReccList(_conn, readerID):
 
         #inserting all new recomendations
         for x in toAdd:
-            sql = """INSERT INTO ReccList(r_readerID, r_issueID) 
+            sql = """INSERT INTO ReccList(rc_readerID, rc_issueID) 
                         VALUES (?, ?)"""
             args = [readerID, x[0]]            
             _conn.execute(sql, args)
@@ -260,8 +271,8 @@ def viewRecclist(_conn, readerID):
 
         sql = """SELECT (i_title || i_issue) AS issueTitle, i_date, i_srp
                     FROM Issues, ReccList
-                    WHERE i_id = r_issueID AND
-                        r_readerID = ?"""
+                    WHERE i_id = rc_issueID AND
+                        rc_readerID = ?"""
         cur = _conn.cursor()
         args = [readerID]
         cur.execute(sql, args)
@@ -780,31 +791,42 @@ def viewSpecReadingList(_conn, readerID):
     #print("++++++++++++++++++++++++++++++++++")
 
 
-#View a specific student's reading list
-def viewPullCost(_conn):
+#Calculates the cost of a user's list
+#same 3 steps as recc list
+def updateUserCost(_conn, readerID):
     #print("++++++++++++++++++++++++++++++++++")
-    print("View PullCost")
+    
 
     try:
+        #Delete
+        sql = """DELETE FROM userCost
+                    WHERE u_id = ?"""
+        args = [readerID]
+        _conn.execute(sql, args)
 
-        sql = """SELECT r_name, SUM(SUBSTR(i_srp, 7)) AS 'pullList price'
+        #Select
+        sql = """SELECT r_id, SUM(SUBSTR(i_srp, 7))
                     FROM Issues, ReadingList, readerList
                     WHERE i_id = rl_issueID AND
                         rl_readerID = r_ID AND
+                        rl_readerID = ? AND
                         rl_ownStat = 'w'
                     GROUP BY r_name
                 """
- 
+        args = [readerID]
         cur = _conn.cursor()
-        cur.execute(sql)
-        readerCount = cur.fetchall()
+        cur.execute(sql, args)
+        toAdd = cur.fetchall()
 
 
 
-        for x in readerCount:
-            print(x)
+        for x in toAdd:
+            sql = """INSERT INTO userCost(u_id, u_cost)
+                        VALUES(?, ?)"""
+            args = [readerID, x[1]]
+            _conn.execute(sql, args)
 
-        print('success')
+        print('update cost success')
         
 
     except Error as e:
@@ -813,9 +835,28 @@ def viewPullCost(_conn):
 
     #print("++++++++++++++++++++++++++++++++++")
 
+def viewAllUserCost(_conn):
+    #print("++++++++++++++++++++++++++++++++++")
 
+    try:
 
+        sql = """SELECT r_name, u_cost
+                    FROM userCost,readerList
+                    WHERE u_id = r_id
+                    """
+        cur = _conn.cursor()
+        cur.execute(sql)
+        readerCount = cur.fetchall()
 
+        for x in readerCount:
+            print(x)
+            #print(x)
+        print('view cost list success')
+        
+
+    except Error as e:
+        print(e)
+        _conn.rollback()
 
 
 def main():
@@ -872,7 +913,7 @@ def main():
         print()
         viewSpecReadingList(conn, 3)
         print()
-        viewPullCost(conn)
+        #updateUserCost(conn)
 
 
 
@@ -882,6 +923,10 @@ def main():
         print()
         viewRecclist(conn, 5)
         print()
+        updateUserCost(conn, 5)
+        updateUserCost(conn, 1)
+        updateUserCost(conn, 3)
+        viewAllUserCost(conn)
 
     closeConnection(conn, database)
 
