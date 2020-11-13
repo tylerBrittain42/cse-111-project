@@ -492,6 +492,7 @@ def deleteReader(_conn, reader):
 
     try:
 
+        #Selects an id, given a name
         sql = """ SELECT r_id
                     FROM readerList
                     WHERE r_name = ?
@@ -779,6 +780,41 @@ def viewSpecReadingList(_conn, readerID):
     #print("++++++++++++++++++++++++++++++++++")
 
 
+#View a specific student's reading list
+def viewPullCost(_conn):
+    #print("++++++++++++++++++++++++++++++++++")
+    print("View PullCost")
+
+    try:
+
+        sql = """SELECT r_name, SUM(SUBSTR(i_srp, 7)) AS 'pullList price'
+                    FROM Issues, ReadingList, readerList
+                    WHERE i_id = rl_issueID AND
+                        rl_readerID = r_ID AND
+                        rl_ownStat = 'w'
+                    GROUP BY r_name
+                """
+ 
+        cur = _conn.cursor()
+        cur.execute(sql)
+        readerCount = cur.fetchall()
+
+
+
+        for x in readerCount:
+            print(x)
+
+        print('success')
+        
+
+    except Error as e:
+        _conn.rollback()
+        print(e)
+
+    #print("++++++++++++++++++++++++++++++++++")
+
+
+
 
 
 
@@ -836,6 +872,7 @@ def main():
         print()
         viewSpecReadingList(conn, 3)
         print()
+        viewPullCost(conn)
 
 
 
