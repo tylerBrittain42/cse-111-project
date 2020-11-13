@@ -39,9 +39,10 @@ CREATE TABLE Writer(
 CREATE TABLE ReccList(
     --r_aId decimal(9,0) NOT NULL,
     --r_wId decimal(9,0) NOT NULL,
-    r_readerID decimal(9,0) NOT NULL,
-    r_issueID decimal(9,0) NOT NULL
+    rc_readerID decimal(9,0) NOT NULL,
+    rc_issueID decimal(9,0) NOT NULL
 );
+
 
 --Drop Table Queries(Count: 7)
 DROP TABLE Issues;
@@ -64,7 +65,7 @@ INSERT INTO Issues(i_id, i_title, i_issue, i_date, i_srp)
 --Count: 3
 
 DELETE FROM reccList
-    WHERE r_readerID = 1;
+    WHERE rc_readerID = 1;
 --
 
 --Finds other books with same writer or artist
@@ -101,15 +102,15 @@ SELECT DISTINCT(i_id)
                     )sq1;
 
 --Inserts into reccList
-INSERT INTO ReccList(r_readerID, r_issueID) 
+INSERT INTO ReccList(rc_readerID, rc_issueID) 
     VALUES (1, 513);
 
 
 --viewReccList(Count: 1)
 SELECT (i_title || i_issue) AS issueTitle, i_date, i_srp
 FROM Issues, ReccList
-WHERE i_id = r_issueID AND
-    r_readerID = 1;
+WHERE i_id = rc_issueID AND
+    rc_readerID = 1;
 
 --viewIssues(Count: 1)
 SELECT *
@@ -207,12 +208,38 @@ WHERE r_id = rl_readerID AND
 ORDER BY rl_issueID asc;
 
 --Selects the total cost of all of the books marked "w"(want) for a specific user
-SELECT r_name, SUM(SUBSTR(i_srp, 7)) AS 'pullList price'
+SELECT r_id, SUM(SUBSTR(i_srp, 7)) AS 'pullList price'
 FROM Issues, ReadingList, readerList
 WHERE i_id = rl_issueID AND
     rl_readerID = r_ID AND
+    rl_readerID = 3 AND 
     rl_ownStat = 'w'
 GROUP BY r_name;
+
+
+--Decided to omit has_person so replaced it with userCost table
+CREATE TABLE userCost(
+    u_id  decimal(9,0) NOT NULL PRIMARY KEY,
+    u_cost decimal(4,2) NOT NULL
+);
+
+DROP TABLE userCost;
+
+INSERT INTO userCost(u_id, u_cost)
+    VALUES(4, 23.03);
+
+
+DELETE FROM userCost
+    WHERE u_id = 4;
+
+SELECT r_name, u_cost
+FROM userCost,readerList
+WHERE u_id = r_id;
+
+
+
+
+
 
 --Total Queries: 38
 
