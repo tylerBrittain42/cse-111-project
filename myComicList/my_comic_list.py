@@ -813,23 +813,20 @@ def updateUserCost(_conn, readerID):
 
     try:
         #Delete
-        sql = """DELETE FROM userCost
-                    WHERE u_id = ?"""
-        args = [readerID]
-        _conn.execute(sql, args)
+        sql = """DELETE FROM userCost"""
+        _conn.execute(sql)
 
         #Select
-        sql = """SELECT r_id, SUM(SUBSTR(i_srp, 7))
+        sql = """SELECT r_id, SUM(SUBSTR(i_srp, 7)) AS 'pullList price'
                     FROM Issues, ReadingList, readerList
                     WHERE i_id = rl_issueID AND
                         rl_readerID = r_ID AND
-                        rl_readerID = ? AND
                         rl_ownStat = 'w'
                     GROUP BY r_name
                 """
         args = [readerID]
         cur = _conn.cursor()
-        cur.execute(sql, args)
+        cur.execute(sql)
         toAdd = cur.fetchall()
 
 
@@ -837,7 +834,7 @@ def updateUserCost(_conn, readerID):
         for x in toAdd:
             sql = """INSERT INTO userCost(u_id, u_cost)
                         VALUES(?, ?)"""
-            args = [readerID, x[1]]
+            args = [x[0], x[1]]
             _conn.execute(sql, args)
 
         print('update cost success')
@@ -848,6 +845,32 @@ def updateUserCost(_conn, readerID):
         print(e)
 
     #print("++++++++++++++++++++++++++++++++++")
+
+def viewSingleUserCost(_conn, userID):
+    #print("++++++++++++++++++++++++++++++++++")
+
+    try:
+
+        sql = """SELECT r_name, u_cost
+                    FROM userCost,readerList
+                    WHERE u_id = r_id AND
+                    r_ID = ?
+                    """
+        args = [userID]
+        cur = _conn.cursor()
+        cur.execute(sql,args)
+        readerCount = cur.fetchall()
+
+        for x in readerCount:
+            print(x)
+            #print(x)
+        print('view cost list success')
+        
+
+    except Error as e:
+        print(e)
+        _conn.rollback()
+
 
 def viewAllUserCost(_conn):
     #print("++++++++++++++++++++++++++++++++++")
@@ -941,6 +964,7 @@ def main():
         updateUserCost(conn, 1)
         updateUserCost(conn, 3)
         viewAllUserCost(conn)
+        viewSingleUserCost(conn,1)
 
     closeConnection(conn, database)
 
