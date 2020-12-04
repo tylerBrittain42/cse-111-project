@@ -1111,7 +1111,7 @@ def topBorder():
 
 def botBorder():
     bot = ""
-    for x in range(140):
+    for x in range(200):
         bot = bot + "_"
     print(bot)        
 
@@ -1173,6 +1173,7 @@ def main():
             
             prompt(conn,currUser)
             option = input('Select an action: ')
+            topBorder()
 
             if option == '1':
                 viewIssues(conn)
@@ -1203,10 +1204,9 @@ def main():
             elif option == '13':
                 currUser = 1
                 resetDB(conn, 1)
-            head
-
+            topBorder()
             if option != '14':
-                spam = input("")
+                spam = input("\nPress any key to continue")
 
 
         
