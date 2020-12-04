@@ -212,7 +212,6 @@ SELECT r_id, SUM(SUBSTR(i_srp, 7)) AS 'pullList price'
 FROM Issues, ReadingList, readerList
 WHERE i_id = rl_issueID AND
     rl_readerID = r_ID AND
-    rl_readerID = 3 AND 
     rl_ownStat = 'w'
 GROUP BY r_name;
 
@@ -236,10 +235,21 @@ SELECT r_name, u_cost
 FROM userCost,readerList
 WHERE u_id = r_id;
 
-
-
-
-
+DELETE FROM Issues
 
 --Total Queries: 38
 
+--addToFollowList(Count: 1)
+INSERT INTO readerList(r_id, r_name) 
+    VALUES (2, 'TEST');
+
+SELECT r_name
+FROM readerList
+WHERE r_id = 2
+
+SELECT r_id, SUM(SUBSTR(i_srp, 7)) AS 'pullList price'
+                    FROM Issues, ReadingList, readerList
+                    WHERE i_id = rl_issueID AND
+                        rl_readerID = r_ID AND
+                        rl_ownStat = 'w'
+                    GROUP BY r_name
