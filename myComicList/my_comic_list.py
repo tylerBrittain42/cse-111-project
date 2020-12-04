@@ -298,12 +298,17 @@ def viewReaderList(_conn):
                 """
         cur = _conn.cursor()
         cur.execute(sql)
+        l = '{:<20}{:<30}'.format("ID", "Name")
+        print(l)
         readerCount = cur.fetchall()
 
+        # for x in readerCount:
+        #     print(x)
         for x in readerCount:
-            print(x)
+            l = '{:<20}{:<30}'.format(x[0], x[1])
+            print(l)
 
-        print('viewReaderlist success')
+        
         
 
     except Error as e:
@@ -458,13 +463,15 @@ def viewRecclist(_conn, readerID):
         cur = _conn.cursor()
         args = [readerID]
         cur.execute(sql, args)
+        l = '{:<65}{:<35}{:<35}'.format('Issue Title', 'Date', 'SRP')
+        print(l)
         readerCount = cur.fetchall()
 
         for x in readerCount:
-            print(x[0] + "\t" + x[1] + "\t" + x[2])
-            #print(x)
-        print('view recc list success')
-        
+            # print(x[0] + "\t" + x[1] + "\t" + x[2])
+            # print(x)
+            l = '{:<65}{:<35}{:<35}'.format(x[0], x[1], x[2])
+            print(l)
 
     except Error as e:
         print(e)
@@ -491,13 +498,16 @@ def viewIssues(_conn):
                 """
         cur = _conn.cursor()
         cur.execute(sql)
+        l = '{:<5}{:<45}{:<50}{:<15}{:<15}{:<35}{:<35}'.format('ID', 'Title', 'Issue Number', 'Date', 'Price', 'Writers', 'Artists')
+        print(l)
         readerCount = cur.fetchall()
 
-        for x in readerCount:
-            print(str(x[0]) + "\t" + x[1] + "\t" + x[2].split(' ')[0] + "\t" + x[3] + "\t" + x[4] + "\t" + x[6] + "\t" + x[8])
+        #print(str(x[0]) + "\t" + x[1] + "\t" + x[2].split(' ')[0] + "\t" + x[3] + "\t" + x[4] + "\t" + x[6] + "\t" + x[8])
 
-        print('view Issue list success')
-        
+        for x in readerCount:
+            l = '{:<5}{:<45}{:<50}{:<15}{:<15}{:<35}{:<35}'.format(x[0], x[1], x[2], x[3], x[4], x[6], x[8])
+            print(l)
+
 
     except Error as e:
         _conn.rollback()
@@ -518,12 +528,14 @@ def viewWriters(_conn):
                 """
         cur = _conn.cursor()
         cur.execute(sql)
+        l = '{:<25}'.format("Name")
+        print(l)
         readerCount = cur.fetchall()
 
         for x in readerCount:
-            print(x[0])
-
-        print('view Writer list success')
+            # print(x[0])
+            l = '{:<25}'.format(x[0])
+            print(l)
         
 
     except Error as e:
@@ -545,17 +557,19 @@ def viewArtists(_conn):
                 """
         cur = _conn.cursor()
         cur.execute(sql)
+        l = '{:<25}'.format("Name")
+        print(l)
         readerCount = cur.fetchall()
 
         for x in readerCount:
-            print(x[0])
-
-        print('view Artist list success')
-        
+            # print(x[0])
+            l = '{:<25}'.format(x[0])
+            print(l)      
 
     except Error as e:
         _conn.rollback()
         print(e)
+
 
     #print("++++++++++++++++++++++++++++++++++")
 
@@ -583,11 +597,6 @@ def addToReadingList(_conn, userID, issueID,ownership):
         cur = _conn.cursor()
         cur.execute(sql, args)
 
-
-
-        print("Added " + str(issueID) + " to " + str(userID) + "'s reading list Success")
-
-
     except Error as e:
         _conn.rollback()
         print(e)
@@ -608,11 +617,6 @@ def deleteFromReadingList(_conn,reader, issue):
                     rl_issueID = ?"""
         args = [reader, issue]
         _conn.execute(sql, args)
-
-
-
-        print("Deleted " + str(issue) + " from "  + str(reader) + "'s reading list Success")
-
 
     except Error as e:
         _conn.rollback()
@@ -650,7 +654,7 @@ def changeOwnership(_conn, readerID, issueID, newStatus):
 #View everyone's reading list
 def viewAllReadingLists(_conn):
     #print("++++++++++++++++++++++++++++++++++")
-    print("View all reading lists")
+    print('{:>65}'.format("View all reading lists"))
 
     try:
 
@@ -662,13 +666,16 @@ def viewAllReadingLists(_conn):
                 """
         cur = _conn.cursor()
         cur.execute(sql)
+        l = '{:<25}{:<35}{:<45}{:<55}'.format('Name', 'Title', 'Issue', 'Own Status')
+        print(l)
         readerCount = cur.fetchall()
 
 
 
         for x in readerCount:
-            print(x[0] + "\t" + x[1] + "\t" + x[2].split(' ')[0] + "\t" + x[3])
-
+            # print(x[0] + "\t" + x[1] + "\t" + x[2].split(' ')[0] + "\t" + x[3])
+            l = '{:<25}{:<35}{:<45}{:<55}'.format(x[0], x[1], x[2], x[3])
+            print(l)
         print('success')
         
 
@@ -682,7 +689,7 @@ def viewAllReadingLists(_conn):
 #View a specific reading list
 def viewSpecReadingList(_conn, readerID):
     #print("++++++++++++++++++++++++++++++++++")
-    print("View " + str(readerID) + "s reading lists")
+    print("View " + getName(_conn,readerID) + "s reading lists")
 
     try:
 
@@ -697,14 +704,23 @@ def viewSpecReadingList(_conn, readerID):
         args = [readerID] 
         cur = _conn.cursor()
         cur.execute(sql, args)
+        l = '{:<20}{:<35}{:<45}{:<5}'.format('Name', 'Title', 'Issue', 'Own Status')
+        print(l)
         readerCount = cur.fetchall()
 
 
 
         for x in readerCount:
-            print(str(x[0]) + "\t" + x[1] + "\t" + x[2].split(' ')[0] + "\t" + x[3])
+            # print(x[1] + "\t" + x[2].split(' ')[0] + "\t" + x[3])
+            l = '{:<20}{:<35}{:<45}{:<5}'.format(x[0], x[1], x[2], x[3])
+            print(l)
 
         print('success')
+        
+
+    except Error as e:
+        _conn.rollback()
+        print(e)
         
 
     except Error as e:
@@ -790,7 +806,7 @@ def deleteFromFollowList(_conn,reader, issue):
 #for now we will add in all creators from a specific issue to the following list 
 def viewFollowList(_conn, userID):
     #print("++++++++++++++++++++++++++++++++++")
-    print("Viewing " + str(userID) + "'s followList")
+    print("Viewing " + getName(_conn,userID) + "'s followList")
 
     try:
 
@@ -805,14 +821,15 @@ def viewFollowList(_conn, userID):
 
         cur = _conn.cursor()
         cur.execute(sql, args)
+        l = '{}{}'.format('Writers', 'Artists')
+        print(l)
         following = cur.fetchall()
 
         for x in following:
-            print(x)
+            # print(x)
+            l = '{}{}'.format(x[0], x[1])
+            print(l)
 
-
-
-        print('success')
 
 
     except Error as e:
@@ -876,12 +893,15 @@ def viewSingleUserCost(_conn, userID):
         args = [userID]
         cur = _conn.cursor()
         cur.execute(sql,args)
+        l = '{:<20}{:<10}'.format("Name", "Cost")
+        print(l)
         readerCount = cur.fetchall()
 
         for x in readerCount:
-            print(x)
+            # print(x)
             #print(x)
-        print('view cost list success')
+            l = '{:<20}{:<10}'.format(x[0], x[1])
+            print(l)
         
 
     except Error as e:
@@ -900,12 +920,15 @@ def viewAllUserCost(_conn):
                     """
         cur = _conn.cursor()
         cur.execute(sql)
+        l = '{:<20}{:<10}'.format("Name", "Cost")
+        print(l)
         readerCount = cur.fetchall()
 
         for x in readerCount:
-            print(x)
+            # print(x)
             #print(x)
-        print('view cost list success')
+            l = '{:<20}{:<10}'.format(x[0], x[1])
+            print(l)
         
 
     except Error as e:
@@ -1180,6 +1203,7 @@ def main():
             elif option == '13':
                 currUser = 1
                 resetDB(conn, 1)
+            head
 
             if option != '14':
                 spam = input("")
