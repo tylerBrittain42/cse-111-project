@@ -40,6 +40,7 @@ def createTable(_conn):
     #print("Create table")
 
     try:
+        print('createTable')
         #Issues
         sql = """CREATE TABLE Issues (
                     i_id decimal(9,0) NOT NULL PRIMARY KEY,
@@ -51,10 +52,10 @@ def createTable(_conn):
         _conn.execute(sql)
 
         #readerList
-        sql = """CREATE TABLE readerList(
-                    r_id  decimal(9,0) NOT NULL PRIMARY KEY,
-                    r_name char(50) NOT NULL) """
-        _conn.execute(sql)
+        #sql = """CREATE TABLE readerList(
+        #            r_id  decimal(9,0) NOT NULL PRIMARY KEY,
+        #            r_name char(50) NOT NULL) """
+        #_conn.execute(sql)
 
         #readingList
         sql = """CREATE TABLE ReadingList(
@@ -106,7 +107,7 @@ def createTable(_conn):
 
 
 
-
+        print('create tablee done')
 
     except Error as e:
         _conn.rollback()
@@ -116,17 +117,22 @@ def createTable(_conn):
 
 
 #Drops all tables in the database
-def dropTable(_conn):
+def dropTable(_conn, reader):
     #print("++++++++++++++++++++++++++++++++++")
     #print("Drop tables")
 
     try:
-
-        sql = "DROP TABLE Issues"
+        print((reader))
+        print('dropping')
+        sql = """DROP TABLE Issues"""
         _conn.execute(sql)
+        #sql = "DROP TABLE readerList"
+        #_conn.execute(sql)
 
-        sql = "DROP TABLE readerList"
-        _conn.execute(sql)
+        sql = """DELETE FROM readerList
+                    WHERE ? <> r_id"""
+        args = [reader]
+        _conn.execute(sql, args)
 
         sql = "DROP TABLE ReadingList"
         _conn.execute(sql)
@@ -1067,11 +1073,11 @@ def updateUser(_conn):
 
 #Resets the database
 def resetDB(conn, id):
-    dropTable(conn)
+    dropTable(conn, id)
     createTable(conn)
     populateIssues(conn)
     populateCreative(conn)
-    addReader(conn,id,'temp')
+    addReader(conn,'temp')
 
 def topBorder():
     top = ""
@@ -1172,7 +1178,8 @@ def main():
             elif option == '12':
                 updateUser(conn)    
             elif option == '13':
-                resetDB(conn, id)
+                currUser = 1
+                resetDB(conn, 1)
 
             if option != '14':
                 spam = input("")
