@@ -289,7 +289,7 @@ def addReader(_conn, reader):
 #Views a list of all readers
 def viewReaderList(_conn):
     #print("++++++++++++++++++++++++++++++++++")
-    print("ReaderList")
+    print("\nReaderList\n")
 
     try:
 
@@ -353,12 +353,6 @@ def deleteReader(_conn, reader):
         _conn.execute(sql, args)
 
 
-
-
-
-        print("Deleted reader " + reader + " Success")
-
-
     except Error as e:
         _conn.rollback()
         print(e)
@@ -379,7 +373,6 @@ def deleteReader(_conn, reader):
 #We will call this function anytime a change is made to a user's followinglist
 def updateReccList(_conn, readerID):
     #print("++++++++++++++++++++++++++++++++++")
-    print("Update Recc List")
 
     try:
 
@@ -432,13 +425,7 @@ def updateReccList(_conn, readerID):
             sql = """INSERT INTO ReccList(rc_readerID, rc_issueID) 
                         VALUES (?, ?)"""
             args = [readerID, x[0]]            
-            _conn.execute(sql, args)
-
-
-
-
-        print('update recc list success')
-        
+            _conn.execute(sql, args)        
 
     except Error as e:
         _conn.rollback()
@@ -452,25 +439,25 @@ def updateReccList(_conn, readerID):
 #recommendations shown will be based off of the writer
 def viewRecclist(_conn, readerID):
     #print("++++++++++++++++++++++++++++++++++")
-    print(str(readerID) + "'s recc list")
+    print('\n' + getName(_conn,readerID) + "'s recc list\n")
 
     try:
 
-        sql = """SELECT (i_title || i_issue) AS issueTitle, i_date, i_srp
+        sql = """SELECT i_id,(i_title || i_issue) AS issueTitle, i_date, i_srp
                     FROM Issues, ReccList
                     WHERE i_id = rc_issueID AND
                         rc_readerID = ?"""
         cur = _conn.cursor()
         args = [readerID]
         cur.execute(sql, args)
-        l = '{:<65}{:<35}{:<35}'.format('Issue Title', 'Date', 'SRP')
-        print(l)
+        l = '{:<10}{:<65}{:<35}{:<35}'.format('ID','Issue Title', 'Date', 'SRP')
+        print(l + '\n')
         readerCount = cur.fetchall()
 
         for x in readerCount:
             # print(x[0] + "\t" + x[1] + "\t" + x[2])
             # print(x)
-            l = '{:<65}{:<35}{:<35}'.format(x[0], x[1], x[2])
+            l = '{:<10}{:<65}{:<35}{:<35}'.format(x[0], x[1], x[2], x[3])
             print(l)
 
     except Error as e:
@@ -689,7 +676,7 @@ def viewAllReadingLists(_conn):
 #View a specific reading list
 def viewSpecReadingList(_conn, readerID):
     #print("++++++++++++++++++++++++++++++++++")
-    print(getName(_conn,readerID) + "s reading lists\n")
+    print(getName(_conn,readerID) + "'s reading lists\n")
 
     try:
 
@@ -751,10 +738,6 @@ def addToFollowList(_conn, userID, issueID):
         cur.execute(sql, args)
 
 
-
-        print("Added " + str(issueID) + " to " + str(userID) + "'s followList Success")
-
-
     except Error as e:
         _conn.rollback()
         print(e)
@@ -792,7 +775,6 @@ def deleteFromFollowList(_conn,reader, issue):
 
 
 
-        print("Deleted " + str(issue) + " from "  + str(reader) + "'s following list Success")
 
 
     except Error as e:
@@ -805,7 +787,7 @@ def deleteFromFollowList(_conn,reader, issue):
 #for now we will add in all creators from a specific issue to the following list 
 def viewFollowList(_conn, userID):
     #print("++++++++++++++++++++++++++++++++++")
-    print("Viewing " + getName(_conn,userID) + "'s followList")
+    print("\n " + getName(_conn,userID) + "'s followList\n")
 
     try:
 
@@ -820,13 +802,13 @@ def viewFollowList(_conn, userID):
 
         cur = _conn.cursor()
         cur.execute(sql, args)
-        l = '{}{}'.format('Writers', 'Artists')
+        l = '{0:<45}{1:<45}{2:<45}'.format('Key',' Writers', ' Artists')
         print(l)
         following = cur.fetchall()
 
         for x in following:
             # print(x)
-            l = '{}{}'.format(x[0], x[1])
+            l = '{0:<45}{1:<45}{2:<45}'.format(x[0],x[1],x[2])
             print(l)
 
 
@@ -870,8 +852,7 @@ def updateUserCost(_conn):
             args = [x[0], x[1]]
             _conn.execute(sql, args)
 
-        print('update cost success')
-        
+        print()
 
     except Error as e:
         _conn.rollback()
@@ -892,6 +873,9 @@ def viewSingleUserCost(_conn, userID):
         args = [userID]
         cur = _conn.cursor()
         cur.execute(sql,args)
+
+        print(getName(_conn,userID) + "'s cost list\n")
+
         l = '{:<20}{:<10}'.format("Name", "Cost")
         print(l)
         readerCount = cur.fetchall()
@@ -919,6 +903,7 @@ def viewAllUserCost(_conn):
                     """
         cur = _conn.cursor()
         cur.execute(sql)
+        print("Viewing all cost lists\n")
         l = '{:<20}{:<10}'.format("Name", "Cost")
         print(l)
         readerCount = cur.fetchall()
@@ -959,7 +944,7 @@ def updateReadingList(_conn, id):
         print('Enter 0 to stop adding issues')
         while(int(toAdd) != 0):
             print()
-            toAdd = input('Key:')
+            toAdd = input('Key: ')
             if (int(toAdd) != 0):
                 toStat = input('Ownership status: ')
                 addToReadingList(_conn,id,int(toAdd),toStat)
@@ -971,7 +956,7 @@ def updateReadingList(_conn, id):
         print('Enter 0 to stop deleting')
         print()
         while(int(toDel) != 0):
-            toDel = input('Key:')
+            toDel = input('Key: ')
             if (int(toDel) != 0):
                 deleteFromReadingList(_conn,id,toDel)
             topBorder()
@@ -983,7 +968,7 @@ def updateReadingList(_conn, id):
         print('\nEnter the key and new ownership status(w, o, m)')
         print('Enter 0 to stop adding issues')
         while(int(toAdd) != 0):
-            toAdd = input('\nKey:')
+            toAdd = input('\nKey: ')
             if (int(toAdd) != 0):
                 toStat = input('New ownership status: ')
                 changeOwnership(_conn,id,int(toAdd),toStat)
@@ -998,9 +983,9 @@ def updateFollowList(_conn, id):
     
     print()
     
-    print('  1) {0:>10}'.format('Add'))
-    print('  2) {0:>10}'.format('Delete'))
-    print('  3) {0:>10}'.format('Exit'))
+    print('  1) {0:<10}'.format('Add'))
+    print('  2) {0:<10}'.format('Delete'))
+    print('  3) {0:<10}'.format('Exit\n'))
     
     option = input("Select an action: ")
 
@@ -1011,21 +996,25 @@ def updateFollowList(_conn, id):
     if option == '1':
         viewIssues(_conn)
         print('Enter the key of the creative team you wish to follow')
-        print('Enter 0 to stop')
+        print('Enter 0 to stop\n')
         while(int(toAdd) != 0):
-            toAdd = input('Key:')
+            toAdd = input('Key: ')
             if (int(toAdd) != 0):
                 addToFollowList(_conn,id,toAdd)
-
+        topBorder()
     elif option == '2':
+        topBorder()
         viewFollowList(_conn,id)
-        print('Enter the key of the creative team you want deleted')
+        print('\nEnter the key of the creative team you want deleted')
         print('Enter 0 to stop deleting')
-        print('\n')
+        print()
         while(int(toDel) != 0):
-            toDel = input('Key:')
+            print()
+            toDel = input('Key: ')
             if (int(toDel) != 0):
                 deleteFromFollowList(_conn,id,toDel)
+            topBorder()
+            viewFollowList(_conn,id)
     
     updateReccList(_conn,id)
             
@@ -1055,8 +1044,9 @@ def getName(_conn, id):
         print(e)
 
 def switchUser(_conn, id):
+    print()
     viewReaderList(_conn)
-    print('Enter the user id that you wish to select')
+    print('\nEnter the user id that you wish to select')
     newId = int(input('User id: '))
     return(newId)
 
