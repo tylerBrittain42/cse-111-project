@@ -251,13 +251,14 @@ def addReader(_conn, reader):
         cur.execute(sql)
         readerMaxId = cur.fetchone()
         
+        nextID = 0
 
-        if readerMaxId[0] == None:
-            nextID = 0
-        else:
-            nextID = readerMaxId[0]
 
-        nextID = nextID + 1
+        nextID = readerMaxId[0]
+        print(nextID)
+
+        print(type(0))
+        x = int(nextID) + 1
        
 
         sql = """ INSERT INTO readerList(r_id, r_name) 
@@ -265,7 +266,7 @@ def addReader(_conn, reader):
                 """
 
 
-        args = [str(nextID), reader]            
+        args = [(x), reader]            
         _conn.execute(sql, args)
 
         print('Added reader ' + reader + " successfully")
@@ -277,31 +278,6 @@ def addReader(_conn, reader):
 
     #print("++++++++++++++++++++++++++++++++++")
 
-
-def addReader(_conn, id, reader):
-    #print("++++++++++++++++++++++++++++++++++")
-    #print("Add reader")
-
-    try:
-        nextID = id
-       
-
-        sql = """ INSERT INTO readerList(r_id, r_name) 
-                       VALUES (?, ?)
-                """
-
-
-        args = [str(nextID), reader]            
-        _conn.execute(sql, args)
-
-        print('Added reader ' + reader + " successfully")
-        
-
-    except Error as e:
-        _conn.rollback()
-        print(e)
-
-    #print("++++++++++++++++++++++++++++++++++")
 
 
 #Views a list of all readers
@@ -1049,12 +1025,13 @@ def switchUser(_conn, id):
     newId = int(input('User id: '))
     return(newId)
 
-def updateUser(_conn, id):
+def updateUser(_conn):
     print('update user list called\n')
     viewReaderList(_conn)
     
     print()
-    addReader(_conn, 1, 'John Smith')
+    newName = input('Please enter new name: ')
+    addReader(_conn,newName)
 
 
 
@@ -1193,7 +1170,7 @@ def main():
             elif option == '11':
                 currUser = switchUser(conn, id)
             elif option == '12':
-                updateUser(conn, id)    
+                updateUser(conn)    
             elif option == '13':
                 resetDB(conn, id)
 
