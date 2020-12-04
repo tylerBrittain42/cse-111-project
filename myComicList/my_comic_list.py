@@ -283,7 +283,7 @@ def addReader(_conn, reader):
 #Views a list of all readers
 def viewReaderList(_conn):
     #print("++++++++++++++++++++++++++++++++++")
-    print("ReaderList")
+    print('{0:^25}'.format("ReaderList"))
 
     try:
 
@@ -292,10 +292,15 @@ def viewReaderList(_conn):
                 """
         cur = _conn.cursor()
         cur.execute(sql)
+        l = '{:<20}{:<30}'.format("ID", "Name")
+        print(l)
         readerCount = cur.fetchall()
 
+        # for x in readerCount:
+        #     print(x)
         for x in readerCount:
-            print(x)
+            l = '{:<20}{:<30}'.format(x[0], x[1])
+            print(l)
 
         print('viewReaderlist success')
         
@@ -452,11 +457,15 @@ def viewRecclist(_conn, readerID):
         cur = _conn.cursor()
         args = [readerID]
         cur.execute(sql, args)
+        l = '{:<65}{:<35}{:<35}'.format('Issue Title', 'Date', 'SRP')
+        print(l)
         readerCount = cur.fetchall()
 
         for x in readerCount:
-            print(x[0] + "\t" + x[1] + "\t" + x[2])
-            #print(x)
+            # print(x[0] + "\t" + x[1] + "\t" + x[2])
+            # print(x)
+            l = '{:<65}{:<35}{:<35}'.format(x[0], x[1], x[2])
+            print(l)
         print('view recc list success')
         
 
@@ -485,10 +494,16 @@ def viewIssues(_conn):
                 """
         cur = _conn.cursor()
         cur.execute(sql)
+        l = '{:<5}{:<45}{:<50}{:<15}{:<15}{:<35}{:<35}'.format('ID', 'Title', 'Issue Number', 'Date', 'Price', 'Writers', 'Artists')
+        print(l)
         readerCount = cur.fetchall()
 
+        # for x in readerCount:
+        #     print(str(x[0]) + "\t" + x[1] + "\t" + x[2].split(' ')[0] + "\t" + x[3] + "\t" + x[4] + "\t" + x[6] + "\t" + x[8])
+
         for x in readerCount:
-            print(str(x[0]) + "\t" + x[1] + "\t" + x[2].split(' ')[0] + "\t" + x[3] + "\t" + x[4] + "\t" + x[6] + "\t" + x[8])
+            l = '{:<5}{:<45}{:<50}{:<15}{:<15}{:<35}{:<35}'.format(x[0], x[1], x[2], x[3], x[4], x[6], x[8])
+            print(l)
 
         print('view Issue list success')
         
@@ -512,10 +527,14 @@ def viewWriters(_conn):
                 """
         cur = _conn.cursor()
         cur.execute(sql)
+        l = '{:<25}'.format("Name")
+        print(l)
         readerCount = cur.fetchall()
 
         for x in readerCount:
-            print(x[0])
+            # print(x[0])
+            l = '{:<25}'.format(x[0])
+            print(l)
 
         print('view Writer list success')
         
@@ -539,10 +558,14 @@ def viewArtists(_conn):
                 """
         cur = _conn.cursor()
         cur.execute(sql)
+        l = '{:<25}'.format("Name")
+        print(l)
         readerCount = cur.fetchall()
 
         for x in readerCount:
-            print(x[0])
+            # print(x[0])
+            l = '{:<25}'.format(x[0])
+            print(l)
 
         print('view Artist list success')
         
@@ -644,7 +667,7 @@ def changeOwnership(_conn, readerID, issueID, newStatus):
 #View everyone's reading list
 def viewAllReadingLists(_conn):
     #print("++++++++++++++++++++++++++++++++++")
-    print("View all reading lists")
+    print('{:>65}'.format("View all reading lists"))
 
     try:
 
@@ -656,13 +679,16 @@ def viewAllReadingLists(_conn):
                 """
         cur = _conn.cursor()
         cur.execute(sql)
+        l = '{:<25}{:<35}{:<45}{:<55}'.format('Name', 'Title', 'Issue', 'Own Status')
+        print(l)
         readerCount = cur.fetchall()
 
 
 
         for x in readerCount:
-            print(x[0] + "\t" + x[1] + "\t" + x[2].split(' ')[0] + "\t" + x[3])
-
+            # print(x[0] + "\t" + x[1] + "\t" + x[2].split(' ')[0] + "\t" + x[3])
+            l = '{:<25}{:<35}{:<45}{:<55}'.format(x[0], x[1], x[2], x[3])
+            print(l)
         print('success')
         
 
@@ -691,12 +717,16 @@ def viewSpecReadingList(_conn, readerID):
         args = [readerID] 
         cur = _conn.cursor()
         cur.execute(sql, args)
+        l = '{:<20}{:<35}{:<45}{:<5}'.format('Name', 'Title', 'Issue', 'Own Status')
+        print(l)
         readerCount = cur.fetchall()
 
 
 
         for x in readerCount:
-            print(str(x[0]) + "\t" + x[1] + "\t" + x[2].split(' ')[0] + "\t" + x[3])
+            # print(x[1] + "\t" + x[2].split(' ')[0] + "\t" + x[3])
+            l = '{:<20}{:<35}{:<45}{:<5}'.format(x[0], x[1], x[2], x[3])
+            print(l)
 
         print('success')
         
@@ -799,11 +829,14 @@ def viewFollowList(_conn, userID):
 
         cur = _conn.cursor()
         cur.execute(sql, args)
+        l = '{}{}'.format('Writers', 'Artists')
+        print(l)
         following = cur.fetchall()
 
         for x in following:
-            print(x)
-
+            # print(x)
+            l = '{}{}'.format(x[0], x[1])
+            print(l)
 
 
         print('success')
@@ -870,11 +903,15 @@ def viewSingleUserCost(_conn, userID):
         args = [userID]
         cur = _conn.cursor()
         cur.execute(sql,args)
+        l = '{:<20}{:<10}'.format("Name", "Cost")
+        print(l)
         readerCount = cur.fetchall()
 
         for x in readerCount:
-            print(x)
+            # print(x)
             #print(x)
+            l = '{:<20}{:<10}'.format(x[0], x[1])
+            print(l)
         print('view cost list success')
         
 
@@ -894,11 +931,15 @@ def viewAllUserCost(_conn):
                     """
         cur = _conn.cursor()
         cur.execute(sql)
+        l = '{:<20}{:<10}'.format("Name", "Cost")
+        print(l)
         readerCount = cur.fetchall()
 
         for x in readerCount:
-            print(x)
+            # print(x)
             #print(x)
+            l = '{:<20}{:<10}'.format(x[0], x[1])
+            print(l)
         print('view cost list success')
         
 
