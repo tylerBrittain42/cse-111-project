@@ -314,23 +314,34 @@ def deleteReader(_conn, reader):
 
     try:
 
-        #Selects an id, given a name
-        sql = """ SELECT r_id
-                    FROM readerList
-                    WHERE r_name = ?
-                """
-
-        args = [reader]
-
-        cur = _conn.cursor()
-        cur.execute(sql, args)
-        deletedReader = cur.fetchall()
 
 
         sql = """DELETE FROM readerList
                     WHERE r_id = ?"""
-        args = [deletedReader[0][0]]
+        args = [reader]
         _conn.execute(sql, args)
+
+        sql = """DELETE FROM FollowList
+                    WHERE fl_id = ?"""
+        args = [reader]
+        _conn.execute(sql, args)
+
+        sql = """DELETE FROM ReadingList
+                    WHERE ? = rl_readerID"""
+        args = [reader]
+        _conn.execute(sql, args)
+
+        sql = """DELETE FROM ReccList
+                    WHERE rc_issueID = ?"""
+        args = [reader]
+        _conn.execute(sql, args)
+
+        sql = """DELETE FROM userCost
+                    WHERE u_id = ?"""
+        args = [reader]
+        _conn.execute(sql, args)
+
+
 
 
 
@@ -777,7 +788,7 @@ def viewFollowList(_conn, userID):
 
     try:
 
-        sql = """SELECT w_name AS 'Writers', a_name AS 'Artists'
+        sql = """SELECT fl_issueID, w_name AS 'Writers', a_name AS 'Artists'
                     FROM FollowList, Writer,Artist
                     WHERE a_id = fl_issueID AND
                             w_id = fl_issueID AND
@@ -807,7 +818,7 @@ def viewFollowList(_conn, userID):
 
 #Calculates the cost of a user's list
 #same 3 steps as recc list
-def updateUserCost(_conn, readerID):
+def updateUserCost(_conn):
     #print("++++++++++++++++++++++++++++++++++")
     
 
@@ -824,7 +835,7 @@ def updateUserCost(_conn, readerID):
                         rl_ownStat = 'w'
                     GROUP BY r_name
                 """
-        args = [readerID]
+
         cur = _conn.cursor()
         cur.execute(sql)
         toAdd = cur.fetchall()
@@ -943,14 +954,47 @@ def updateReadingList(_conn, id):
             if (int(toAdd) != 0):
                 toStat = input('New ownership status: ')
                 changeOwnership(_conn,id,int(toAdd),toStat)
-            viewSpecReadingList(_conn,id)
-        
+            viewSpecReadingList(_conn,id)        
         
             
 
 def updateFollowList(_conn, id):
-    print('update follow list called')
+    viewFollowList(_conn, id)
     
+    print()
+    
+    print('  1) {0:>10}'.format('Add'))
+    print('  2) {0:>10}'.format('Delete'))
+    print('  3) {0:>10}'.format('Exit'))
+    
+    option = input("Select an action: ")
+
+    toDel = 1
+    toAdd = 1
+    print('\n')
+
+    if option == '1':
+        viewIssues(_conn)
+        print('Enter the key of the creative team you wish to follow')
+        print('Enter 0 to stop')
+        while(int(toAdd) != 0):
+            toAdd = input('Key:')
+            if (int(toAdd) != 0):
+                addToFollowList(_conn,id,toAdd)
+
+    elif option == '2':
+        viewFollowList(_conn,id)
+        print('Enter the key of the creative team you want deleted')
+        print('Enter 0 to stop deleting')
+        print('\n')
+        while(int(toDel) != 0):
+            toDel = input('Key:')
+            if (int(toDel) != 0):
+                deleteFromFollowList(_conn,id,toDel)
+    
+    updateReccList(_conn,id)
+            
+        
 
 
 def getName(_conn, id):
@@ -976,11 +1020,48 @@ def getName(_conn, id):
         print(e)
 
 def switchUser(_conn, id):
-    print('Switch User')
+    viewReaderList(_conn)
+    print('Enter the user id that you wish to select')
+    newId = int(input('User id: '))
+    return(newId)
 
-def updateUser(_conn):
-    print('update user called')
+def updateUser(_conn, id):
+    print('update user list called\n')
+    viewReaderList(_conn)
+    
+    print()
+    newName = input('New name: ')
+    addReader(_conn,newName)
 
+
+
+
+    a = """   
+    print('  1) {0:>10}'.format('Add'))
+    print('  2) {0:>10}'.format('Delete'))
+    
+    option = input("Select an action: ")
+
+    tempKey = 1
+    print('\n')
+    id = str(id)
+
+    if option == '1':
+        newName = input('New name: ')
+        addReader(_conn,newName)
+    elif option == '2':
+        viewReaderList(_conn)
+        print('Enter the key of the user you want deleted')
+        print('Enter 0 to stop deleting')
+        print('\n')
+        while((tempKey) != 0):
+            tempKey = input('Key:')
+            if(int(tempKey) == id):
+                print('Cannot delete self')
+            elif (int(tempKey) != 0):
+                deleteReader(_conn, tempKey)
+            viewReaderList(_conn)"""
+    
 #Relating to formatting
 ###############################################################################################################
 
@@ -996,8 +1077,7 @@ def topBorder():
     for x in range(140):
         top = top + "_"
     print(top)
-    print('  {0:^100}'.format('My Comic List'))
-    print()
+    
 
 def botBorder():
     bot = ""
@@ -1010,6 +1090,8 @@ def prompt(conn,id):
     #ref setnece
     #print('{0:>100}'.format('test'))
     topBorder()
+    print('  {0:^100}'.format('My Comic List'))
+    print()
     print(' User: '  + getName(conn,id))
     print('  {0:^140}'.format('Reading List Actions'))
     print('  1) {0:>10}'.format('View Issues'))
@@ -1019,17 +1101,17 @@ def prompt(conn,id):
 
     print('  {0:^140}'.format('Follow List Actions'))
     print('  5) {0:>10}'.format('View Following List'))
-    print('  6) {0:>10}'.format('Update Following List'))
+    print('  6) {0:>10}'.format('Update Following List')) #Stopped here
     print('  7) {0:>10}'.format('View Recc List'))
 
-    print('  {0:^140}'.format('Cost List Actions'))
+    print('  {0:^140}'.format('Cost List Actions')) 
     print('  8) {0:>10}'.format('View My Cost List'))
     print('  9) {0:>10}'.format('View Everyones Cost List'))
 
     print('  {0:^140}'.format('Adminstrative Actions'))
     print('  10) {0:>10}'.format('View Users'))
     print('  11) {0:>10}'.format('Switch User'))
-    print('  12) {0:>10}'.format('Update User'))
+    print('  12) {0:>10}'.format('Add User'))
     print('  13) {0:>10}'.format('Reset Database'))
     print('  14) {0:>10}'.format('EXIT\n'))
 
@@ -1072,15 +1154,17 @@ def main():
             elif option == '7':
                 viewRecclist(conn,currUser)
             elif option == '8':
+                updateUserCost(conn)
                 viewSingleUserCost(conn,currUser)
             elif option == '9':
+                updateUserCost(conn)               
                 viewAllUserCost(conn)
             elif option == '10':     
                 viewReaderList(conn)
             elif option == '11':
-                switchUser(conn,currUser)
+                currUser = switchUser(conn, id)
             elif option == '12':
-                updateUser(conn)    
+                updateUser(conn, id)    
             elif option == '13':
                 resetDB(conn)
 

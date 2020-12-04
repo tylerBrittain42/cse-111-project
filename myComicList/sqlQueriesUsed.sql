@@ -246,3 +246,10 @@ INSERT INTO readerList(r_id, r_name)
 SELECT r_name
 FROM readerList
 WHERE r_id = 2
+
+SELECT r_id, SUM(SUBSTR(i_srp, 7)) AS 'pullList price'
+                    FROM Issues, ReadingList, readerList
+                    WHERE i_id = rl_issueID AND
+                        rl_readerID = r_ID AND
+                        rl_ownStat = 'w'
+                    GROUP BY r_name
