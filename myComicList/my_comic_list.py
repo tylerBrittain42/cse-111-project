@@ -1204,7 +1204,7 @@ def main():
                 currUser = 1
                 resetDB(conn, 1)
             
-            if option != '14':
+            if option != '14' and option != '3' and option != '6' and option != '11' and option != '12' :
                 spam = input("\nPress any key to continue")
 
 
