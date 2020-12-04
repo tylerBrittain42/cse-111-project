@@ -642,7 +642,7 @@ def changeOwnership(_conn, readerID, issueID, newStatus):
 
 
 
-        print("Updated "  + str(readerID) + "'s reading list Success")
+        print("\n")
 
 
     except Error as e:
@@ -676,8 +676,8 @@ def viewAllReadingLists(_conn):
             # print(x[0] + "\t" + x[1] + "\t" + x[2].split(' ')[0] + "\t" + x[3])
             l = '{:<25}{:<35}{:<45}{:<55}'.format(x[0], x[1], x[2], x[3])
             print(l)
-        print('success')
-        
+
+
 
     except Error as e:
         _conn.rollback()
@@ -689,7 +689,7 @@ def viewAllReadingLists(_conn):
 #View a specific reading list
 def viewSpecReadingList(_conn, readerID):
     #print("++++++++++++++++++++++++++++++++++")
-    print("View " + getName(_conn,readerID) + "s reading lists")
+    print(getName(_conn,readerID) + "s reading lists\n")
 
     try:
 
@@ -704,7 +704,7 @@ def viewSpecReadingList(_conn, readerID):
         args = [readerID] 
         cur = _conn.cursor()
         cur.execute(sql, args)
-        l = '{:<20}{:<35}{:<45}{:<5}'.format('Name', 'Title', 'Issue', 'Own Status')
+        l = '{:<20}{:<35}{:<45}{:<5}'.format('Key', 'Title', 'Issue', 'Own Status')
         print(l)
         readerCount = cur.fetchall()
 
@@ -715,7 +715,6 @@ def viewSpecReadingList(_conn, readerID):
             l = '{:<20}{:<35}{:<45}{:<5}'.format(x[0], x[1], x[2], x[3])
             print(l)
 
-        print('success')
         
 
     except Error as e:
@@ -939,16 +938,15 @@ def viewAllUserCost(_conn):
 ##############################################3333
 
 def updateReadingList(_conn, id):
-    print('update reading list called\n')
     viewSpecReadingList(_conn,id)
     
     print()
     
-    print('  1) {0:>10}'.format('Add'))
-    print('  2) {0:>10}'.format('Delete'))
-    print('  3) {0:>10}'.format('Edit Ownership status'))
+    print('  1) {0:<10}'.format('Add'))
+    print('  2) {0:<10}'.format('Delete'))
+    print('  3) {0:<10}'.format('Edit Ownership status'))
     
-    option = input("Select an action: ")
+    option = input("\nSelect an action: ")
 
     toDel = 1
     toAdd = 1
@@ -960,30 +958,38 @@ def updateReadingList(_conn, id):
         print('Enter the key and ownership status(w, o, m)')
         print('Enter 0 to stop adding issues')
         while(int(toAdd) != 0):
+            print()
             toAdd = input('Key:')
             if (int(toAdd) != 0):
                 toStat = input('Ownership status: ')
                 addToReadingList(_conn,id,int(toAdd),toStat)
+        topBorder()
     elif option == '2':
+        topBorder()
         viewSpecReadingList(_conn,id)
-        print('Enter the key of the Issue you want deleted')
+        print('\nEnter the key of the Issue you want deleted')
         print('Enter 0 to stop deleting')
-        print('\n')
+        print()
         while(int(toDel) != 0):
             toDel = input('Key:')
             if (int(toDel) != 0):
                 deleteFromReadingList(_conn,id,toDel)
+            topBorder()
             viewSpecReadingList(_conn,id)
+            
     elif option == '3':
+        topBorder()
         viewSpecReadingList(_conn,id)
-        print('Enter the key and new ownership status(w, o, m)')
+        print('\nEnter the key and new ownership status(w, o, m)')
         print('Enter 0 to stop adding issues')
         while(int(toAdd) != 0):
-            toAdd = input('Key:')
+            toAdd = input('\nKey:')
             if (int(toAdd) != 0):
                 toStat = input('New ownership status: ')
                 changeOwnership(_conn,id,int(toAdd),toStat)
-            viewSpecReadingList(_conn,id)        
+            topBorder() 
+            viewSpecReadingList(_conn,id)     
+              
         
             
 
@@ -1120,35 +1126,36 @@ def prompt(conn,id):
     #ref setnece
     #print('{0:>100}'.format('test'))
     topBorder()
-    print('  {0:^100}'.format('My Comic List'))
+    print('\n  {0:^75}'.format('My Comic List'))
     print()
     try:
         print(' User: '  + getName(conn,id))
     except IndexError:
-        addReader(conn,1,'John Smith')
+        #try changing this TO just PROMPTING USER TO CREATE NAME
+        addReader(conn,'John Smith')
         print(' User: '  + getName(conn,id))
        
-    print('  {0:^140}'.format('Reading List Actions'))
+    print('  {0:^75}'.format('Reading List Actions'))
     print('  1) {0:>10}'.format('View Issues'))
     print('  2) {0:>10}'.format('View My Reading List'))
     print('  3) {0:>10}'.format('Update Reading List'))
     print('  4) {0:>10}'.format('View All Reading Lists'))
 
-    print('  {0:^140}'.format('Follow List Actions'))
+    print('  {0:^75}'.format('Follow List Actions'))
     print('  5) {0:>10}'.format('View Following List'))
     print('  6) {0:>10}'.format('Update Following List')) #Stopped here
     print('  7) {0:>10}'.format('View Recc List'))
 
-    print('  {0:^140}'.format('Cost List Actions')) 
+    print('  {0:^75}'.format('Cost List Actions')) 
     print('  8) {0:>10}'.format('View My Cost List'))
     print('  9) {0:>10}'.format('View Everyones Cost List'))
 
-    print('  {0:^140}'.format('Adminstrative Actions'))
+    print('  {0:^75}'.format('Adminstrative Actions'))
     print('  10) {0:>10}'.format('View Users'))
     print('  11) {0:>10}'.format('Switch User'))
-    print('  12) {0:>10}'.format('Add User'))
+    print('  12) {0:>5}'.format('Add User'))
     print('  13) {0:>10}'.format('Reset Database'))
-    print('  14) {0:>10}'.format('EXIT\n'))
+    print('  14) {0:>5}'.format('EXIT\n'))
 
     #botBorder()
 
@@ -1177,8 +1184,10 @@ def main():
 
             if option == '1':
                 viewIssues(conn)
+                topBorder()
             elif option == '2':
                 viewSpecReadingList(conn,currUser)
+                topBorder()
             elif option == '3':
                 updateReadingList(conn,currUser)   
             elif option == '4':  
@@ -1204,7 +1213,7 @@ def main():
             elif option == '13':
                 currUser = 1
                 resetDB(conn, 1)
-            topBorder()
+            
             if option != '14':
                 spam = input("\nPress any key to continue")
 
