@@ -241,7 +241,7 @@ DELETE FROM Issues
 
 --addToFollowList(Count: 1)
 INSERT INTO readerList(r_id, r_name) 
-    VALUES (2, 'TEST');
+    VALUES (1, 'TEST');
 
 SELECT r_name
 FROM readerList

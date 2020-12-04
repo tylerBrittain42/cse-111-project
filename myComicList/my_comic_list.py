@@ -106,7 +106,6 @@ def createTable(_conn):
 
 
 
-        print('tables created')
 
 
     except Error as e:
@@ -236,7 +235,6 @@ def populateCreative(_conn):
     #print("++++++++++++++++++++++++++++++++++")
 
 
-
 #Reader List operatoins
 ############################################################################################################
 #Addes a new reader
@@ -260,6 +258,32 @@ def addReader(_conn, reader):
             nextID = readerMaxId[0]
 
         nextID = nextID + 1
+       
+
+        sql = """ INSERT INTO readerList(r_id, r_name) 
+                       VALUES (?, ?)
+                """
+
+
+        args = [str(nextID), reader]            
+        _conn.execute(sql, args)
+
+        print('Added reader ' + reader + " successfully")
+        
+
+    except Error as e:
+        _conn.rollback()
+        print(e)
+
+    #print("++++++++++++++++++++++++++++++++++")
+
+
+def addReader(_conn, id, reader):
+    #print("++++++++++++++++++++++++++++++++++")
+    #print("Add reader")
+
+    try:
+        nextID = id
        
 
         sql = """ INSERT INTO readerList(r_id, r_name) 
@@ -1030,8 +1054,7 @@ def updateUser(_conn, id):
     viewReaderList(_conn)
     
     print()
-    newName = input('New name: ')
-    addReader(_conn,newName)
+    addReader(_conn, 1, 'John Smith')
 
 
 
@@ -1066,11 +1089,12 @@ def updateUser(_conn, id):
 ###############################################################################################################
 
 #Resets the database
-def resetDB(conn):
+def resetDB(conn, id):
     dropTable(conn)
     createTable(conn)
     populateIssues(conn)
     populateCreative(conn)
+    addReader(conn,id,'temp')
 
 def topBorder():
     top = ""
@@ -1092,7 +1116,12 @@ def prompt(conn,id):
     topBorder()
     print('  {0:^100}'.format('My Comic List'))
     print()
-    print(' User: '  + getName(conn,id))
+    try:
+        print(' User: '  + getName(conn,id))
+    except IndexError:
+        addReader(conn,1,'John Smith')
+        print(' User: '  + getName(conn,id))
+       
     print('  {0:^140}'.format('Reading List Actions'))
     print('  1) {0:>10}'.format('View Issues'))
     print('  2) {0:>10}'.format('View My Reading List'))
@@ -1166,7 +1195,7 @@ def main():
             elif option == '12':
                 updateUser(conn, id)    
             elif option == '13':
-                resetDB(conn)
+                resetDB(conn, id)
 
             if option != '14':
                 spam = input("")
