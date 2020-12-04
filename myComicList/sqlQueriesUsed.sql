@@ -239,3 +239,10 @@ DELETE FROM Issues
 
 --Total Queries: 38
 
+--addToFollowList(Count: 1)
+INSERT INTO readerList(r_id, r_name) 
+    VALUES (2, 'TEST');
+
+SELECT r_name
+FROM readerList
+WHERE r_id = 2

@@ -669,7 +669,7 @@ def viewSpecReadingList(_conn, readerID):
 
     try:
 
-        sql = """SELECT r_name,i_title,i_issue, rl_ownStat
+        sql = """SELECT rl_issueID,i_title,i_issue, rl_ownStat
                     FROM ReadingList, readerList, Issues
                     WHERE r_id = rl_readerID AND
                         i_id = rl_issueID AND
@@ -685,7 +685,7 @@ def viewSpecReadingList(_conn, readerID):
 
 
         for x in readerCount:
-            print(x[1] + "\t" + x[2].split(' ')[0] + "\t" + x[3])
+            print(str(x[0]) + "\t" + x[1] + "\t" + x[2].split(' ')[0] + "\t" + x[3])
 
         print('success')
         
@@ -895,76 +895,204 @@ def viewAllUserCost(_conn):
         print(e)
         _conn.rollback()
 
+#Rearrange THESE IN LATER
+##############################################3333
+
+def updateReadingList(_conn, id):
+    print('update reading list called\n')
+    viewSpecReadingList(_conn,id)
+    
+    print()
+    
+    print('  1) {0:>10}'.format('Add'))
+    print('  2) {0:>10}'.format('Delete'))
+    print('  3) {0:>10}'.format('Edit Ownership status'))
+    
+    option = input("Select an action: ")
+
+    toDel = 1
+    toAdd = 1
+    toStat = 'w'
+    print('\n')
+
+    if option == '1':
+        viewIssues(_conn)
+        print('Enter the key and ownership status(w, o, m)')
+        print('Enter 0 to stop adding issues')
+        while(int(toAdd) != 0):
+            toAdd = input('Key:')
+            if (int(toAdd) != 0):
+                toStat = input('Ownership status: ')
+                addToReadingList(_conn,id,int(toAdd),toStat)
+    elif option == '2':
+        viewSpecReadingList(_conn,id)
+        print('Enter the key of the Issue you want deleted')
+        print('Enter 0 to stop deleting')
+        print('\n')
+        while(int(toDel) != 0):
+            toDel = input('Key:')
+            if (int(toDel) != 0):
+                deleteFromReadingList(_conn,id,toDel)
+            viewSpecReadingList(_conn,id)
+    elif option == '3':
+        viewSpecReadingList(_conn,id)
+        print('Enter the key and new ownership status(w, o, m)')
+        print('Enter 0 to stop adding issues')
+        while(int(toAdd) != 0):
+            toAdd = input('Key:')
+            if (int(toAdd) != 0):
+                toStat = input('New ownership status: ')
+                changeOwnership(_conn,id,int(toAdd),toStat)
+            viewSpecReadingList(_conn,id)
+        
+        
+            
+
+def updateFollowList(_conn, id):
+    print('update follow list called')
+    
+
+
+def getName(_conn, id):
+    #print("++++++++++++++++++++++++++++++++++")
+    try:
+
+        sql = """ SELECT r_name
+                    FROM readerList
+                    WHERE r_id = ?
+                """
+        args = [id]
+        cur = _conn.cursor()
+        cur.execute(sql, args)
+        reader = cur.fetchall()
+
+        return(reader[0][0])
+
+        print('viewReaderlist success')
+        
+
+    except Error as e:
+        _conn.rollback()
+        print(e)
+
+def switchUser(_conn, id):
+    print('Switch User')
+
+def updateUser(_conn):
+    print('update user called')
+
+#Relating to formatting
+###############################################################################################################
+
+#Resets the database
+def resetDB(conn):
+    dropTable(conn)
+    createTable(conn)
+    populateIssues(conn)
+    populateCreative(conn)
+
+def topBorder():
+    top = ""
+    for x in range(140):
+        top = top + "_"
+    print(top)
+    print('  {0:^100}'.format('My Comic List'))
+    print()
+
+def botBorder():
+    bot = ""
+    for x in range(140):
+        bot = bot + "_"
+    print(bot)        
+
+def prompt(conn,id):
+
+    #ref setnece
+    #print('{0:>100}'.format('test'))
+    topBorder()
+    print(' User: '  + getName(conn,id))
+    print('  {0:^140}'.format('Reading List Actions'))
+    print('  1) {0:>10}'.format('View Issues'))
+    print('  2) {0:>10}'.format('View My Reading List'))
+    print('  3) {0:>10}'.format('Update Reading List'))
+    print('  4) {0:>10}'.format('View All Reading Lists'))
+
+    print('  {0:^140}'.format('Follow List Actions'))
+    print('  5) {0:>10}'.format('View Following List'))
+    print('  6) {0:>10}'.format('Update Following List'))
+    print('  7) {0:>10}'.format('View Recc List'))
+
+    print('  {0:^140}'.format('Cost List Actions'))
+    print('  8) {0:>10}'.format('View My Cost List'))
+    print('  9) {0:>10}'.format('View Everyones Cost List'))
+
+    print('  {0:^140}'.format('Adminstrative Actions'))
+    print('  10) {0:>10}'.format('View Users'))
+    print('  11) {0:>10}'.format('Switch User'))
+    print('  12) {0:>10}'.format('Update User'))
+    print('  13) {0:>10}'.format('Reset Database'))
+    print('  14) {0:>10}'.format('EXIT\n'))
+
+    #botBorder()
+
 
 def main():
     database = r"data/comicDB.sqlite"
+    option = 15
+    currUser = 1
+
+
 
     # create a database connection
     conn = openConnection(database)
     with conn:
         #Testing intitial database setup
-        print()
-        dropTable(conn)
-        createTable(conn)
-        populateIssues(conn)
-        populateCreative(conn)
-        print()
-
-        #Testing tables view
-        #viewIssues(conn)
-        #print()
-        #viewWriters(conn)
-        #print()
-        #viewArtists(conn)
-
-        #Testing readerlist
-        addReader(conn, "Bob")
-        addReader(conn, "Joe")
-        addReader(conn, "Jim")
-        addReader(conn, "Bill")
-        deleteReader(conn, "Joe")
-        addReader(conn, "tim")
-        print()
-        viewReaderList(conn)
-        print()
-
-        #testing followList
-        addToFollowList(conn, 5, 20)
-        addToFollowList(conn, 1, 193)
-        addToFollowList(conn, 5, 196)
-        deleteFromFollowList(conn,5 , 20)
-        print()
-        viewFollowList(conn, 5)
-        print()
-
-        #readingList tests
-        addToReadingList(conn,5,20,'o')
-        addToReadingList(conn,5,196 ,'o')
-        addToReadingList(conn, 1, 193, 'w')
-        addToReadingList(conn,3, 189, 'w')
-        addToReadingList(conn,3, 534, 'w')
-        deleteFromReadingList(conn, 5, 20)
-        changeOwnership(conn, 5, 196, 'm')
-        print()
-        viewAllReadingLists(conn)
-        print()
-        viewSpecReadingList(conn, 3)
-        print()
-        #updateUserCost(conn)
+        #REMOVE THIS LINE POST TESTING
+        #resetDB(conn)
 
 
 
-        #ReccList tests
-        updateReccList(conn, 5)
-        updateReccList(conn,1)
-        print()
-        viewRecclist(conn, 5)
-        print()
-        updateUserCost(conn, 5)
-        updateUserCost(conn, 1)
-        updateUserCost(conn, 3)
-        viewAllUserCost(conn)
-        viewSingleUserCost(conn,1)
+        while option != '14':
+            
+            prompt(conn,currUser)
+            option = input('Select an action: ')
+
+            if option == '1':
+                viewIssues(conn)
+            elif option == '2':
+                viewSpecReadingList(conn,currUser)
+            elif option == '3':
+                updateReadingList(conn,currUser)   
+            elif option == '4':  
+                viewAllReadingLists(conn)  
+            elif option == '5':
+                viewFollowList(conn,currUser)
+            elif option == '6':
+                updateFollowList(conn,currUser)
+            elif option == '7':
+                viewRecclist(conn,currUser)
+            elif option == '8':
+                viewSingleUserCost(conn,currUser)
+            elif option == '9':
+                viewAllUserCost(conn)
+            elif option == '10':     
+                viewReaderList(conn)
+            elif option == '11':
+                switchUser(conn,currUser)
+            elif option == '12':
+                updateUser(conn)    
+            elif option == '13':
+                resetDB(conn)
+
+            if option != '14':
+                spam = input("")
+
+
+        
+        
+        
+
+
 
     closeConnection(conn, database)
 
