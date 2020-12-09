@@ -1090,6 +1090,21 @@ def updateUser(_conn):
 #Relating to formatting
 ###############################################################################################################
 
+def resetPTwo(_conn):
+    try:
+
+        sql = """UPDATE readerList
+                    SET r_name = 'John Smith'
+                    WHERE r_id"""         
+        _conn.execute(sql)
+
+        
+
+    except Error as e:
+        _conn.rollback()
+        print(e)
+
+
 #Resets the database
 def resetDB(conn, id):
     dropTable(conn, id)
@@ -1097,6 +1112,9 @@ def resetDB(conn, id):
     populateIssues(conn)
     populateCreative(conn)
     addReader(conn,'temp')
+    resetPTwo(conn)
+
+
 
 def topBorder():
     top = ""
@@ -1137,9 +1155,10 @@ def prompt(conn,id):
         print(' User: '  + getName(conn,id))
     except IndexError:
         #try changing this TO just PROMPTING USER TO CREATE NAME
-        addReader(conn,'John Smith')
-        print(' User: '  + getName(conn,id))
-       
+        #addReader(conn,'John Smith')
+        ##print(' User: '  + getName(conn,id))
+        x = 0
+
     print('  {0:^75}'.format('Reading List Actions'))
     print('  1) {0:>10}'.format('View Issues'))
     print('  2) {0:>10}'.format('View My Reading List'))

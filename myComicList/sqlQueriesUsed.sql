@@ -260,3 +260,7 @@ SELECT MAX(r_id)
 
 DELETE FROM readerList 
 WHERE r_name = 'temp'
+
+UPDATE readerList
+    SET r_name = 'John Smith'
+    WHERE r_id
