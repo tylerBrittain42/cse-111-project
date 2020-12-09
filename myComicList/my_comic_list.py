@@ -40,6 +40,7 @@ def createTable(_conn):
     #print("Create table")
 
     try:
+        print('createTable')
         #Issues
         sql = """CREATE TABLE Issues (
                     i_id decimal(9,0) NOT NULL PRIMARY KEY,
@@ -51,10 +52,10 @@ def createTable(_conn):
         _conn.execute(sql)
 
         #readerList
-        sql = """CREATE TABLE readerList(
-                    r_id  decimal(9,0) NOT NULL PRIMARY KEY,
-                    r_name char(50) NOT NULL) """
-        _conn.execute(sql)
+        #sql = """CREATE TABLE readerList(
+        #            r_id  decimal(9,0) NOT NULL PRIMARY KEY,
+        #            r_name char(50) NOT NULL) """
+        #_conn.execute(sql)
 
         #readingList
         sql = """CREATE TABLE ReadingList(
@@ -106,7 +107,7 @@ def createTable(_conn):
 
 
 
-
+        print('create tablee done')
 
     except Error as e:
         _conn.rollback()
@@ -116,17 +117,22 @@ def createTable(_conn):
 
 
 #Drops all tables in the database
-def dropTable(_conn):
+def dropTable(_conn, reader):
     #print("++++++++++++++++++++++++++++++++++")
     #print("Drop tables")
 
     try:
-
-        sql = "DROP TABLE Issues"
+        print((reader))
+        print('dropping')
+        sql = """DROP TABLE Issues"""
         _conn.execute(sql)
+        #sql = "DROP TABLE readerList"
+        #_conn.execute(sql)
 
-        sql = "DROP TABLE readerList"
-        _conn.execute(sql)
+        sql = """DELETE FROM readerList
+                    WHERE ? <> r_id"""
+        args = [reader]
+        _conn.execute(sql, args)
 
         sql = "DROP TABLE ReadingList"
         _conn.execute(sql)
@@ -251,13 +257,14 @@ def addReader(_conn, reader):
         cur.execute(sql)
         readerMaxId = cur.fetchone()
         
+        nextID = 0
 
-        if readerMaxId[0] == None:
-            nextID = 0
-        else:
-            nextID = readerMaxId[0]
 
-        nextID = nextID + 1
+        nextID = readerMaxId[0]
+        print(nextID)
+
+        print(type(0))
+        x = int(nextID) + 1
        
 
         sql = """ INSERT INTO readerList(r_id, r_name) 
@@ -265,7 +272,7 @@ def addReader(_conn, reader):
                 """
 
 
-        args = [str(nextID), reader]            
+        args = [(x), reader]            
         _conn.execute(sql, args)
 
         print('Added reader ' + reader + " successfully")
@@ -277,37 +284,12 @@ def addReader(_conn, reader):
 
     #print("++++++++++++++++++++++++++++++++++")
 
-
-def addReader(_conn, id, reader):
-    #print("++++++++++++++++++++++++++++++++++")
-    #print("Add reader")
-
-    try:
-        nextID = id
-       
-
-        sql = """ INSERT INTO readerList(r_id, r_name) 
-                       VALUES (?, ?)
-                """
-
-
-        args = [str(nextID), reader]            
-        _conn.execute(sql, args)
-
-        print('Added reader ' + reader + " successfully")
-        
-
-    except Error as e:
-        _conn.rollback()
-        print(e)
-
-    #print("++++++++++++++++++++++++++++++++++")
 
 
 #Views a list of all readers
 def viewReaderList(_conn):
     #print("++++++++++++++++++++++++++++++++++")
-    print("ReaderList")
+    print("\nReaderList\n")
 
     try:
 
@@ -316,12 +298,17 @@ def viewReaderList(_conn):
                 """
         cur = _conn.cursor()
         cur.execute(sql)
+        l = '{:<20}{:<30}'.format("ID", "Name")
+        print(l)
         readerCount = cur.fetchall()
 
+        # for x in readerCount:
+        #     print(x)
         for x in readerCount:
-            print(x)
+            l = '{:<20}{:<30}'.format(x[0], x[1])
+            print(l)
 
-        print('viewReaderlist success')
+        
         
 
     except Error as e:
@@ -366,12 +353,6 @@ def deleteReader(_conn, reader):
         _conn.execute(sql, args)
 
 
-
-
-
-        print("Deleted reader " + reader + " Success")
-
-
     except Error as e:
         _conn.rollback()
         print(e)
@@ -392,7 +373,6 @@ def deleteReader(_conn, reader):
 #We will call this function anytime a change is made to a user's followinglist
 def updateReccList(_conn, readerID):
     #print("++++++++++++++++++++++++++++++++++")
-    print("Update Recc List")
 
     try:
 
@@ -445,13 +425,7 @@ def updateReccList(_conn, readerID):
             sql = """INSERT INTO ReccList(rc_readerID, rc_issueID) 
                         VALUES (?, ?)"""
             args = [readerID, x[0]]            
-            _conn.execute(sql, args)
-
-
-
-
-        print('update recc list success')
-        
+            _conn.execute(sql, args)        
 
     except Error as e:
         _conn.rollback()
@@ -465,24 +439,26 @@ def updateReccList(_conn, readerID):
 #recommendations shown will be based off of the writer
 def viewRecclist(_conn, readerID):
     #print("++++++++++++++++++++++++++++++++++")
-    print(str(readerID) + "'s recc list")
+    print('\n' + getName(_conn,readerID) + "'s recc list\n")
 
     try:
 
-        sql = """SELECT (i_title || i_issue) AS issueTitle, i_date, i_srp
+        sql = """SELECT i_id,(i_title || i_issue) AS issueTitle, i_date, i_srp
                     FROM Issues, ReccList
                     WHERE i_id = rc_issueID AND
                         rc_readerID = ?"""
         cur = _conn.cursor()
         args = [readerID]
         cur.execute(sql, args)
+        l = '{:<10}{:<65}{:<35}{:<35}'.format('ID','Issue Title', 'Date', 'SRP')
+        print(l + '\n')
         readerCount = cur.fetchall()
 
         for x in readerCount:
-            print(x[0] + "\t" + x[1] + "\t" + x[2])
-            #print(x)
-        print('view recc list success')
-        
+            # print(x[0] + "\t" + x[1] + "\t" + x[2])
+            # print(x)
+            l = '{:<10}{:<65}{:<35}{:<35}'.format(x[0], x[1], x[2], x[3])
+            print(l)
 
     except Error as e:
         print(e)
@@ -509,13 +485,16 @@ def viewIssues(_conn):
                 """
         cur = _conn.cursor()
         cur.execute(sql)
+        l = '{:<5}{:<45}{:<50}{:<15}{:<15}{:<35}{:<35}'.format('ID', 'Title', 'Issue Number', 'Date', 'Price', 'Writers', 'Artists')
+        print(l)
         readerCount = cur.fetchall()
 
-        for x in readerCount:
-            print(str(x[0]) + "\t" + x[1] + "\t" + x[2].split(' ')[0] + "\t" + x[3] + "\t" + x[4] + "\t" + x[6] + "\t" + x[8])
+        #print(str(x[0]) + "\t" + x[1] + "\t" + x[2].split(' ')[0] + "\t" + x[3] + "\t" + x[4] + "\t" + x[6] + "\t" + x[8])
 
-        print('view Issue list success')
-        
+        for x in readerCount:
+            l = '{:<5}{:<45}{:<50}{:<15}{:<15}{:<35}{:<35}'.format(x[0], x[1], x[2], x[3], x[4], x[6], x[8])
+            print(l)
+
 
     except Error as e:
         _conn.rollback()
@@ -536,12 +515,14 @@ def viewWriters(_conn):
                 """
         cur = _conn.cursor()
         cur.execute(sql)
+        l = '{:<25}'.format("Name")
+        print(l)
         readerCount = cur.fetchall()
 
         for x in readerCount:
-            print(x[0])
-
-        print('view Writer list success')
+            # print(x[0])
+            l = '{:<25}'.format(x[0])
+            print(l)
         
 
     except Error as e:
@@ -563,17 +544,19 @@ def viewArtists(_conn):
                 """
         cur = _conn.cursor()
         cur.execute(sql)
+        l = '{:<25}'.format("Name")
+        print(l)
         readerCount = cur.fetchall()
 
         for x in readerCount:
-            print(x[0])
-
-        print('view Artist list success')
-        
+            # print(x[0])
+            l = '{:<25}'.format(x[0])
+            print(l)      
 
     except Error as e:
         _conn.rollback()
         print(e)
+
 
     #print("++++++++++++++++++++++++++++++++++")
 
@@ -601,11 +584,6 @@ def addToReadingList(_conn, userID, issueID,ownership):
         cur = _conn.cursor()
         cur.execute(sql, args)
 
-
-
-        print("Added " + str(issueID) + " to " + str(userID) + "'s reading list Success")
-
-
     except Error as e:
         _conn.rollback()
         print(e)
@@ -626,11 +604,6 @@ def deleteFromReadingList(_conn,reader, issue):
                     rl_issueID = ?"""
         args = [reader, issue]
         _conn.execute(sql, args)
-
-
-
-        print("Deleted " + str(issue) + " from "  + str(reader) + "'s reading list Success")
-
 
     except Error as e:
         _conn.rollback()
@@ -656,7 +629,7 @@ def changeOwnership(_conn, readerID, issueID, newStatus):
 
 
 
-        print("Updated "  + str(readerID) + "'s reading list Success")
+        print("\n")
 
 
     except Error as e:
@@ -668,7 +641,7 @@ def changeOwnership(_conn, readerID, issueID, newStatus):
 #View everyone's reading list
 def viewAllReadingLists(_conn):
     #print("++++++++++++++++++++++++++++++++++")
-    print("View all reading lists")
+    print('{:>65}'.format("View all reading lists"))
 
     try:
 
@@ -680,15 +653,18 @@ def viewAllReadingLists(_conn):
                 """
         cur = _conn.cursor()
         cur.execute(sql)
+        l = '{:<25}{:<35}{:<45}{:<55}'.format('Name', 'Title', 'Issue', 'Own Status')
+        print(l)
         readerCount = cur.fetchall()
 
 
 
         for x in readerCount:
-            print(x[0] + "\t" + x[1] + "\t" + x[2].split(' ')[0] + "\t" + x[3])
+            # print(x[0] + "\t" + x[1] + "\t" + x[2].split(' ')[0] + "\t" + x[3])
+            l = '{:<25}{:<35}{:<45}{:<55}'.format(x[0], x[1], x[2], x[3])
+            print(l)
 
-        print('success')
-        
+
 
     except Error as e:
         _conn.rollback()
@@ -700,7 +676,7 @@ def viewAllReadingLists(_conn):
 #View a specific reading list
 def viewSpecReadingList(_conn, readerID):
     #print("++++++++++++++++++++++++++++++++++")
-    print("View " + str(readerID) + "s reading lists")
+    print(getName(_conn,readerID) + "'s reading lists\n")
 
     try:
 
@@ -715,14 +691,22 @@ def viewSpecReadingList(_conn, readerID):
         args = [readerID] 
         cur = _conn.cursor()
         cur.execute(sql, args)
+        l = '{:<20}{:<35}{:<45}{:<5}'.format('Key', 'Title', 'Issue', 'Own Status')
+        print(l)
         readerCount = cur.fetchall()
 
 
 
         for x in readerCount:
-            print(str(x[0]) + "\t" + x[1] + "\t" + x[2].split(' ')[0] + "\t" + x[3])
+            # print(x[1] + "\t" + x[2].split(' ')[0] + "\t" + x[3])
+            l = '{:<20}{:<35}{:<45}{:<5}'.format(x[0], x[1], x[2], x[3])
+            print(l)
 
-        print('success')
+        
+
+    except Error as e:
+        _conn.rollback()
+        print(e)
         
 
     except Error as e:
@@ -752,10 +736,6 @@ def addToFollowList(_conn, userID, issueID):
 
         cur = _conn.cursor()
         cur.execute(sql, args)
-
-
-
-        print("Added " + str(issueID) + " to " + str(userID) + "'s followList Success")
 
 
     except Error as e:
@@ -795,7 +775,6 @@ def deleteFromFollowList(_conn,reader, issue):
 
 
 
-        print("Deleted " + str(issue) + " from "  + str(reader) + "'s following list Success")
 
 
     except Error as e:
@@ -808,7 +787,7 @@ def deleteFromFollowList(_conn,reader, issue):
 #for now we will add in all creators from a specific issue to the following list 
 def viewFollowList(_conn, userID):
     #print("++++++++++++++++++++++++++++++++++")
-    print("Viewing " + str(userID) + "'s followList")
+    print("\n " + getName(_conn,userID) + "'s followList\n")
 
     try:
 
@@ -823,14 +802,15 @@ def viewFollowList(_conn, userID):
 
         cur = _conn.cursor()
         cur.execute(sql, args)
+        l = '{0:<45}{1:<45}{2:<45}'.format('Key',' Writers', ' Artists')
+        print(l)
         following = cur.fetchall()
 
         for x in following:
-            print(x)
+            # print(x)
+            l = '{0:<45}{1:<45}{2:<45}'.format(x[0],x[1],x[2])
+            print(l)
 
-
-
-        print('success')
 
 
     except Error as e:
@@ -872,8 +852,7 @@ def updateUserCost(_conn):
             args = [x[0], x[1]]
             _conn.execute(sql, args)
 
-        print('update cost success')
-        
+        print()
 
     except Error as e:
         _conn.rollback()
@@ -894,12 +873,18 @@ def viewSingleUserCost(_conn, userID):
         args = [userID]
         cur = _conn.cursor()
         cur.execute(sql,args)
+
+        print(getName(_conn,userID) + "'s cost list\n")
+
+        l = '{:<20}{:<10}'.format("Name", "Cost")
+        print(l)
         readerCount = cur.fetchall()
 
         for x in readerCount:
-            print(x)
+            # print(x)
             #print(x)
-        print('view cost list success')
+            l = '{:<20}{:<10}'.format(x[0], x[1])
+            print(l)
         
 
     except Error as e:
@@ -918,12 +903,16 @@ def viewAllUserCost(_conn):
                     """
         cur = _conn.cursor()
         cur.execute(sql)
+        print("Viewing all cost lists\n")
+        l = '{:<20}{:<10}'.format("Name", "Cost")
+        print(l)
         readerCount = cur.fetchall()
 
         for x in readerCount:
-            print(x)
+            # print(x)
             #print(x)
-        print('view cost list success')
+            l = '{:<20}{:<10}'.format(x[0], x[1])
+            print(l)
         
 
     except Error as e:
@@ -934,16 +923,15 @@ def viewAllUserCost(_conn):
 ##############################################3333
 
 def updateReadingList(_conn, id):
-    print('update reading list called\n')
     viewSpecReadingList(_conn,id)
     
     print()
     
-    print('  1) {0:>10}'.format('Add'))
-    print('  2) {0:>10}'.format('Delete'))
-    print('  3) {0:>10}'.format('Edit Ownership status'))
+    print('  1) {0:<10}'.format('Add'))
+    print('  2) {0:<10}'.format('Delete'))
+    print('  3) {0:<10}'.format('Edit Ownership status'))
     
-    option = input("Select an action: ")
+    option = input("\nSelect an action: ")
 
     toDel = 1
     toAdd = 1
@@ -955,30 +943,38 @@ def updateReadingList(_conn, id):
         print('Enter the key and ownership status(w, o, m)')
         print('Enter 0 to stop adding issues')
         while(int(toAdd) != 0):
-            toAdd = input('Key:')
+            print()
+            toAdd = input('Key: ')
             if (int(toAdd) != 0):
                 toStat = input('Ownership status: ')
                 addToReadingList(_conn,id,int(toAdd),toStat)
+        topBorder()
     elif option == '2':
+        topBorder()
         viewSpecReadingList(_conn,id)
-        print('Enter the key of the Issue you want deleted')
+        print('\nEnter the key of the Issue you want deleted')
         print('Enter 0 to stop deleting')
-        print('\n')
+        print()
         while(int(toDel) != 0):
-            toDel = input('Key:')
+            toDel = input('Key: ')
             if (int(toDel) != 0):
                 deleteFromReadingList(_conn,id,toDel)
+            topBorder()
             viewSpecReadingList(_conn,id)
+            
     elif option == '3':
+        topBorder()
         viewSpecReadingList(_conn,id)
-        print('Enter the key and new ownership status(w, o, m)')
+        print('\nEnter the key and new ownership status(w, o, m)')
         print('Enter 0 to stop adding issues')
         while(int(toAdd) != 0):
-            toAdd = input('Key:')
+            toAdd = input('\nKey: ')
             if (int(toAdd) != 0):
                 toStat = input('New ownership status: ')
                 changeOwnership(_conn,id,int(toAdd),toStat)
-            viewSpecReadingList(_conn,id)        
+            topBorder() 
+            viewSpecReadingList(_conn,id)     
+              
         
             
 
@@ -987,9 +983,9 @@ def updateFollowList(_conn, id):
     
     print()
     
-    print('  1) {0:>10}'.format('Add'))
-    print('  2) {0:>10}'.format('Delete'))
-    print('  3) {0:>10}'.format('Exit'))
+    print('  1) {0:<10}'.format('Add'))
+    print('  2) {0:<10}'.format('Delete'))
+    print('  3) {0:<10}'.format('Exit\n'))
     
     option = input("Select an action: ")
 
@@ -1000,21 +996,25 @@ def updateFollowList(_conn, id):
     if option == '1':
         viewIssues(_conn)
         print('Enter the key of the creative team you wish to follow')
-        print('Enter 0 to stop')
+        print('Enter 0 to stop\n')
         while(int(toAdd) != 0):
-            toAdd = input('Key:')
+            toAdd = input('Key: ')
             if (int(toAdd) != 0):
                 addToFollowList(_conn,id,toAdd)
-
+        topBorder()
     elif option == '2':
+        topBorder()
         viewFollowList(_conn,id)
-        print('Enter the key of the creative team you want deleted')
+        print('\nEnter the key of the creative team you want deleted')
         print('Enter 0 to stop deleting')
-        print('\n')
+        print()
         while(int(toDel) != 0):
-            toDel = input('Key:')
+            print()
+            toDel = input('Key: ')
             if (int(toDel) != 0):
                 deleteFromFollowList(_conn,id,toDel)
+            topBorder()
+            viewFollowList(_conn,id)
     
     updateReccList(_conn,id)
             
@@ -1044,17 +1044,19 @@ def getName(_conn, id):
         print(e)
 
 def switchUser(_conn, id):
+    print()
     viewReaderList(_conn)
-    print('Enter the user id that you wish to select')
+    print('\nEnter the user id that you wish to select')
     newId = int(input('User id: '))
     return(newId)
 
-def updateUser(_conn, id):
+def updateUser(_conn):
     print('update user list called\n')
     viewReaderList(_conn)
     
     print()
-    addReader(_conn, 1, 'John Smith')
+    newName = input('Please enter new name: ')
+    addReader(_conn,newName)
 
 
 
@@ -1090,11 +1092,11 @@ def updateUser(_conn, id):
 
 #Resets the database
 def resetDB(conn, id):
-    dropTable(conn)
+    dropTable(conn, id)
     createTable(conn)
     populateIssues(conn)
     populateCreative(conn)
-    addReader(conn,id,'temp')
+    addReader(conn,'temp')
 
 def topBorder():
     top = ""
@@ -1105,7 +1107,7 @@ def topBorder():
 
 def botBorder():
     bot = ""
-    for x in range(140):
+    for x in range(200):
         bot = bot + "_"
     print(bot)        
 
@@ -1114,35 +1116,36 @@ def prompt(conn,id):
     #ref setnece
     #print('{0:>100}'.format('test'))
     topBorder()
-    print('  {0:^100}'.format('My Comic List'))
+    print('\n  {0:^75}'.format('My Comic List'))
     print()
     try:
         print(' User: '  + getName(conn,id))
     except IndexError:
-        addReader(conn,1,'John Smith')
+        #try changing this TO just PROMPTING USER TO CREATE NAME
+        addReader(conn,'John Smith')
         print(' User: '  + getName(conn,id))
        
-    print('  {0:^140}'.format('Reading List Actions'))
+    print('  {0:^75}'.format('Reading List Actions'))
     print('  1) {0:>10}'.format('View Issues'))
     print('  2) {0:>10}'.format('View My Reading List'))
     print('  3) {0:>10}'.format('Update Reading List'))
     print('  4) {0:>10}'.format('View All Reading Lists'))
 
-    print('  {0:^140}'.format('Follow List Actions'))
+    print('  {0:^75}'.format('Follow List Actions'))
     print('  5) {0:>10}'.format('View Following List'))
     print('  6) {0:>10}'.format('Update Following List')) #Stopped here
     print('  7) {0:>10}'.format('View Recc List'))
 
-    print('  {0:^140}'.format('Cost List Actions')) 
+    print('  {0:^75}'.format('Cost List Actions')) 
     print('  8) {0:>10}'.format('View My Cost List'))
     print('  9) {0:>10}'.format('View Everyones Cost List'))
 
-    print('  {0:^140}'.format('Adminstrative Actions'))
+    print('  {0:^75}'.format('Adminstrative Actions'))
     print('  10) {0:>10}'.format('View Users'))
     print('  11) {0:>10}'.format('Switch User'))
-    print('  12) {0:>10}'.format('Add User'))
+    print('  12) {0:>5}'.format('Add User'))
     print('  13) {0:>10}'.format('Reset Database'))
-    print('  14) {0:>10}'.format('EXIT\n'))
+    print('  14) {0:>5}'.format('EXIT\n'))
 
     #botBorder()
 
@@ -1167,11 +1170,14 @@ def main():
             
             prompt(conn,currUser)
             option = input('Select an action: ')
+            topBorder()
 
             if option == '1':
                 viewIssues(conn)
+                topBorder()
             elif option == '2':
                 viewSpecReadingList(conn,currUser)
+                topBorder()
             elif option == '3':
                 updateReadingList(conn,currUser)   
             elif option == '4':  
@@ -1193,12 +1199,13 @@ def main():
             elif option == '11':
                 currUser = switchUser(conn, id)
             elif option == '12':
-                updateUser(conn, id)    
+                updateUser(conn)    
             elif option == '13':
-                resetDB(conn, id)
-
-            if option != '14':
-                spam = input("")
+                currUser = 1
+                resetDB(conn, 1)
+            
+            if option != '14' and option != '3' and option != '6' and option != '11' and option != '12' :
+                spam = input("\nPress any key to continue")
 
 
         

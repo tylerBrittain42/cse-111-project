@@ -253,3 +253,10 @@ SELECT r_id, SUM(SUBSTR(i_srp, 7)) AS 'pullList price'
                         rl_readerID = r_ID AND
                         rl_ownStat = 'w'
                     GROUP BY r_name
+
+
+SELECT MAX(r_id) 
+    FROM readerList
+
+DELETE FROM readerList 
+WHERE r_name = 'temp'
