@@ -1111,6 +1111,21 @@ def botBorder():
         bot = bot + "_"
     print(bot)        
 
+
+def populateUserLists(conn):
+    addToFollowList(conn, 1, 20) #Bob
+    addToFollowList(conn, 1, 193) #Bob
+    addToFollowList(conn, 3, 196)  #Jim
+    #add another book jim
+
+
+    addToReadingList(conn,2,20,'o')#Bob
+    addToReadingList(conn,2,196 ,'o')#Bob
+    addToReadingList(conn, 1, 193, 'w')#Jim
+    addToReadingList(conn,3, 189, 'w')#Bob
+    addToReadingList(conn,3, 534, 'w')#Bob
+
+
 def prompt(conn,id):
 
     #ref setnece
@@ -1203,6 +1218,9 @@ def main():
             elif option == '13':
                 currUser = 1
                 resetDB(conn, 1)
+
+            elif option == '69':
+                populateUserLists(conn)
             
             if option != '14' and option != '3' and option != '6' and option != '11' and option != '12' :
                 spam = input("\nPress any key to continue")
