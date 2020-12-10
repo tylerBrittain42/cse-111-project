@@ -1248,7 +1248,7 @@ def main():
                 print("INVALID INPUT")
                 spam = input("\nPress any key to continue")
             
-            if option != '14' and option != '3' and option != '6' and option != '11' and option != '12' :
+            if option != '0' and option != '3' and option != '6' and option != '11' and option != '12' :
                 spam = input("\nPress any key to continue")
 
 
