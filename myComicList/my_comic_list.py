@@ -1050,6 +1050,9 @@ def switchUser(_conn, id):
     newId = int(input('User id: '))
     return(newId)
 
+        
+
+
 def updateUser(_conn):
     print('update user list called\n')
     viewReaderList(_conn)
@@ -1205,41 +1208,45 @@ def main():
             prompt(conn,currUser)
             option = input('Select an action: ')
             topBorder()
+            try:
+                if option == '1':
+                    viewIssues(conn)
+                    topBorder()
+                elif option == '2':
+                    viewSpecReadingList(conn,currUser)
+                    topBorder()
+                elif option == '3':
+                    updateReadingList(conn,currUser)   
+                elif option == '4':  
+                    viewAllReadingLists(conn)  
+                elif option == '5':
+                    viewFollowList(conn,currUser)
+                elif option == '6':
+                    updateFollowList(conn,currUser)
+                elif option == '7':
+                    viewRecclist(conn,currUser)
+                elif option == '8':
+                    updateUserCost(conn)
+                    viewSingleUserCost(conn,currUser)
+                elif option == '9':
+                    updateUserCost(conn)               
+                    viewAllUserCost(conn)
+                elif option == '10':     
+                    viewReaderList(conn)
+                elif option == '11':
+                    currUser = switchUser(conn, id)
+                elif option == '12':
+                    updateUser(conn)    
+                elif option == '13':
+                    currUser = 1
+                    resetDB(conn, 1)
 
-            if option == '1':
-                viewIssues(conn)
-                topBorder()
-            elif option == '2':
-                viewSpecReadingList(conn,currUser)
-                topBorder()
-            elif option == '3':
-                updateReadingList(conn,currUser)   
-            elif option == '4':  
-                viewAllReadingLists(conn)  
-            elif option == '5':
-                viewFollowList(conn,currUser)
-            elif option == '6':
-                updateFollowList(conn,currUser)
-            elif option == '7':
-                viewRecclist(conn,currUser)
-            elif option == '8':
-                updateUserCost(conn)
-                viewSingleUserCost(conn,currUser)
-            elif option == '9':
-                updateUserCost(conn)               
-                viewAllUserCost(conn)
-            elif option == '10':     
-                viewReaderList(conn)
-            elif option == '11':
-                currUser = switchUser(conn, id)
-            elif option == '12':
-                updateUser(conn)    
-            elif option == '13':
-                currUser = 1
-                resetDB(conn, 1)
+                elif option == '69':
+                    populateUserLists(conn)
 
-            elif option == '69':
-                populateUserLists(conn)
+            except ValueError:
+                print("INVALID INPUT")
+                spam = input("\nPress any key to continue")
             
             if option != '14' and option != '3' and option != '6' and option != '11' and option != '12' :
                 spam = input("\nPress any key to continue")
