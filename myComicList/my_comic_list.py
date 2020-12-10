@@ -1181,8 +1181,8 @@ def prompt(conn,id):
     print('  10) {0:>10}'.format('View Users'))
     print('  11) {0:>10}'.format('Switch User'))
     print('  12) {0:>5}'.format('Add User'))
-    print('  13) {0:>10}'.format('Reset Database'))
-    print('  14) {0:>5}'.format('EXIT\n'))
+    #print('  13) {0:>10}'.format('Reset Database'))
+    print('\n   0) {0:>5}'.format('EXIT\n'))
 
     #botBorder()
 
@@ -1203,7 +1203,7 @@ def main():
 
 
 
-        while option != '14':
+        while option != '0':
             
             prompt(conn,currUser)
             option = input('Select an action: ')
@@ -1237,11 +1237,11 @@ def main():
                     currUser = switchUser(conn, id)
                 elif option == '12':
                     updateUser(conn)    
-                elif option == '13':
-                    currUser = 1
-                    resetDB(conn, 1)
+                # elif option == '13':
+                #     currUser = 1
+                #     resetDB(conn, 1)
 
-                elif option == '69':
+                elif option == '42':
                     populateUserLists(conn)
 
             except ValueError:
